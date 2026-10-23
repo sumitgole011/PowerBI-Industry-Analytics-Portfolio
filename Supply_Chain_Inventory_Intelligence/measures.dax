@@ -1,0 +1,19 @@
+-- Revenue reflects units delivered less returns (simplified, excludes tax and shipping).
+Order Lines = DISTINCTCOUNT ( FactOrderLines[OrderLineID] )
+Ordered Units = SUM ( FactOrderLines[OrderedQty] )
+Delivered Units = SUM ( FactOrderLines[DeliveredQty] )
+Net Sales = SUM ( FactOrderLines[NetSales] )
+COGS = SUM ( FactOrderLines[CostOfGoodsSold] )
+Gross Margin = [Net Sales] - [COGS]
+Gross Margin % = DIVIDE ( [Gross Margin], [Net Sales] )
+OTIF Lines = SUM ( FactOrderLines[OTIFFlag] )
+OTIF Rate = DIVIDE ( [OTIF Lines], [Order Lines] )
+Fill Rate = DIVIDE ( [Delivered Units], [Ordered Units] )
+Stockout Snapshots = SUM ( FactInventoryMonthly[StockoutFlag] )
+Stockout Rate = DIVIDE ( [Stockout Snapshots], COUNTROWS ( FactInventoryMonthly ) )
+Average Monthly Inventory Value =
+AVERAGEX ( VALUES ( FactInventoryMonthly[SnapshotMonth] ), CALCULATE ( SUM ( FactInventoryMonthly[InventoryValue] ) ) )
+Inventory Turnover Proxy = DIVIDE ( [COGS], [Average Monthly Inventory Value] )
+Avg Inbound Lead Time Days = AVERAGE ( FactPurchaseOrders[LeadTimeDays] )
+On Time Supplier Receipt Rate = AVERAGE ( FactPurchaseOrders[OnTimeReceiptFlag] )
+-- Turnover is a simplified synthetic demonstration measure, not a full inventory accounting reconciliation.

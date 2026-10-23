@@ -1,0 +1,10 @@
+{
+  "title": "Healthcare Operations & Hospital Performance",
+  "problem": "Hospital operations leaders need to improve patient throughput, staffed bed utilization and departmental contribution while protecting privacy and avoiding risk-adjusted medical claims.",
+  "kpis": {
+    "Encounters": 1800,
+    "Avg Length of Stay Days": 4.84,
+    "Overall Occupancy %": 72.43,
+    "30-day Return Visits": 329
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "DimDate": {
+    "rows": 638,
+    "fields": [
+      {
+        "name": "Date",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "Year",
+        "example": 2025
+      },
+      {
+        "name": "Quarter",
+        "example": "Q1"
+      },
+      {
+        "name": "MonthNumber",
+        "example": 1
+      },
+      {
+        "name": "MonthName",
+        "example": "January"
+      },
+      {
+        "name": "YearMonth",
+        "example": "2025-01"
+      },
+      {
+        "name": "MonthStart",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "DayOfWeek",
+        "example": "Wednesday"
+      }
+    ]
+  },
+  "DimBorrower": {
+    "rows": 650,
+    "fields": [
+      {
+        "name": "BorrowerID",
+        "example": "B0001"
+      },
+      {
+        "name": "AgeBand",
+        "example": "31-40"
+      },
+      {
+        "name": "Region",
+        "example": "East"
+      },
+      {
+        "name": "AnnualIncome",
+        "example": 72643.0
+      },
+      {
+        "name": "CreditScoreAtApplication",
+        "example": 755
+      },
+      {
+        "name": "DebtToIncomeAtApplication",
+        "example": 0.342
+      }
+    ]
+  },
+  "DimProduct": {
+    "rows": 4,
+    "fields": [
+      {
+        "name": "ProductID",
+        "example": "P1"
+      },
+      {
+        "name": "ProductName",
+        "example": "Personal Loan"
+      }
+    ]
+  },
+  "FactApplications": {
+    "rows": 650,
+    "fields": [
+      {
+        "name": "ApplicationID",
+        "example": "A0001"
+      },
+      {
+        "name": "BorrowerID",
+        "example": "B0001"
+      },
+      {
+        "name": "ProductID",
+        "example": "P3"
+      },
+      {
+        "name": "ApplicationDate",
+        "example": "2025-06-04"
+      },
+      {
+        "name": "RequestedAmount",
+        "example": 36942.42
+      },
+      {
+        "name": "ApprovedFlag",
+        "example": 1
+      },
+      {
+        "name": "Decision",
+        "example": "Approved"
+      }
+    ]
+  },
+  "DimLoan": {
+    "rows": 504,
+    "fields": [
+      {
+        "name": "LoanID",
+        "example": "L0001"
+      },
+      {
+        "name": "ApplicationID",
+        "example": "A0001"
+      },
+      {
+        "name": "BorrowerID",
+        "example": "B0001"
+      },
+      {
+        "name": "ProductID",
+        "example": "P3"
+      },
+      {
+        "name": "OriginationDate",
+        "example": "2025-06-04"
+      },
+      {
+        "name": "Principal",
+        "example": 30307.18
+      },
+      {
+        "name": "TermMonths",
+        "example": 24
+      },
+      {
+        "name": "APR",
+        "example": 0.245
+      },
+      {
+        "name": "InstallmentAmount",
+        "example": 1881.57
+      },
+      {
+        "name": "DaysPastDueAsOf",
+        "example": 0
+      },
+      {
+        "name": "LoanStatusAsOf",
+        "example": "Current"
+      },
+      {
+        "name": "AsOfDate",
+        "example": "2026-09-30"
+      }
+    ]
+  },
+  "FactInstallments": {
+    "rows": 6977,
+    "fields": [
+      {
+        "name": "PaymentID",
+        "example": "L0001-01"
+      },
+      {
+        "name": "LoanID",
+        "example": "L0001"
+      },
+      {
+        "name": "DueDate",
+        "example": "2025-07-01"
+      },
+      {
+        "name": "DueAmount",
+        "example": 1881.57
+      },
+      {
+        "name": "PaidAmount",
+        "example": 1881.57
+      },
+      {
+        "name": "UnpaidAmount",
+        "example": 0.0
+      },
+      {
+        "name": "InstallmentNumber",
+        "example": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "DimDate": {
+    "rows": 731,
+    "fields": [
+      {
+        "name": "Date",
+        "example": "2024-01-01"
+      },
+      {
+        "name": "Year",
+        "example": 2024
+      },
+      {
+        "name": "Quarter",
+        "example": "Q1"
+      },
+      {
+        "name": "MonthNumber",
+        "example": 1
+      },
+      {
+        "name": "MonthName",
+        "example": "January"
+      },
+      {
+        "name": "YearMonth",
+        "example": "2024-01"
+      },
+      {
+        "name": "MonthStart",
+        "example": "2024-01-01"
+      },
+      {
+        "name": "DayOfWeek",
+        "example": "Monday"
+      }
+    ]
+  },
+  "DimCustomer": {
+    "rows": 180,
+    "fields": [
+      {
+        "name": "CustomerID",
+        "example": "C0001"
+      },
+      {
+        "name": "Company",
+        "example": "Synthetic Account 0001"
+      },
+      {
+        "name": "Industry",
+        "example": "Retail"
+      },
+      {
+        "name": "Segment",
+        "example": "Mid-Market"
+      },
+      {
+        "name": "Region",
+        "example": "India"
+      },
+      {
+        "name": "PlanID",
+        "example": "PL1"
+      },
+      {
+        "name": "SignupMonth",
+        "example": "2024-01-01"
+      }
+    ]
+  },
+  "DimPlan": {
+    "rows": 3,
+    "fields": [
+      {
+        "name": "PlanID",
+        "example": "PL1"
+      },
+      {
+        "name": "PlanName",
+        "example": "Starter"
+      },
+      {
+        "name": "BaseMRR",
+        "example": 99
+      }
+    ]
+  },
+  "FactSubscriptionMonthly": {
+    "rows": 4320,
+    "fields": [
+      {
+        "name": "CustomerID",
+        "example": "C0001"
+      },
+      {
+        "name": "MonthStart",
+        "example": "2024-01-01"
+      },
+      {
+        "name": "StartingMRR",
+        "example": 0
+      },
+      {
+        "name": "EndingMRR",
+        "example": 99
+      },
+      {
+        "name": "NewMRR",
+        "example": 99
+      },
+      {
+        "name": "ExpansionMRR",
+        "example": 0
+      },
+      {
+        "name": "ContractionMRR",
+        "example": 0
+      },
+      {
+        "name": "ChurnMRR",
+        "example": 0
+      },
+      {
+        "name": "NewLogos",
+        "example": 1
+      },
+      {
+        "name": "ChurnedLogos",
+        "example": 0
+      },
+      {
+        "name": "ActiveBOM",
+        "example": 0
+      },
+      {
+        "name": "ActiveEOM",
+        "example": 1
+      }
+    ]
+  },
+  "FactSupportTickets": {
+    "rows": 630,
+    "fields": [
+      {
+        "name": "TicketID",
+        "example": "T00001"
+      },
+      {
+        "name": "CustomerID",
+        "example": "C0001"
+      },
+      {
+        "name": "OpenedDate",
+        "example": "2024-02-07"
+      },
+      {
+        "name": "Priority",
+        "example": "Medium"
+      },
+      {
+        "name": "ResolutionHours",
+        "example": 18.0
+      },
+      {
+        "name": "CSAT",
+        "example": 5
+      }
+    ]
+  }
+}

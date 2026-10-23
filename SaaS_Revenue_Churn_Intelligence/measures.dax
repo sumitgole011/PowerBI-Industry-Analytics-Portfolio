@@ -1,0 +1,26 @@
+-- Create ONE measure at a time in Power BI. MonthStart is the first day of a month.
+MRR =
+VAR _LastMonth = MAX ( FactSubscriptionMonthly[MonthStart] )
+RETURN CALCULATE ( SUM ( FactSubscriptionMonthly[EndingMRR] ), FactSubscriptionMonthly[MonthStart] = _LastMonth )
+
+ARR = [MRR] * 12
+
+Active Customers =
+VAR _LastMonth = MAX ( FactSubscriptionMonthly[MonthStart] )
+RETURN CALCULATE ( SUM ( FactSubscriptionMonthly[ActiveEOM] ), FactSubscriptionMonthly[MonthStart] = _LastMonth )
+
+New MRR = SUM ( FactSubscriptionMonthly[NewMRR] )
+Expansion MRR = SUM ( FactSubscriptionMonthly[ExpansionMRR] )
+Contraction MRR = SUM ( FactSubscriptionMonthly[ContractionMRR] )
+Churned MRR = SUM ( FactSubscriptionMonthly[ChurnMRR] )
+New Customers = SUM ( FactSubscriptionMonthly[NewLogos] )
+Churned Customers = SUM ( FactSubscriptionMonthly[ChurnedLogos] )
+Logo Churn Rate = DIVIDE ( [Churned Customers], SUM ( FactSubscriptionMonthly[ActiveBOM] ) )
+Net Revenue Retention =
+VAR _Base = SUM ( FactSubscriptionMonthly[StartingMRR] )
+RETURN DIVIDE ( _Base - [Churned MRR] - [Contraction MRR] + [Expansion MRR], _Base )
+Gross Revenue Retention =
+VAR _Base = SUM ( FactSubscriptionMonthly[StartingMRR] )
+RETURN DIVIDE ( _Base - [Churned MRR] - [Contraction MRR], _Base )
+Support Ticket Count = COUNTROWS ( FactSupportTickets )
+Avg Resolution Hours = AVERAGE ( FactSupportTickets[ResolutionHours] )

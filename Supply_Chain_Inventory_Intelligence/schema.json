@@ -1,0 +1,241 @@
+{
+  "DimDate": {
+    "rows": 365,
+    "fields": [
+      {
+        "name": "Date",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "Year",
+        "example": 2025
+      },
+      {
+        "name": "Quarter",
+        "example": "Q1"
+      },
+      {
+        "name": "MonthNumber",
+        "example": 1
+      },
+      {
+        "name": "MonthName",
+        "example": "January"
+      },
+      {
+        "name": "YearMonth",
+        "example": "2025-01"
+      },
+      {
+        "name": "MonthStart",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "DayOfWeek",
+        "example": "Wednesday"
+      }
+    ]
+  },
+  "DimSuppliers": {
+    "rows": 32,
+    "fields": [
+      {
+        "name": "SupplierID",
+        "example": "S001"
+      },
+      {
+        "name": "SupplierName",
+        "example": "Synthetic Supplier 001"
+      },
+      {
+        "name": "SupplierRegion",
+        "example": "South"
+      },
+      {
+        "name": "Tier",
+        "example": "Preferred"
+      }
+    ]
+  },
+  "DimProducts": {
+    "rows": 90,
+    "fields": [
+      {
+        "name": "ProductID",
+        "example": "SKU0001"
+      },
+      {
+        "name": "Category",
+        "example": "Office"
+      },
+      {
+        "name": "SupplierID",
+        "example": "S005"
+      },
+      {
+        "name": "UnitCost",
+        "example": 161.48
+      },
+      {
+        "name": "UnitPrice",
+        "example": 266.04
+      }
+    ]
+  },
+  "DimWarehouses": {
+    "rows": 4,
+    "fields": [
+      {
+        "name": "WarehouseID",
+        "example": "W1"
+      },
+      {
+        "name": "WarehouseName",
+        "example": "North DC"
+      },
+      {
+        "name": "City",
+        "example": "Delhi"
+      }
+    ]
+  },
+  "FactOrderLines": {
+    "rows": 2500,
+    "fields": [
+      {
+        "name": "OrderLineID",
+        "example": "OL00001"
+      },
+      {
+        "name": "OrderDate",
+        "example": "2025-05-18"
+      },
+      {
+        "name": "ProductID",
+        "example": "SKU0017"
+      },
+      {
+        "name": "WarehouseID",
+        "example": "W2"
+      },
+      {
+        "name": "OrderedQty",
+        "example": 10
+      },
+      {
+        "name": "DeliveredQty",
+        "example": 10
+      },
+      {
+        "name": "ReturnedQty",
+        "example": 0
+      },
+      {
+        "name": "PromisedDate",
+        "example": "2025-05-21"
+      },
+      {
+        "name": "DeliveredDate",
+        "example": "2025-05-20"
+      },
+      {
+        "name": "OnTimeFlag",
+        "example": 1
+      },
+      {
+        "name": "OTIFFlag",
+        "example": 1
+      },
+      {
+        "name": "NetSales",
+        "example": 4674.9
+      },
+      {
+        "name": "CostOfGoodsSold",
+        "example": 2641.2
+      },
+      {
+        "name": "OrderStatus",
+        "example": "Delivered"
+      }
+    ]
+  },
+  "FactInventoryMonthly": {
+    "rows": 4320,
+    "fields": [
+      {
+        "name": "SnapshotMonth",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "ProductID",
+        "example": "SKU0001"
+      },
+      {
+        "name": "WarehouseID",
+        "example": "W1"
+      },
+      {
+        "name": "OnHandQty",
+        "example": 64
+      },
+      {
+        "name": "InventoryValue",
+        "example": 10334.72
+      },
+      {
+        "name": "StockoutFlag",
+        "example": 0
+      }
+    ]
+  },
+  "FactPurchaseOrders": {
+    "rows": 430,
+    "fields": [
+      {
+        "name": "PurchaseOrderID",
+        "example": "PO00001"
+      },
+      {
+        "name": "OrderDate",
+        "example": "2025-05-12"
+      },
+      {
+        "name": "SupplierID",
+        "example": "S005"
+      },
+      {
+        "name": "ProductID",
+        "example": "SKU0001"
+      },
+      {
+        "name": "WarehouseID",
+        "example": "W2"
+      },
+      {
+        "name": "OrderedQty",
+        "example": 105
+      },
+      {
+        "name": "ReceivedQty",
+        "example": 105
+      },
+      {
+        "name": "PromisedReceiptDate",
+        "example": "2025-05-19"
+      },
+      {
+        "name": "ActualReceiptDate",
+        "example": "2025-05-23"
+      },
+      {
+        "name": "LeadTimeDays",
+        "example": 11
+      },
+      {
+        "name": "OnTimeReceiptFlag",
+        "example": 0
+      }
+    ]
+  }
+}

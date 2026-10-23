@@ -1,0 +1,168 @@
+{
+  "DimDate": {
+    "rows": 365,
+    "fields": [
+      {
+        "name": "Date",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "Year",
+        "example": 2025
+      },
+      {
+        "name": "Quarter",
+        "example": "Q1"
+      },
+      {
+        "name": "MonthNumber",
+        "example": 1
+      },
+      {
+        "name": "MonthName",
+        "example": "January"
+      },
+      {
+        "name": "YearMonth",
+        "example": "2025-01"
+      },
+      {
+        "name": "MonthStart",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "DayOfWeek",
+        "example": "Wednesday"
+      }
+    ]
+  },
+  "DimPatients": {
+    "rows": 650,
+    "fields": [
+      {
+        "name": "PatientID",
+        "example": "PT0001"
+      },
+      {
+        "name": "AgeBand",
+        "example": "0-17"
+      },
+      {
+        "name": "PayerType",
+        "example": "Public Insurance"
+      }
+    ]
+  },
+  "DimDoctors": {
+    "rows": 30,
+    "fields": [
+      {
+        "name": "DoctorID",
+        "example": "DR001"
+      },
+      {
+        "name": "DepartmentID",
+        "example": "D1"
+      },
+      {
+        "name": "DoctorRole",
+        "example": "Senior Consultant"
+      }
+    ]
+  },
+  "DimDepartments": {
+    "rows": 6,
+    "fields": [
+      {
+        "name": "DepartmentID",
+        "example": "D1"
+      },
+      {
+        "name": "DepartmentName",
+        "example": "Cardiology"
+      },
+      {
+        "name": "StaffedBedBase",
+        "example": 40
+      }
+    ]
+  },
+  "FactEncounters": {
+    "rows": 1800,
+    "fields": [
+      {
+        "name": "EncounterID",
+        "example": "E00001"
+      },
+      {
+        "name": "PatientID",
+        "example": "PT0161"
+      },
+      {
+        "name": "DoctorID",
+        "example": "DR023"
+      },
+      {
+        "name": "DepartmentID",
+        "example": "D5"
+      },
+      {
+        "name": "AdmitDate",
+        "example": "2025-01-11"
+      },
+      {
+        "name": "DischargeDate",
+        "example": "2025-01-14"
+      },
+      {
+        "name": "StayDays",
+        "example": 4
+      },
+      {
+        "name": "VisitType",
+        "example": "Elective"
+      },
+      {
+        "name": "WaitingMinutes",
+        "example": 47
+      },
+      {
+        "name": "DirectCost",
+        "example": 13079.86
+      },
+      {
+        "name": "CollectedRevenue",
+        "example": 19126.0
+      },
+      {
+        "name": "ReturnWithin30Days",
+        "example": 0
+      }
+    ]
+  },
+  "FactBedCapacityDaily": {
+    "rows": 2190,
+    "fields": [
+      {
+        "name": "Date",
+        "example": "2025-01-01"
+      },
+      {
+        "name": "DepartmentID",
+        "example": "D1"
+      },
+      {
+        "name": "StaffedBeds",
+        "example": 40
+      },
+      {
+        "name": "OccupiedBeds",
+        "example": 36
+      },
+      {
+        "name": "AvailableBeds",
+        "example": 4
+      }
+    ]
+  }
+}

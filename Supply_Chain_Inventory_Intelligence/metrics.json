@@ -1,0 +1,10 @@
+{
+  "title": "Supply Chain & Inventory Optimization",
+  "problem": "A multi-site distributor needs to increase on-time in-full delivery and eliminate stockouts without over-investing in stock.",
+  "kpis": {
+    "Order Lines": 2500,
+    "Order-line OTIF %": 37.32,
+    "Fulfillment Fill Rate %": 93.81,
+    "Stockout Snapshot %": 10.16
+  }
+}

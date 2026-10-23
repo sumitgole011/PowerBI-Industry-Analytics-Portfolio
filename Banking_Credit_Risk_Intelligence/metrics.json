@@ -1,0 +1,10 @@
+{
+  "title": "Banking Credit Risk & Loan Portfolio Intelligence",
+  "problem": "Credit portfolio managers need to track approval decisions, origination mix, delinquency and repayments without leaking future default outcomes into historical approval analysis.",
+  "kpis": {
+    "Applications": 650,
+    "Approval Rate": 77.54,
+    "Disbursed Principal": 11296861.93,
+    "Defaulted Loans As Of 2026-09-30": 45
+  }
+}

@@ -1,0 +1,7 @@
+DepartmentID,DepartmentName,StaffedBedBase
+D1,Cardiology,40
+D2,Orthopedics,32
+D3,Neurology,30
+D4,General Medicine,55
+D5,Surgery,45
+D6,Emergency,22

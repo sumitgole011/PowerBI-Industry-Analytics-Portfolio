@@ -1,0 +1,14 @@
+-- All patient identifiers are synthetic. Return rate is NOT a clinical risk-adjusted readmission measure.
+Encounters = DISTINCTCOUNT ( FactEncounters[EncounterID] )
+Patients Seen = DISTINCTCOUNT ( FactEncounters[PatientID] )
+Total Stay Days = SUM ( FactEncounters[StayDays] )
+Average Length of Stay = DIVIDE ( [Total Stay Days], [Encounters] )
+Avg Wait Minutes = AVERAGE ( FactEncounters[WaitingMinutes] )
+30-Day Return Encounters = SUM ( FactEncounters[ReturnWithin30Days] )
+30-Day Return Visit Rate = DIVIDE ( [30-Day Return Encounters], [Encounters] )
+Collected Revenue = SUM ( FactEncounters[CollectedRevenue] )
+Direct Cost = SUM ( FactEncounters[DirectCost] )
+Contribution Margin = [Collected Revenue] - [Direct Cost]
+Contribution Margin % = DIVIDE ( [Contribution Margin], [Collected Revenue] )
+Bed Occupancy Rate = DIVIDE ( SUM ( FactBedCapacityDaily[OccupiedBeds] ), SUM ( FactBedCapacityDaily[StaffedBeds] ) )
+Available Beds = SUM ( FactBedCapacityDaily[AvailableBeds] )

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beginner SaaS Dashboard | Learn HTML, CSS, JavaScript</title>
+  <!-- CSS: Controls how the page looks. -->
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, -apple-system, sans-serif; }
+    * { box-sizing: border-box; }
+    body { background: #0b1324; color: #eef4ff; margin: 0; }
+    .wrap { max-width: 1100px; margin: auto; padding: 35px 22px 70px; }
+    .eyebrow { color: #70d5ff; font-size: 12px; letter-spacing: 2px; font-weight: 700; }
+    h1 { font-size: clamp(26px,4vw,39px); margin-bottom: 8px; }
+    .muted { color: #a6b5cb; }
+    .filters { display: flex; gap: 16px; flex-wrap: wrap; margin: 26px 0; }
+    label { display: grid; gap: 8px; font-size: 13px; color: #aebed4; }
+    select { background: #18263e; border: 1px solid #32425a; color: #fff; padding: 12px; border-radius: 9px; min-width: 190px; }
+    .cards { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+    .card, .panel { background: #17263d; padding: 20px; border: 1px solid #30425b; border-radius: 13px; }
+    .metric { font-size: clamp(19px,3vw,26px); font-weight: 800; margin: 12px 0 2px; overflow-wrap:anywhere; }
+    .panel { margin-top: 18px; }
+    .plot-row { display: grid; grid-template-columns: 70px 1fr 100px; align-items: center; gap: 10px; margin: 13px 0; font-size: 13px; }
+    .bar-track { background: #213752; border-radius: 8px; overflow: hidden; height: 16px; }
+    .bar { height: 100%; background: linear-gradient(90deg,#24b3ee,#64dfc3); border-radius: 8px; }
+    .hint { font-size: 13px; line-height: 1.7; color: #b4c4d7; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th,td { text-align: left; padding: 11px; border-bottom: 1px solid #314159; }
+    @media(max-width:760px){.cards {grid-template-columns:repeat(2,1fr)} .plot-row {grid-template-columns:60px 1fr 75px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">ORIGINAL PROJECT DATA / LEARNING DEMO</div>
+  <h1>SaaS Revenue Intelligence</h1>
+  <p class="muted">Standalone HTML example. Filters work using JavaScript on aggregate data from the SaaS project.</p>
+  <!-- HTML: Page structure: headings, inputs, cards, chart and table. -->
+  <section class="filters" aria-label="Dashboard filters">
+    <label>Year <select id="year"></select></label>
+    <label>Customer segment <select id="segment"></select></label>
+  </section>
+  <section class="cards" aria-label="Key metrics">
+    <article class="card"><div class="muted">Latest MRR</div><div class="metric" id="mrr">—</div></article>
+    <article class="card"><div class="muted">Annualized ARR</div><div class="metric" id="arr">—</div></article>
+    <article class="card"><div class="muted">Active Customers (latest)</div><div class="metric" id="active">—</div></article>
+    <article class="card"><div class="muted">Churn Events (selected period)</div><div class="metric" id="churn">—</div></article>
+  </section>
+  <section class="panel"><h2>Month-end recurring revenue</h2><p class="muted">MRR is a month-end snapshot; the card uses only the last available selected month.</p><div id="chart"></div></section>
+  <section class="panel"><h2>Monthly details</h2><div style="overflow-x:auto"><table><thead><tr><th>Month</th><th>Ending MRR</th><th>Active customers</th><th>Churn events</th></tr></thead><tbody id="details"></tbody></table></div></section>
+  <p class="hint">Teaching note: HTML makes the layout, CSS makes it look good, JavaScript filters and recalculates the metrics. These are grouped real columns from the fictional CSV dataset. This file is NOT a Power BI report or a live database connection.</p>
+</main>
+<script>
+  // JavaScript: data layer. The DATA placeholder is replaced with grouped rows from the project CSV.
+  const DATA = [{"month":"2024-01","segment":"Enterprise","mrr":497.0,"active":3,"churn":0,"new":3},{"month":"2024-01","segment":"Mid-Market","mrr":497.0,"active":3,"churn":0,"new":3},{"month":"2024-01","segment":"SMB","mrr":0.0,"active":0,"churn":0,"new":0},{"month":"2024-02","segment":"Enterprise","mrr":1893.0,"active":7,"churn":0,"new":4},{"month":"2024-02","segment":"Mid-Market","mrr":994.0,"active":6,"churn":0,"new":3},{"month":"2024-02","segment":"SMB","mrr":297.0,"active":3,"churn":0,"new":3},{"month":"2024-03","segment":"Enterprise","mrr":2067.08,"active":9,"churn":0,"new":2},{"month":"2024-03","segment":"Mid-Market","mrr":1192.0,"active":8,"churn":0,"new":2},{"month":"2024-03","segment":"SMB","mrr":303.93,"active":3,"churn":0,"new":0},{"month":"2024-04","segment":"Enterprise","mrr":2500.93,"active":10,"churn":0,"new":1},{"month":"2024-04","segment":"Mid-Market","mrr":1291.0,"active":9,"churn":0,"new":1},{"month":"2024-04","segment":"SMB","mrr":3711.59,"active":9,"churn":0,"new":6},{"month":"2024-05","segment":"Enterprise","mrr":2799.93,"active":11,"churn":0,"new":1},{"month":"2024-05","segment":"Mid-Market","mrr":1703.85,"active":11,"churn":0,"new":2},{"month":"2024-05","segment":"SMB","mrr":4055.44,"active":10,"churn":0,"new":1},{"month":"2024-06","segment":"Enterprise","mrr":4924.63,"active":16,"churn":0,"new":5},{"month":"2024-06","segment":"Mid-Market","mrr":2191.25,"active":13,"churn":0,"new":2},{"month":"2024-06","segment":"SMB","mrr":4797.29,"active":13,"churn":0,"new":3},{"month":"2024-07","segment":"Enterprise","mrr":5621.63,"active":19,"churn":0,"new":3},{"month":"2024-07","segment":"Mid-Market","mrr":4477.14,"active":18,"churn":1,"new":6},{"month":"2024-07","segment":"SMB","mrr":5339.3,"active":15,"churn":0,"new":2},{"month":"2024-08","segment":"Enterprise","mrr":5986.6,"active":21,"churn":0,"new":2},{"month":"2024-08","segment":"Mid-Market","mrr":4089.99,"active":20,"churn":1,"new":3},{"month":"2024-08","segment":"SMB","mrr":5792.79,"active":16,"churn":0,"new":1},{"month":"2024-09","segment":"Enterprise","mrr":6971.3,"active":26,"churn":0,"new":5},{"month":"2024-09","segment":"Mid-Market","mrr":5362.54,"active":22,"churn":0,"new":2},{"month":"2024-09","segment":"SMB","mrr":7250.03,"active":19,"churn":0,"new":3},{"month":"2024-10","segment":"Enterprise","mrr":8584.38,"active":30,"churn":0,"new":4},{"month":"2024-10","segment":"Mid-Market","mrr":7971.39,"active":28,"churn":0,"new":6},{"month":"2024-10","segment":"SMB","mrr":7934.98,"active":22,"churn":0,"new":3},{"month":"2024-11","segment":"Enterprise","mrr":9034.16,"active":32,"churn":0,"new":2},{"month":"2024-11","segment":"Mid-Market","mrr":8313.24,"active":31,"churn":0,"new":3},{"month":"2024-11","segment":"SMB","mrr":9219.09,"active":24,"churn":0,"new":2},{"month":"2024-12","segment":"Enterprise","mrr":9563.62,"active":35,"churn":1,"new":4},{"month":"2024-12","segment":"Mid-Market","mrr":9184.08,"active":35,"churn":0,"new":4},{"month":"2024-12","segment":"SMB","mrr":9452.94,"active":25,"churn":1,"new":2},{"month":"2025-01","segment":"Enterprise","mrr":9825.62,"active":37,"churn":0,"new":2},{"month":"2025-01","segment":"Mid-Market","mrr":10057.23,"active":39,"churn":0,"new":4},{"month":"2025-01","segment":"SMB","mrr":9370.23,"active":25,"churn":0,"new":0},{"month":"2025-02","segment":"Enterprise","mrr":9969.47,"active":38,"churn":0,"new":1},{"month":"2025-02","segment":"Mid-Market","mrr":10309.4,"active":40,"churn":1,"new":2},{"month":"2025-02","segment":"SMB","mrr":11014.93,"active":30,"churn":0,"new":5},{"month":"2025-03","segment":"Enterprise","mrr":10192.82,"active":40,"churn":0,"new":2},{"month":"2025-03","segment":"Mid-Market","mrr":10183.45,"active":41,"churn":2,"new":3},{"month":"2025-03","segment":"SMB","mrr":11105.6,"active":29,"churn":1,"new":0},{"month":"2025-04","segment":"Enterprise","mrr":11034.4,"active":46,"churn":0,"new":6},{"month":"2025-04","segment":"Mid-Market","mrr":11601.17,"active":43,"churn":1,"new":3},{"month":"2025-04","segment":"SMB","mrr":13487.11,"active":36,"churn":0,"new":7},{"month":"2025-05","segment":"Enterprise","mrr":11438.61,"active":47,"churn":0,"new":1},{"month":"2025-05","segment":"Mid-Market","mrr":11785.98,"active":43,"churn":1,"new":1},{"month":"2025-05","segment":"SMB","mrr":13333.78,"active":37,"churn":1,"new":2},{"month":"2025-06","segment":"Enterprise","mrr":11932.01,"active":49,"churn":0,"new":2},{"month":"2025-06","segment":"Mid-Market","mrr":13142.26,"active":46,"churn":1,"new":4},{"month":"2025-06","segment":"SMB","mrr":14053.84,"active":39,"churn":0,"new":2},{"month":"2025-07","segment":"Enterprise","mrr":12159.31,"active":51,"churn":0,"new":2},{"month":"2025-07","segment":"Mid-Market","mrr":13372.54,"active":46,"churn":1,"new":1},{"month":"2025-07","segment":"SMB","mrr":15784.37,"active":41,"churn":1,"new":3},{"month":"2025-08","segment":"Enterprise","mrr":12313.08,"active":52,"churn":0,"new":1},{"month":"2025-08","segment":"Mid-Market","mrr":15472.57,"active":53,"churn":0,"new":7},{"month":"2025-08","segment":"SMB","mrr":16267.27,"active":42,"churn":0,"new":1},{"month":"2025-09","segment":"Enterprise","mrr":13086.82,"active":58,"churn":0,"new":6},{"month":"2025-09","segment":"Mid-Market","mrr":16616.44,"active":53,"churn":3,"new":3},{"month":"2025-09","segment":"SMB","mrr":16712.08,"active":43,"churn":0,"new":1},{"month":"2025-10","segment":"Enterprise","mrr":13469.75,"active":59,"churn":1,"new":2},{"month":"2025-10","segment":"Mid-Market","mrr":16446.67,"active":54,"churn":1,"new":2},{"month":"2025-10","segment":"SMB","mrr":17375.2,"active":46,"churn":2,"new":5},{"month":"2025-11","segment":"Enterprise","mrr":13642.47,"active":59,"churn":0,"new":0},{"month":"2025-11","segment":"Mid-Market","mrr":16644.48,"active":54,"churn":0,"new":0},{"month":"2025-11","segment":"SMB","mrr":17393.74,"active":46,"churn":0,"new":0},{"month":"2025-12","segment":"Enterprise","mrr":13293.35,"active":57,"churn":2,"new":0},{"month":"2025-12","segment":"Mid-Market","mrr":16752.97,"active":54,"churn":0,"new":0},{"month":"2025-12","segment":"SMB","mrr":17211.26,"active":45,"churn":1,"new":0}];
+
+  const yearEl = document.getElementById('year');
+  const segmentEl = document.getElementById('segment');
+  const money = value => new Intl.NumberFormat('en-US', {style:'currency',currency:'USD',maximumFractionDigits:0}).format(value);
+  const count = value => new Intl.NumberFormat('en-US').format(value);
+
+  // Fill dropdowns from the data automatically.
+  function fillOptions(select, values, allLabel) {
+    select.replaceChildren();
+    const opt = document.createElement('option'); opt.value = 'all'; opt.textContent = allLabel; select.appendChild(opt);
+    for (const value of values) { const option = document.createElement('option'); option.value=value; option.textContent=value; select.appendChild(option); }
+  }
+  fillOptions(yearEl,[...new Set(DATA.map(row => row.month.slice(0,4)))].sort(),'All years');
+  fillOptions(segmentEl,[...new Set(DATA.map(row => row.segment))].sort(),'All segments');
+
+  // Filter -> Group by month -> Recalculate -> Render.
+  function render() {
+    const selected = DATA.filter(row => (yearEl.value === 'all' || row.month.startsWith(yearEl.value)) && (segmentEl.value === 'all' || row.segment === segmentEl.value));
+    const byMonth = new Map();
+    for (const row of selected) {
+      const current = byMonth.get(row.month) || {month:row.month,mrr:0,active:0,churn:0};
+      current.mrr += row.mrr; current.active += row.active; current.churn += row.churn;
+      byMonth.set(row.month,current);
+    }
+    const series = [...byMonth.values()].sort((a,b)=>a.month.localeCompare(b.month));
+    const latest = series.at(-1);
+    const latestMRR = latest?.mrr || 0;
+    document.getElementById('mrr').textContent = money(latestMRR);
+    document.getElementById('arr').textContent = money(latestMRR*12);
+    document.getElementById('active').textContent = count(latest?.active || 0);
+    document.getElementById('churn').textContent = count(series.reduce((sum,row)=>sum+row.churn,0));
+    const chart = document.getElementById('chart'); chart.replaceChildren();
+    const largest = Math.max(1,...series.map(row=>row.mrr));
+    for (const row of series) {
+      const line = document.createElement('div'); line.className = 'plot-row';
+      const month = document.createElement('span'); month.textContent = row.month;
+      const track = document.createElement('div'); track.className = 'bar-track';
+      const bar = document.createElement('div'); bar.className = 'bar'; bar.style.width=(row.mrr/largest*100)+'%'; bar.title=money(row.mrr); track.appendChild(bar);
+      const label = document.createElement('span'); label.textContent = money(row.mrr);
+      line.append(month,track,label); chart.appendChild(line);
+    }
+    const tbody = document.getElementById('details'); tbody.replaceChildren();
+    for (const row of [...series].reverse()) {
+      const tr = document.createElement('tr');
+      for (const value of [row.month,money(row.mrr),count(row.active),count(row.churn)]) {
+        const td = document.createElement('td'); td.textContent=value; tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+  }
+  yearEl.addEventListener('change',render);
+  segmentEl.addEventListener('change',render);
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+-- All measures refer ONLY to POWERBI_SERVICE_STARTER (rename imported table to ServiceFact)
+MRR = VAR LastMonth = MAX(ServiceFact[MonthStart]) RETURN CALCULATE(SUM(ServiceFact[EndingMRR]),ServiceFact[MonthStart]=LastMonth)
+ARR = [MRR] * 12
+Active Customers = VAR LastMonth = MAX(ServiceFact[MonthStart]) RETURN CALCULATE(SUM(ServiceFact[ActiveEOM]),ServiceFact[MonthStart]=LastMonth)
+Logo Churn % = DIVIDE(SUM(ServiceFact[ChurnedLogos]),SUM(ServiceFact[ActiveBOM]))
+NRR = DIVIDE(SUM(ServiceFact[StartingMRR])-SUM(ServiceFact[ChurnMRR])-SUM(ServiceFact[ContractionMRR])+SUM(ServiceFact[ExpansionMRR]),SUM(ServiceFact[StartingMRR]))

@@ -1,0 +1,6 @@
+Net Sales = SUM(ServiceFact[NetSales])
+Order Lines = COUNTROWS(ServiceFact)
+OTIF % = DIVIDE(SUM(ServiceFact[OTIFFlag]),COUNTROWS(ServiceFact))
+Fill Rate % = DIVIDE(SUM(ServiceFact[DeliveredQty]),SUM(ServiceFact[OrderedQty]))
+Gross Margin = SUM(ServiceFact[NetSales])-SUM(ServiceFact[CostOfGoodsSold])
+-- Stockout snapshots require service_inventory.csv as a separate model or the advanced multi-table model.

@@ -1,0 +1,50 @@
+[
+  {
+    "project": "SaaS_Revenue_Churn_Intelligence",
+    "title": "SaaS Revenue & Customer Churn Intelligence",
+    "tables": 5,
+    "rows": 5864,
+    "metrics": {
+      "Current MRR": 47257.58,
+      "Current Active Customers": 156,
+      "Period Logo Churns": 24,
+      "Support Tickets": 630
+    }
+  },
+  {
+    "project": "Banking_Credit_Risk_Intelligence",
+    "title": "Banking Credit Risk & Loan Portfolio Intelligence",
+    "tables": 6,
+    "rows": 9423,
+    "metrics": {
+      "Applications": 650,
+      "Approval Rate": 77.54,
+      "Disbursed Principal": 11296861.93,
+      "Defaulted Loans As Of 2026-09-30": 45
+    }
+  },
+  {
+    "project": "Healthcare_Operations_Intelligence",
+    "title": "Healthcare Operations & Hospital Performance",
+    "tables": 6,
+    "rows": 5041,
+    "metrics": {
+      "Encounters": 1800,
+      "Avg Length of Stay Days": 4.84,
+      "Overall Occupancy %": 72.43,
+      "30-day Return Visits": 329
+    }
+  },
+  {
+    "project": "Supply_Chain_Inventory_Intelligence",
+    "title": "Supply Chain & Inventory Optimization",
+    "tables": 7,
+    "rows": 7741,
+    "metrics": {
+      "Order Lines": 2500,
+      "Order-line OTIF %": 37.32,
+      "Fulfillment Fill Rate %": 93.81,
+      "Stockout Snapshot %": 10.16
+    }
+  }
+]

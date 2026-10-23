@@ -1,0 +1,10 @@
+{
+  "title": "SaaS Revenue & Customer Churn Intelligence",
+  "problem": "A B2B SaaS leadership team wants to understand recurring revenue expansion and customer retention. Avoid double-counting end-of-month MRR across selected months.",
+  "kpis": {
+    "Current MRR": 47257.58,
+    "Current Active Customers": 156,
+    "Period Logo Churns": 24,
+    "Support Tickets": 630
+  }
+}

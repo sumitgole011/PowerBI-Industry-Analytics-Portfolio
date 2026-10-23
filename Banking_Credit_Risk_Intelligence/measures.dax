@@ -1,0 +1,15 @@
+-- DPD is a fixed AS-OF snapshot; do not treat the as-of status as historical at each application month.
+Applications = COUNTROWS ( FactApplications )
+Approved Applications = SUM ( FactApplications[ApprovedFlag] )
+Approval Rate = DIVIDE ( [Approved Applications], [Applications] )
+Loan Count = COUNTROWS ( DimLoan )
+Disbursed Principal = SUM ( DimLoan[Principal] )
+Defaulted Loans = CALCULATE ( [Loan Count], DimLoan[LoanStatusAsOf] = "Default" )
+Default Rate by Count = DIVIDE ( [Defaulted Loans], [Loan Count] )
+Defaulted Original Principal = CALCULATE ( [Disbursed Principal], DimLoan[LoanStatusAsOf] = "Default" )
+At Risk Loans 30+ DPD = CALCULATE ( [Loan Count], DimLoan[DaysPastDueAsOf] >= 30 )
+At Risk Loan Share = DIVIDE ( [At Risk Loans 30+ DPD], [Loan Count] )
+Installments Due = SUM ( FactInstallments[DueAmount] )
+Installments Paid = SUM ( FactInstallments[PaidAmount] )
+Collection Rate = DIVIDE ( [Installments Paid], [Installments Due] )
+-- Do not label Defaulted Original Principal as expected credit loss.

@@ -1,0 +1,2191 @@
+Date,DepartmentID,StaffedBeds,OccupiedBeds,AvailableBeds,DepartmentName
+2025-01-01,D1,40,36,4,Cardiology
+2025-01-01,D2,30,19,11,Orthopedics
+2025-01-01,D3,28,23,5,Neurology
+2025-01-01,D4,55,36,19,General Medicine
+2025-01-01,D5,42,23,19,Surgery
+2025-01-01,D6,20,18,2,Emergency
+2025-01-02,D1,41,32,9,Cardiology
+2025-01-02,D2,33,23,10,Orthopedics
+2025-01-02,D3,27,21,6,Neurology
+2025-01-02,D4,55,36,19,General Medicine
+2025-01-02,D5,42,22,20,Surgery
+2025-01-02,D6,20,11,9,Emergency
+2025-01-03,D1,42,25,17,Cardiology
+2025-01-03,D2,30,20,10,Orthopedics
+2025-01-03,D3,32,27,5,Neurology
+2025-01-03,D4,54,47,7,General Medicine
+2025-01-03,D5,47,28,19,Surgery
+2025-01-03,D6,19,16,3,Emergency
+2025-01-04,D1,41,24,17,Cardiology
+2025-01-04,D2,31,15,16,Orthopedics
+2025-01-04,D3,28,25,3,Neurology
+2025-01-04,D4,54,48,6,General Medicine
+2025-01-04,D5,43,41,2,Surgery
+2025-01-04,D6,24,18,6,Emergency
+2025-01-05,D1,39,31,8,Cardiology
+2025-01-05,D2,29,27,2,Orthopedics
+2025-01-05,D3,31,24,7,Neurology
+2025-01-05,D4,52,34,18,General Medicine
+2025-01-05,D5,43,34,9,Surgery
+2025-01-05,D6,21,13,8,Emergency
+2025-01-06,D1,39,37,2,Cardiology
+2025-01-06,D2,35,25,10,Orthopedics
+2025-01-06,D3,33,22,11,Neurology
+2025-01-06,D4,55,46,9,General Medicine
+2025-01-06,D5,47,32,15,Surgery
+2025-01-06,D6,19,10,9,Emergency
+2025-01-07,D1,41,26,15,Cardiology
+2025-01-07,D2,31,25,6,Orthopedics
+2025-01-07,D3,33,27,6,Neurology
+2025-01-07,D4,56,34,22,General Medicine
+2025-01-07,D5,43,31,12,Surgery
+2025-01-07,D6,23,17,6,Emergency
+2025-01-08,D1,40,20,20,Cardiology
+2025-01-08,D2,32,22,10,Orthopedics
+2025-01-08,D3,28,21,7,Neurology
+2025-01-08,D4,53,45,8,General Medicine
+2025-01-08,D5,42,36,6,Surgery
+2025-01-08,D6,24,18,6,Emergency
+2025-01-09,D1,43,31,12,Cardiology
+2025-01-09,D2,32,20,12,Orthopedics
+2025-01-09,D3,33,29,4,Neurology
+2025-01-09,D4,52,33,19,General Medicine
+2025-01-09,D5,48,34,14,Surgery
+2025-01-09,D6,24,17,7,Emergency
+2025-01-10,D1,41,38,3,Cardiology
+2025-01-10,D2,32,22,10,Orthopedics
+2025-01-10,D3,28,22,6,Neurology
+2025-01-10,D4,55,53,2,General Medicine
+2025-01-10,D5,43,29,14,Surgery
+2025-01-10,D6,19,16,3,Emergency
+2025-01-11,D1,40,25,15,Cardiology
+2025-01-11,D2,34,24,10,Orthopedics
+2025-01-11,D3,28,20,8,Neurology
+2025-01-11,D4,52,33,19,General Medicine
+2025-01-11,D5,47,31,16,Surgery
+2025-01-11,D6,20,16,4,Emergency
+2025-01-12,D1,37,30,7,Cardiology
+2025-01-12,D2,29,19,10,Orthopedics
+2025-01-12,D3,29,28,1,Neurology
+2025-01-12,D4,58,31,27,General Medicine
+2025-01-12,D5,43,29,14,Surgery
+2025-01-12,D6,21,14,7,Emergency
+2025-01-13,D1,42,36,6,Cardiology
+2025-01-13,D2,30,26,4,Orthopedics
+2025-01-13,D3,27,20,7,Neurology
+2025-01-13,D4,53,42,11,General Medicine
+2025-01-13,D5,43,25,18,Surgery
+2025-01-13,D6,19,13,6,Emergency
+2025-01-14,D1,42,23,19,Cardiology
+2025-01-14,D2,35,31,4,Orthopedics
+2025-01-14,D3,31,19,12,Neurology
+2025-01-14,D4,56,33,23,General Medicine
+2025-01-14,D5,44,25,19,Surgery
+2025-01-14,D6,22,13,9,Emergency
+2025-01-15,D1,42,25,17,Cardiology
+2025-01-15,D2,30,21,9,Orthopedics
+2025-01-15,D3,29,21,8,Neurology
+2025-01-15,D4,55,27,28,General Medicine
+2025-01-15,D5,43,41,2,Surgery
+2025-01-15,D6,21,14,7,Emergency
+2025-01-16,D1,38,19,19,Cardiology
+2025-01-16,D2,29,28,1,Orthopedics
+2025-01-16,D3,30,18,12,Neurology
+2025-01-16,D4,57,54,3,General Medicine
+2025-01-16,D5,48,25,23,Surgery
+2025-01-16,D6,20,11,9,Emergency
+2025-01-17,D1,39,19,20,Cardiology
+2025-01-17,D2,29,14,15,Orthopedics
+2025-01-17,D3,31,28,3,Neurology
+2025-01-17,D4,53,46,7,General Medicine
+2025-01-17,D5,42,39,3,Surgery
+2025-01-17,D6,19,16,3,Emergency
+2025-01-18,D1,37,28,9,Cardiology
+2025-01-18,D2,32,17,15,Orthopedics
+2025-01-18,D3,28,19,9,Neurology
+2025-01-18,D4,58,55,3,General Medicine
+2025-01-18,D5,44,23,21,Surgery
+2025-01-18,D6,23,15,8,Emergency
+2025-01-19,D1,40,35,5,Cardiology
+2025-01-19,D2,30,25,5,Orthopedics
+2025-01-19,D3,29,17,12,Neurology
+2025-01-19,D4,52,28,24,General Medicine
+2025-01-19,D5,45,42,3,Surgery
+2025-01-19,D6,20,18,2,Emergency
+2025-01-20,D1,43,26,17,Cardiology
+2025-01-20,D2,32,30,2,Orthopedics
+2025-01-20,D3,27,24,3,Neurology
+2025-01-20,D4,53,35,18,General Medicine
+2025-01-20,D5,46,24,22,Surgery
+2025-01-20,D6,25,21,4,Emergency
+2025-01-21,D1,39,26,13,Cardiology
+2025-01-21,D2,30,15,15,Orthopedics
+2025-01-21,D3,32,17,15,Neurology
+2025-01-21,D4,53,38,15,General Medicine
+2025-01-21,D5,44,29,15,Surgery
+2025-01-21,D6,19,9,10,Emergency
+2025-01-22,D1,42,20,22,Cardiology
+2025-01-22,D2,34,22,12,Orthopedics
+2025-01-22,D3,33,32,1,Neurology
+2025-01-22,D4,52,50,2,General Medicine
+2025-01-22,D5,44,39,5,Surgery
+2025-01-22,D6,19,13,6,Emergency
+2025-01-23,D1,37,36,1,Cardiology
+2025-01-23,D2,32,17,15,Orthopedics
+2025-01-23,D3,31,23,8,Neurology
+2025-01-23,D4,57,31,26,General Medicine
+2025-01-23,D5,42,31,11,Surgery
+2025-01-23,D6,25,22,3,Emergency
+2025-01-24,D1,38,26,12,Cardiology
+2025-01-24,D2,32,23,9,Orthopedics
+2025-01-24,D3,31,28,3,Neurology
+2025-01-24,D4,56,29,27,General Medicine
+2025-01-24,D5,45,25,20,Surgery
+2025-01-24,D6,19,16,3,Emergency
+2025-01-25,D1,41,38,3,Cardiology
+2025-01-25,D2,35,30,5,Orthopedics
+2025-01-25,D3,28,20,8,Neurology
+2025-01-25,D4,58,49,9,General Medicine
+2025-01-25,D5,44,37,7,Surgery
+2025-01-25,D6,21,20,1,Emergency
+2025-01-26,D1,40,30,10,Cardiology
+2025-01-26,D2,33,17,16,Orthopedics
+2025-01-26,D3,30,29,1,Neurology
+2025-01-26,D4,53,39,14,General Medicine
+2025-01-26,D5,48,24,24,Surgery
+2025-01-26,D6,23,22,1,Emergency
+2025-01-27,D1,37,30,7,Cardiology
+2025-01-27,D2,32,28,4,Orthopedics
+2025-01-27,D3,33,22,11,Neurology
+2025-01-27,D4,58,50,8,General Medicine
+2025-01-27,D5,44,31,13,Surgery
+2025-01-27,D6,24,21,3,Emergency
+2025-01-28,D1,39,21,18,Cardiology
+2025-01-28,D2,30,28,2,Orthopedics
+2025-01-28,D3,31,28,3,Neurology
+2025-01-28,D4,58,32,26,General Medicine
+2025-01-28,D5,43,33,10,Surgery
+2025-01-28,D6,20,12,8,Emergency
+2025-01-29,D1,42,32,10,Cardiology
+2025-01-29,D2,30,26,4,Orthopedics
+2025-01-29,D3,27,18,9,Neurology
+2025-01-29,D4,52,45,7,General Medicine
+2025-01-29,D5,42,28,14,Surgery
+2025-01-29,D6,19,17,2,Emergency
+2025-01-30,D1,42,28,14,Cardiology
+2025-01-30,D2,34,17,17,Orthopedics
+2025-01-30,D3,28,15,13,Neurology
+2025-01-30,D4,55,47,8,General Medicine
+2025-01-30,D5,46,35,11,Surgery
+2025-01-30,D6,21,13,8,Emergency
+2025-01-31,D1,39,30,9,Cardiology
+2025-01-31,D2,29,21,8,Orthopedics
+2025-01-31,D3,28,16,12,Neurology
+2025-01-31,D4,52,40,12,General Medicine
+2025-01-31,D5,46,35,11,Surgery
+2025-01-31,D6,23,18,5,Emergency
+2025-02-01,D1,41,33,8,Cardiology
+2025-02-01,D2,35,32,3,Orthopedics
+2025-02-01,D3,32,23,9,Neurology
+2025-02-01,D4,58,51,7,General Medicine
+2025-02-01,D5,46,39,7,Surgery
+2025-02-01,D6,19,10,9,Emergency
+2025-02-02,D1,42,24,18,Cardiology
+2025-02-02,D2,32,17,15,Orthopedics
+2025-02-02,D3,33,26,7,Neurology
+2025-02-02,D4,53,34,19,General Medicine
+2025-02-02,D5,48,43,5,Surgery
+2025-02-02,D6,19,12,7,Emergency
+2025-02-03,D1,41,26,15,Cardiology
+2025-02-03,D2,34,30,4,Orthopedics
+2025-02-03,D3,32,23,9,Neurology
+2025-02-03,D4,53,40,13,General Medicine
+2025-02-03,D5,44,37,7,Surgery
+2025-02-03,D6,22,11,11,Emergency
+2025-02-04,D1,38,30,8,Cardiology
+2025-02-04,D2,35,23,12,Orthopedics
+2025-02-04,D3,30,24,6,Neurology
+2025-02-04,D4,55,43,12,General Medicine
+2025-02-04,D5,48,38,10,Surgery
+2025-02-04,D6,21,14,7,Emergency
+2025-02-05,D1,43,35,8,Cardiology
+2025-02-05,D2,34,19,15,Orthopedics
+2025-02-05,D3,31,17,14,Neurology
+2025-02-05,D4,52,34,18,General Medicine
+2025-02-05,D5,42,32,10,Surgery
+2025-02-05,D6,23,13,10,Emergency
+2025-02-06,D1,38,25,13,Cardiology
+2025-02-06,D2,31,24,7,Orthopedics
+2025-02-06,D3,27,16,11,Neurology
+2025-02-06,D4,53,43,10,General Medicine
+2025-02-06,D5,45,37,8,Surgery
+2025-02-06,D6,24,15,9,Emergency
+2025-02-07,D1,43,21,22,Cardiology
+2025-02-07,D2,33,20,13,Orthopedics
+2025-02-07,D3,33,17,16,Neurology
+2025-02-07,D4,55,51,4,General Medicine
+2025-02-07,D5,44,33,11,Surgery
+2025-02-07,D6,23,13,10,Emergency
+2025-02-08,D1,38,23,15,Cardiology
+2025-02-08,D2,31,29,2,Orthopedics
+2025-02-08,D3,33,26,7,Neurology
+2025-02-08,D4,55,52,3,General Medicine
+2025-02-08,D5,48,41,7,Surgery
+2025-02-08,D6,22,17,5,Emergency
+2025-02-09,D1,37,28,9,Cardiology
+2025-02-09,D2,31,15,16,Orthopedics
+2025-02-09,D3,32,31,1,Neurology
+2025-02-09,D4,56,45,11,General Medicine
+2025-02-09,D5,47,40,7,Surgery
+2025-02-09,D6,21,20,1,Emergency
+2025-02-10,D1,37,19,18,Cardiology
+2025-02-10,D2,29,17,12,Orthopedics
+2025-02-10,D3,32,21,11,Neurology
+2025-02-10,D4,56,36,20,General Medicine
+2025-02-10,D5,47,44,3,Surgery
+2025-02-10,D6,24,12,12,Emergency
+2025-02-11,D1,37,19,18,Cardiology
+2025-02-11,D2,30,21,9,Orthopedics
+2025-02-11,D3,30,25,5,Neurology
+2025-02-11,D4,58,42,16,General Medicine
+2025-02-11,D5,44,23,21,Surgery
+2025-02-11,D6,19,14,5,Emergency
+2025-02-12,D1,41,32,9,Cardiology
+2025-02-12,D2,35,24,11,Orthopedics
+2025-02-12,D3,30,23,7,Neurology
+2025-02-12,D4,54,33,21,General Medicine
+2025-02-12,D5,47,40,7,Surgery
+2025-02-12,D6,23,19,4,Emergency
+2025-02-13,D1,42,23,19,Cardiology
+2025-02-13,D2,31,19,12,Orthopedics
+2025-02-13,D3,29,24,5,Neurology
+2025-02-13,D4,55,30,25,General Medicine
+2025-02-13,D5,48,43,5,Surgery
+2025-02-13,D6,21,19,2,Emergency
+2025-02-14,D1,40,38,2,Cardiology
+2025-02-14,D2,32,22,10,Orthopedics
+2025-02-14,D3,31,25,6,Neurology
+2025-02-14,D4,56,43,13,General Medicine
+2025-02-14,D5,44,37,7,Surgery
+2025-02-14,D6,22,12,10,Emergency
+2025-02-15,D1,43,38,5,Cardiology
+2025-02-15,D2,29,17,12,Orthopedics
+2025-02-15,D3,27,18,9,Neurology
+2025-02-15,D4,55,29,26,General Medicine
+2025-02-15,D5,43,38,5,Surgery
+2025-02-15,D6,22,19,3,Emergency
+2025-02-16,D1,43,37,6,Cardiology
+2025-02-16,D2,35,19,16,Orthopedics
+2025-02-16,D3,31,19,12,Neurology
+2025-02-16,D4,57,32,25,General Medicine
+2025-02-16,D5,45,41,4,Surgery
+2025-02-16,D6,21,11,10,Emergency
+2025-02-17,D1,38,29,9,Cardiology
+2025-02-17,D2,34,23,11,Orthopedics
+2025-02-17,D3,33,29,4,Neurology
+2025-02-17,D4,55,32,23,General Medicine
+2025-02-17,D5,44,33,11,Surgery
+2025-02-17,D6,25,24,1,Emergency
+2025-02-18,D1,43,36,7,Cardiology
+2025-02-18,D2,34,32,2,Orthopedics
+2025-02-18,D3,27,18,9,Neurology
+2025-02-18,D4,52,34,18,General Medicine
+2025-02-18,D5,45,28,17,Surgery
+2025-02-18,D6,23,21,2,Emergency
+2025-02-19,D1,42,29,13,Cardiology
+2025-02-19,D2,30,28,2,Orthopedics
+2025-02-19,D3,31,25,6,Neurology
+2025-02-19,D4,53,32,21,General Medicine
+2025-02-19,D5,44,42,2,Surgery
+2025-02-19,D6,25,12,13,Emergency
+2025-02-20,D1,42,20,22,Cardiology
+2025-02-20,D2,33,26,7,Orthopedics
+2025-02-20,D3,28,21,7,Neurology
+2025-02-20,D4,53,27,26,General Medicine
+2025-02-20,D5,45,36,9,Surgery
+2025-02-20,D6,24,21,3,Emergency
+2025-02-21,D1,37,33,4,Cardiology
+2025-02-21,D2,33,26,7,Orthopedics
+2025-02-21,D3,30,29,1,Neurology
+2025-02-21,D4,53,50,3,General Medicine
+2025-02-21,D5,47,42,5,Surgery
+2025-02-21,D6,23,13,10,Emergency
+2025-02-22,D1,40,28,12,Cardiology
+2025-02-22,D2,31,26,5,Orthopedics
+2025-02-22,D3,32,30,2,Neurology
+2025-02-22,D4,52,28,24,General Medicine
+2025-02-22,D5,43,38,5,Surgery
+2025-02-22,D6,22,15,7,Emergency
+2025-02-23,D1,38,36,2,Cardiology
+2025-02-23,D2,32,25,7,Orthopedics
+2025-02-23,D3,31,22,9,Neurology
+2025-02-23,D4,57,34,23,General Medicine
+2025-02-23,D5,42,37,5,Surgery
+2025-02-23,D6,19,14,5,Emergency
+2025-02-24,D1,41,22,19,Cardiology
+2025-02-24,D2,29,21,8,Orthopedics
+2025-02-24,D3,31,18,13,Neurology
+2025-02-24,D4,57,30,27,General Medicine
+2025-02-24,D5,47,41,6,Surgery
+2025-02-24,D6,25,18,7,Emergency
+2025-02-25,D1,39,32,7,Cardiology
+2025-02-25,D2,31,20,11,Orthopedics
+2025-02-25,D3,31,19,12,Neurology
+2025-02-25,D4,54,50,4,General Medicine
+2025-02-25,D5,46,27,19,Surgery
+2025-02-25,D6,22,17,5,Emergency
+2025-02-26,D1,41,36,5,Cardiology
+2025-02-26,D2,31,27,4,Orthopedics
+2025-02-26,D3,33,24,9,Neurology
+2025-02-26,D4,52,32,20,General Medicine
+2025-02-26,D5,43,30,13,Surgery
+2025-02-26,D6,25,15,10,Emergency
+2025-02-27,D1,40,38,2,Cardiology
+2025-02-27,D2,31,27,4,Orthopedics
+2025-02-27,D3,33,19,14,Neurology
+2025-02-27,D4,55,36,19,General Medicine
+2025-02-27,D5,47,25,22,Surgery
+2025-02-27,D6,23,20,3,Emergency
+2025-02-28,D1,41,20,21,Cardiology
+2025-02-28,D2,35,20,15,Orthopedics
+2025-02-28,D3,27,15,12,Neurology
+2025-02-28,D4,57,28,29,General Medicine
+2025-02-28,D5,42,21,21,Surgery
+2025-02-28,D6,24,20,4,Emergency
+2025-03-01,D1,39,33,6,Cardiology
+2025-03-01,D2,33,21,12,Orthopedics
+2025-03-01,D3,32,27,5,Neurology
+2025-03-01,D4,55,49,6,General Medicine
+2025-03-01,D5,43,30,13,Surgery
+2025-03-01,D6,20,18,2,Emergency
+2025-03-02,D1,43,30,13,Cardiology
+2025-03-02,D2,33,17,16,Orthopedics
+2025-03-02,D3,27,18,9,Neurology
+2025-03-02,D4,58,35,23,General Medicine
+2025-03-02,D5,47,33,14,Surgery
+2025-03-02,D6,19,11,8,Emergency
+2025-03-03,D1,38,27,11,Cardiology
+2025-03-03,D2,33,18,15,Orthopedics
+2025-03-03,D3,28,17,11,Neurology
+2025-03-03,D4,57,42,15,General Medicine
+2025-03-03,D5,45,24,21,Surgery
+2025-03-03,D6,19,10,9,Emergency
+2025-03-04,D1,43,41,2,Cardiology
+2025-03-04,D2,35,31,4,Orthopedics
+2025-03-04,D3,33,18,15,Neurology
+2025-03-04,D4,58,38,20,General Medicine
+2025-03-04,D5,42,39,3,Surgery
+2025-03-04,D6,23,15,8,Emergency
+2025-03-05,D1,42,35,7,Cardiology
+2025-03-05,D2,29,16,13,Orthopedics
+2025-03-05,D3,28,23,5,Neurology
+2025-03-05,D4,57,40,17,General Medicine
+2025-03-05,D5,42,20,22,Surgery
+2025-03-05,D6,23,16,7,Emergency
+2025-03-06,D1,37,27,10,Cardiology
+2025-03-06,D2,31,24,7,Orthopedics
+2025-03-06,D3,28,20,8,Neurology
+2025-03-06,D4,56,51,5,General Medicine
+2025-03-06,D5,48,30,18,Surgery
+2025-03-06,D6,23,21,2,Emergency
+2025-03-07,D1,42,30,12,Cardiology
+2025-03-07,D2,29,25,4,Orthopedics
+2025-03-07,D3,30,19,11,Neurology
+2025-03-07,D4,52,31,21,General Medicine
+2025-03-07,D5,47,25,22,Surgery
+2025-03-07,D6,21,20,1,Emergency
+2025-03-08,D1,38,31,7,Cardiology
+2025-03-08,D2,30,26,4,Orthopedics
+2025-03-08,D3,32,17,15,Neurology
+2025-03-08,D4,54,29,25,General Medicine
+2025-03-08,D5,47,34,13,Surgery
+2025-03-08,D6,20,15,5,Emergency
+2025-03-09,D1,43,23,20,Cardiology
+2025-03-09,D2,33,23,10,Orthopedics
+2025-03-09,D3,31,16,15,Neurology
+2025-03-09,D4,54,32,22,General Medicine
+2025-03-09,D5,43,25,18,Surgery
+2025-03-09,D6,19,10,9,Emergency
+2025-03-10,D1,41,27,14,Cardiology
+2025-03-10,D2,35,29,6,Orthopedics
+2025-03-10,D3,31,23,8,Neurology
+2025-03-10,D4,57,28,29,General Medicine
+2025-03-10,D5,47,35,12,Surgery
+2025-03-10,D6,25,20,5,Emergency
+2025-03-11,D1,41,31,10,Cardiology
+2025-03-11,D2,35,34,1,Orthopedics
+2025-03-11,D3,31,16,15,Neurology
+2025-03-11,D4,54,48,6,General Medicine
+2025-03-11,D5,43,25,18,Surgery
+2025-03-11,D6,23,18,5,Emergency
+2025-03-12,D1,37,30,7,Cardiology
+2025-03-12,D2,30,16,14,Orthopedics
+2025-03-12,D3,28,24,4,Neurology
+2025-03-12,D4,55,51,4,General Medicine
+2025-03-12,D5,46,39,7,Surgery
+2025-03-12,D6,20,18,2,Emergency
+2025-03-13,D1,40,20,20,Cardiology
+2025-03-13,D2,33,19,14,Orthopedics
+2025-03-13,D3,31,15,16,Neurology
+2025-03-13,D4,57,41,16,General Medicine
+2025-03-13,D5,48,41,7,Surgery
+2025-03-13,D6,22,15,7,Emergency
+2025-03-14,D1,39,30,9,Cardiology
+2025-03-14,D2,32,29,3,Orthopedics
+2025-03-14,D3,30,27,3,Neurology
+2025-03-14,D4,53,32,21,General Medicine
+2025-03-14,D5,43,32,11,Surgery
+2025-03-14,D6,21,11,10,Emergency
+2025-03-15,D1,39,31,8,Cardiology
+2025-03-15,D2,32,29,3,Orthopedics
+2025-03-15,D3,32,18,14,Neurology
+2025-03-15,D4,53,46,7,General Medicine
+2025-03-15,D5,45,37,8,Surgery
+2025-03-15,D6,19,16,3,Emergency
+2025-03-16,D1,37,22,15,Cardiology
+2025-03-16,D2,33,18,15,Orthopedics
+2025-03-16,D3,31,17,14,Neurology
+2025-03-16,D4,57,35,22,General Medicine
+2025-03-16,D5,43,27,16,Surgery
+2025-03-16,D6,22,15,7,Emergency
+2025-03-17,D1,38,31,7,Cardiology
+2025-03-17,D2,34,20,14,Orthopedics
+2025-03-17,D3,29,18,11,Neurology
+2025-03-17,D4,54,44,10,General Medicine
+2025-03-17,D5,44,32,12,Surgery
+2025-03-17,D6,20,18,2,Emergency
+2025-03-18,D1,40,29,11,Cardiology
+2025-03-18,D2,35,18,17,Orthopedics
+2025-03-18,D3,31,27,4,Neurology
+2025-03-18,D4,57,53,4,General Medicine
+2025-03-18,D5,43,37,6,Surgery
+2025-03-18,D6,22,17,5,Emergency
+2025-03-19,D1,39,23,16,Cardiology
+2025-03-19,D2,31,17,14,Orthopedics
+2025-03-19,D3,32,27,5,Neurology
+2025-03-19,D4,52,36,16,General Medicine
+2025-03-19,D5,46,38,8,Surgery
+2025-03-19,D6,23,12,11,Emergency
+2025-03-20,D1,41,24,17,Cardiology
+2025-03-20,D2,34,18,16,Orthopedics
+2025-03-20,D3,28,16,12,Neurology
+2025-03-20,D4,58,30,28,General Medicine
+2025-03-20,D5,48,27,21,Surgery
+2025-03-20,D6,20,14,6,Emergency
+2025-03-21,D1,39,24,15,Cardiology
+2025-03-21,D2,30,21,9,Orthopedics
+2025-03-21,D3,33,23,10,Neurology
+2025-03-21,D4,58,38,20,General Medicine
+2025-03-21,D5,42,38,4,Surgery
+2025-03-21,D6,25,15,10,Emergency
+2025-03-22,D1,43,42,1,Cardiology
+2025-03-22,D2,33,29,4,Orthopedics
+2025-03-22,D3,33,30,3,Neurology
+2025-03-22,D4,57,41,16,General Medicine
+2025-03-22,D5,43,31,12,Surgery
+2025-03-22,D6,23,13,10,Emergency
+2025-03-23,D1,37,21,16,Cardiology
+2025-03-23,D2,34,30,4,Orthopedics
+2025-03-23,D3,30,20,10,Neurology
+2025-03-23,D4,57,44,13,General Medicine
+2025-03-23,D5,44,30,14,Surgery
+2025-03-23,D6,25,13,12,Emergency
+2025-03-24,D1,42,29,13,Cardiology
+2025-03-24,D2,32,15,17,Orthopedics
+2025-03-24,D3,30,28,2,Neurology
+2025-03-24,D4,55,27,28,General Medicine
+2025-03-24,D5,48,26,22,Surgery
+2025-03-24,D6,24,20,4,Emergency
+2025-03-25,D1,42,37,5,Cardiology
+2025-03-25,D2,35,25,10,Orthopedics
+2025-03-25,D3,28,19,9,Neurology
+2025-03-25,D4,56,46,10,General Medicine
+2025-03-25,D5,43,32,11,Surgery
+2025-03-25,D6,24,22,2,Emergency
+2025-03-26,D1,43,37,6,Cardiology
+2025-03-26,D2,30,20,10,Orthopedics
+2025-03-26,D3,28,25,3,Neurology
+2025-03-26,D4,52,29,23,General Medicine
+2025-03-26,D5,46,26,20,Surgery
+2025-03-26,D6,19,15,4,Emergency
+2025-03-27,D1,38,23,15,Cardiology
+2025-03-27,D2,35,21,14,Orthopedics
+2025-03-27,D3,31,23,8,Neurology
+2025-03-27,D4,57,31,26,General Medicine
+2025-03-27,D5,45,38,7,Surgery
+2025-03-27,D6,20,17,3,Emergency
+2025-03-28,D1,39,33,6,Cardiology
+2025-03-28,D2,31,22,9,Orthopedics
+2025-03-28,D3,33,24,9,Neurology
+2025-03-28,D4,57,50,7,General Medicine
+2025-03-28,D5,47,23,24,Surgery
+2025-03-28,D6,21,17,4,Emergency
+2025-03-29,D1,41,33,8,Cardiology
+2025-03-29,D2,29,26,3,Orthopedics
+2025-03-29,D3,33,17,16,Neurology
+2025-03-29,D4,55,52,3,General Medicine
+2025-03-29,D5,47,36,11,Surgery
+2025-03-29,D6,23,11,12,Emergency
+2025-03-30,D1,39,22,17,Cardiology
+2025-03-30,D2,32,18,14,Orthopedics
+2025-03-30,D3,32,27,5,Neurology
+2025-03-30,D4,55,44,11,General Medicine
+2025-03-30,D5,48,44,4,Surgery
+2025-03-30,D6,25,18,7,Emergency
+2025-03-31,D1,43,40,3,Cardiology
+2025-03-31,D2,29,22,7,Orthopedics
+2025-03-31,D3,27,19,8,Neurology
+2025-03-31,D4,53,34,19,General Medicine
+2025-03-31,D5,44,37,7,Surgery
+2025-03-31,D6,23,14,9,Emergency
+2025-04-01,D1,43,30,13,Cardiology
+2025-04-01,D2,29,19,10,Orthopedics
+2025-04-01,D3,32,21,11,Neurology
+2025-04-01,D4,58,34,24,General Medicine
+2025-04-01,D5,47,30,17,Surgery
+2025-04-01,D6,22,15,7,Emergency
+2025-04-02,D1,39,19,20,Cardiology
+2025-04-02,D2,30,25,5,Orthopedics
+2025-04-02,D3,28,26,2,Neurology
+2025-04-02,D4,58,29,29,General Medicine
+2025-04-02,D5,48,31,17,Surgery
+2025-04-02,D6,23,15,8,Emergency
+2025-04-03,D1,43,32,11,Cardiology
+2025-04-03,D2,32,25,7,Orthopedics
+2025-04-03,D3,31,24,7,Neurology
+2025-04-03,D4,56,33,23,General Medicine
+2025-04-03,D5,47,38,9,Surgery
+2025-04-03,D6,21,12,9,Emergency
+2025-04-04,D1,40,27,13,Cardiology
+2025-04-04,D2,29,21,8,Orthopedics
+2025-04-04,D3,29,16,13,Neurology
+2025-04-04,D4,57,30,27,General Medicine
+2025-04-04,D5,46,36,10,Surgery
+2025-04-04,D6,25,21,4,Emergency
+2025-04-05,D1,38,36,2,Cardiology
+2025-04-05,D2,35,30,5,Orthopedics
+2025-04-05,D3,30,25,5,Neurology
+2025-04-05,D4,56,36,20,General Medicine
+2025-04-05,D5,43,23,20,Surgery
+2025-04-05,D6,21,12,9,Emergency
+2025-04-06,D1,43,32,11,Cardiology
+2025-04-06,D2,32,31,1,Orthopedics
+2025-04-06,D3,32,25,7,Neurology
+2025-04-06,D4,56,38,18,General Medicine
+2025-04-06,D5,45,29,16,Surgery
+2025-04-06,D6,25,17,8,Emergency
+2025-04-07,D1,40,38,2,Cardiology
+2025-04-07,D2,35,19,16,Orthopedics
+2025-04-07,D3,30,26,4,Neurology
+2025-04-07,D4,58,28,30,General Medicine
+2025-04-07,D5,45,27,18,Surgery
+2025-04-07,D6,21,11,10,Emergency
+2025-04-08,D1,41,25,16,Cardiology
+2025-04-08,D2,34,32,2,Orthopedics
+2025-04-08,D3,33,31,2,Neurology
+2025-04-08,D4,54,38,16,General Medicine
+2025-04-08,D5,42,35,7,Surgery
+2025-04-08,D6,25,18,7,Emergency
+2025-04-09,D1,43,28,15,Cardiology
+2025-04-09,D2,35,26,9,Orthopedics
+2025-04-09,D3,28,17,11,Neurology
+2025-04-09,D4,55,48,7,General Medicine
+2025-04-09,D5,47,39,8,Surgery
+2025-04-09,D6,22,21,1,Emergency
+2025-04-10,D1,39,37,2,Cardiology
+2025-04-10,D2,35,18,17,Orthopedics
+2025-04-10,D3,33,30,3,Neurology
+2025-04-10,D4,54,44,10,General Medicine
+2025-04-10,D5,47,38,9,Surgery
+2025-04-10,D6,24,18,6,Emergency
+2025-04-11,D1,41,31,10,Cardiology
+2025-04-11,D2,34,24,10,Orthopedics
+2025-04-11,D3,32,25,7,Neurology
+2025-04-11,D4,58,43,15,General Medicine
+2025-04-11,D5,48,33,15,Surgery
+2025-04-11,D6,23,22,1,Emergency
+2025-04-12,D1,39,22,17,Cardiology
+2025-04-12,D2,33,20,13,Orthopedics
+2025-04-12,D3,28,19,9,Neurology
+2025-04-12,D4,53,39,14,General Medicine
+2025-04-12,D5,44,37,7,Surgery
+2025-04-12,D6,21,19,2,Emergency
+2025-04-13,D1,43,30,13,Cardiology
+2025-04-13,D2,31,16,15,Orthopedics
+2025-04-13,D3,32,28,4,Neurology
+2025-04-13,D4,52,29,23,General Medicine
+2025-04-13,D5,42,25,17,Surgery
+2025-04-13,D6,20,14,6,Emergency
+2025-04-14,D1,38,22,16,Cardiology
+2025-04-14,D2,30,20,10,Orthopedics
+2025-04-14,D3,28,26,2,Neurology
+2025-04-14,D4,55,33,22,General Medicine
+2025-04-14,D5,48,26,22,Surgery
+2025-04-14,D6,21,14,7,Emergency
+2025-04-15,D1,43,34,9,Cardiology
+2025-04-15,D2,34,32,2,Orthopedics
+2025-04-15,D3,31,27,4,Neurology
+2025-04-15,D4,57,41,16,General Medicine
+2025-04-15,D5,48,33,15,Surgery
+2025-04-15,D6,19,18,1,Emergency
+2025-04-16,D1,37,30,7,Cardiology
+2025-04-16,D2,35,19,16,Orthopedics
+2025-04-16,D3,28,27,1,Neurology
+2025-04-16,D4,57,51,6,General Medicine
+2025-04-16,D5,42,21,21,Surgery
+2025-04-16,D6,19,13,6,Emergency
+2025-04-17,D1,43,39,4,Cardiology
+2025-04-17,D2,35,33,2,Orthopedics
+2025-04-17,D3,29,21,8,Neurology
+2025-04-17,D4,54,42,12,General Medicine
+2025-04-17,D5,46,33,13,Surgery
+2025-04-17,D6,23,12,11,Emergency
+2025-04-18,D1,41,26,15,Cardiology
+2025-04-18,D2,29,28,1,Orthopedics
+2025-04-18,D3,32,23,9,Neurology
+2025-04-18,D4,53,30,23,General Medicine
+2025-04-18,D5,43,32,11,Surgery
+2025-04-18,D6,19,11,8,Emergency
+2025-04-19,D1,40,22,18,Cardiology
+2025-04-19,D2,33,27,6,Orthopedics
+2025-04-19,D3,30,18,12,Neurology
+2025-04-19,D4,57,30,27,General Medicine
+2025-04-19,D5,42,29,13,Surgery
+2025-04-19,D6,21,19,2,Emergency
+2025-04-20,D1,42,33,9,Cardiology
+2025-04-20,D2,35,31,4,Orthopedics
+2025-04-20,D3,29,26,3,Neurology
+2025-04-20,D4,52,47,5,General Medicine
+2025-04-20,D5,42,23,19,Surgery
+2025-04-20,D6,20,13,7,Emergency
+2025-04-21,D1,39,20,19,Cardiology
+2025-04-21,D2,32,18,14,Orthopedics
+2025-04-21,D3,29,20,9,Neurology
+2025-04-21,D4,54,40,14,General Medicine
+2025-04-21,D5,44,35,9,Surgery
+2025-04-21,D6,20,13,7,Emergency
+2025-04-22,D1,41,22,19,Cardiology
+2025-04-22,D2,34,21,13,Orthopedics
+2025-04-22,D3,29,20,9,Neurology
+2025-04-22,D4,58,47,11,General Medicine
+2025-04-22,D5,48,44,4,Surgery
+2025-04-22,D6,21,20,1,Emergency
+2025-04-23,D1,42,34,8,Cardiology
+2025-04-23,D2,32,29,3,Orthopedics
+2025-04-23,D3,29,28,1,Neurology
+2025-04-23,D4,53,43,10,General Medicine
+2025-04-23,D5,43,40,3,Surgery
+2025-04-23,D6,24,23,1,Emergency
+2025-04-24,D1,41,31,10,Cardiology
+2025-04-24,D2,35,30,5,Orthopedics
+2025-04-24,D3,32,19,13,Neurology
+2025-04-24,D4,53,34,19,General Medicine
+2025-04-24,D5,43,28,15,Surgery
+2025-04-24,D6,22,15,7,Emergency
+2025-04-25,D1,39,23,16,Cardiology
+2025-04-25,D2,29,27,2,Orthopedics
+2025-04-25,D3,33,20,13,Neurology
+2025-04-25,D4,58,56,2,General Medicine
+2025-04-25,D5,46,43,3,Surgery
+2025-04-25,D6,22,14,8,Emergency
+2025-04-26,D1,42,33,9,Cardiology
+2025-04-26,D2,30,20,10,Orthopedics
+2025-04-26,D3,31,23,8,Neurology
+2025-04-26,D4,53,40,13,General Medicine
+2025-04-26,D5,48,37,11,Surgery
+2025-04-26,D6,20,16,4,Emergency
+2025-04-27,D1,43,39,4,Cardiology
+2025-04-27,D2,34,29,5,Orthopedics
+2025-04-27,D3,27,24,3,Neurology
+2025-04-27,D4,53,41,12,General Medicine
+2025-04-27,D5,47,43,4,Surgery
+2025-04-27,D6,24,19,5,Emergency
+2025-04-28,D1,42,20,22,Cardiology
+2025-04-28,D2,29,15,14,Orthopedics
+2025-04-28,D3,31,17,14,Neurology
+2025-04-28,D4,57,40,17,General Medicine
+2025-04-28,D5,45,42,3,Surgery
+2025-04-28,D6,25,13,12,Emergency
+2025-04-29,D1,41,28,13,Cardiology
+2025-04-29,D2,30,27,3,Orthopedics
+2025-04-29,D3,28,16,12,Neurology
+2025-04-29,D4,58,34,24,General Medicine
+2025-04-29,D5,45,30,15,Surgery
+2025-04-29,D6,24,18,6,Emergency
+2025-04-30,D1,43,38,5,Cardiology
+2025-04-30,D2,31,24,7,Orthopedics
+2025-04-30,D3,29,27,2,Neurology
+2025-04-30,D4,57,53,4,General Medicine
+2025-04-30,D5,48,34,14,Surgery
+2025-04-30,D6,22,17,5,Emergency
+2025-05-01,D1,42,24,18,Cardiology
+2025-05-01,D2,29,26,3,Orthopedics
+2025-05-01,D3,31,15,16,Neurology
+2025-05-01,D4,56,47,9,General Medicine
+2025-05-01,D5,44,21,23,Surgery
+2025-05-01,D6,22,18,4,Emergency
+2025-05-02,D1,42,29,13,Cardiology
+2025-05-02,D2,29,22,7,Orthopedics
+2025-05-02,D3,33,20,13,Neurology
+2025-05-02,D4,55,39,16,General Medicine
+2025-05-02,D5,43,35,8,Surgery
+2025-05-02,D6,23,20,3,Emergency
+2025-05-03,D1,39,20,19,Cardiology
+2025-05-03,D2,32,17,15,Orthopedics
+2025-05-03,D3,27,25,2,Neurology
+2025-05-03,D4,55,41,14,General Medicine
+2025-05-03,D5,45,33,12,Surgery
+2025-05-03,D6,23,17,6,Emergency
+2025-05-04,D1,39,27,12,Cardiology
+2025-05-04,D2,32,24,8,Orthopedics
+2025-05-04,D3,29,14,15,Neurology
+2025-05-04,D4,58,47,11,General Medicine
+2025-05-04,D5,45,38,7,Surgery
+2025-05-04,D6,23,16,7,Emergency
+2025-05-05,D1,42,36,6,Cardiology
+2025-05-05,D2,33,25,8,Orthopedics
+2025-05-05,D3,29,16,13,Neurology
+2025-05-05,D4,52,46,6,General Medicine
+2025-05-05,D5,46,42,4,Surgery
+2025-05-05,D6,20,17,3,Emergency
+2025-05-06,D1,43,23,20,Cardiology
+2025-05-06,D2,35,32,3,Orthopedics
+2025-05-06,D3,31,21,10,Neurology
+2025-05-06,D4,57,55,2,General Medicine
+2025-05-06,D5,43,36,7,Surgery
+2025-05-06,D6,21,20,1,Emergency
+2025-05-07,D1,43,21,22,Cardiology
+2025-05-07,D2,30,18,12,Orthopedics
+2025-05-07,D3,27,19,8,Neurology
+2025-05-07,D4,57,40,17,General Medicine
+2025-05-07,D5,48,43,5,Surgery
+2025-05-07,D6,24,18,6,Emergency
+2025-05-08,D1,40,27,13,Cardiology
+2025-05-08,D2,33,16,17,Orthopedics
+2025-05-08,D3,27,21,6,Neurology
+2025-05-08,D4,57,28,29,General Medicine
+2025-05-08,D5,43,23,20,Surgery
+2025-05-08,D6,20,12,8,Emergency
+2025-05-09,D1,41,26,15,Cardiology
+2025-05-09,D2,35,26,9,Orthopedics
+2025-05-09,D3,33,24,9,Neurology
+2025-05-09,D4,53,31,22,General Medicine
+2025-05-09,D5,48,43,5,Surgery
+2025-05-09,D6,20,16,4,Emergency
+2025-05-10,D1,40,33,7,Cardiology
+2025-05-10,D2,33,19,14,Orthopedics
+2025-05-10,D3,32,28,4,Neurology
+2025-05-10,D4,53,31,22,General Medicine
+2025-05-10,D5,42,40,2,Surgery
+2025-05-10,D6,25,19,6,Emergency
+2025-05-11,D1,37,34,3,Cardiology
+2025-05-11,D2,30,23,7,Orthopedics
+2025-05-11,D3,33,26,7,Neurology
+2025-05-11,D4,53,49,4,General Medicine
+2025-05-11,D5,43,37,6,Surgery
+2025-05-11,D6,25,19,6,Emergency
+2025-05-12,D1,41,31,10,Cardiology
+2025-05-12,D2,30,28,2,Orthopedics
+2025-05-12,D3,27,22,5,Neurology
+2025-05-12,D4,54,49,5,General Medicine
+2025-05-12,D5,43,31,12,Surgery
+2025-05-12,D6,25,14,11,Emergency
+2025-05-13,D1,37,26,11,Cardiology
+2025-05-13,D2,31,26,5,Orthopedics
+2025-05-13,D3,29,19,10,Neurology
+2025-05-13,D4,54,28,26,General Medicine
+2025-05-13,D5,48,30,18,Surgery
+2025-05-13,D6,23,19,4,Emergency
+2025-05-14,D1,42,34,8,Cardiology
+2025-05-14,D2,33,19,14,Orthopedics
+2025-05-14,D3,30,19,11,Neurology
+2025-05-14,D4,56,35,21,General Medicine
+2025-05-14,D5,46,29,17,Surgery
+2025-05-14,D6,19,16,3,Emergency
+2025-05-15,D1,41,37,4,Cardiology
+2025-05-15,D2,31,15,16,Orthopedics
+2025-05-15,D3,32,21,11,Neurology
+2025-05-15,D4,58,38,20,General Medicine
+2025-05-15,D5,43,26,17,Surgery
+2025-05-15,D6,25,16,9,Emergency
+2025-05-16,D1,42,28,14,Cardiology
+2025-05-16,D2,33,19,14,Orthopedics
+2025-05-16,D3,33,26,7,Neurology
+2025-05-16,D4,54,48,6,General Medicine
+2025-05-16,D5,43,40,3,Surgery
+2025-05-16,D6,24,13,11,Emergency
+2025-05-17,D1,39,22,17,Cardiology
+2025-05-17,D2,31,15,16,Orthopedics
+2025-05-17,D3,28,26,2,Neurology
+2025-05-17,D4,56,54,2,General Medicine
+2025-05-17,D5,45,42,3,Surgery
+2025-05-17,D6,25,23,2,Emergency
+2025-05-18,D1,42,21,21,Cardiology
+2025-05-18,D2,31,22,9,Orthopedics
+2025-05-18,D3,29,18,11,Neurology
+2025-05-18,D4,53,51,2,General Medicine
+2025-05-18,D5,48,31,17,Surgery
+2025-05-18,D6,22,19,3,Emergency
+2025-05-19,D1,39,20,19,Cardiology
+2025-05-19,D2,32,31,1,Orthopedics
+2025-05-19,D3,30,15,15,Neurology
+2025-05-19,D4,54,31,23,General Medicine
+2025-05-19,D5,45,24,21,Surgery
+2025-05-19,D6,21,18,3,Emergency
+2025-05-20,D1,38,18,20,Cardiology
+2025-05-20,D2,29,24,5,Orthopedics
+2025-05-20,D3,30,22,8,Neurology
+2025-05-20,D4,57,42,15,General Medicine
+2025-05-20,D5,43,22,21,Surgery
+2025-05-20,D6,21,19,2,Emergency
+2025-05-21,D1,42,39,3,Cardiology
+2025-05-21,D2,29,21,8,Orthopedics
+2025-05-21,D3,27,24,3,Neurology
+2025-05-21,D4,54,30,24,General Medicine
+2025-05-21,D5,48,27,21,Surgery
+2025-05-21,D6,23,18,5,Emergency
+2025-05-22,D1,43,22,21,Cardiology
+2025-05-22,D2,34,29,5,Orthopedics
+2025-05-22,D3,30,17,13,Neurology
+2025-05-22,D4,55,37,18,General Medicine
+2025-05-22,D5,43,37,6,Surgery
+2025-05-22,D6,22,18,4,Emergency
+2025-05-23,D1,41,27,14,Cardiology
+2025-05-23,D2,34,32,2,Orthopedics
+2025-05-23,D3,31,29,2,Neurology
+2025-05-23,D4,58,53,5,General Medicine
+2025-05-23,D5,43,36,7,Surgery
+2025-05-23,D6,22,17,5,Emergency
+2025-05-24,D1,43,29,14,Cardiology
+2025-05-24,D2,33,27,6,Orthopedics
+2025-05-24,D3,27,24,3,Neurology
+2025-05-24,D4,57,41,16,General Medicine
+2025-05-24,D5,47,45,2,Surgery
+2025-05-24,D6,25,13,12,Emergency
+2025-05-25,D1,41,26,15,Cardiology
+2025-05-25,D2,33,30,3,Orthopedics
+2025-05-25,D3,29,20,9,Neurology
+2025-05-25,D4,57,48,9,General Medicine
+2025-05-25,D5,47,33,14,Surgery
+2025-05-25,D6,21,17,4,Emergency
+2025-05-26,D1,37,27,10,Cardiology
+2025-05-26,D2,35,30,5,Orthopedics
+2025-05-26,D3,28,15,13,Neurology
+2025-05-26,D4,55,48,7,General Medicine
+2025-05-26,D5,46,30,16,Surgery
+2025-05-26,D6,24,19,5,Emergency
+2025-05-27,D1,37,18,19,Cardiology
+2025-05-27,D2,33,26,7,Orthopedics
+2025-05-27,D3,31,25,6,Neurology
+2025-05-27,D4,58,49,9,General Medicine
+2025-05-27,D5,45,27,18,Surgery
+2025-05-27,D6,25,14,11,Emergency
+2025-05-28,D1,39,19,20,Cardiology
+2025-05-28,D2,35,25,10,Orthopedics
+2025-05-28,D3,32,25,7,Neurology
+2025-05-28,D4,58,41,17,General Medicine
+2025-05-28,D5,48,24,24,Surgery
+2025-05-28,D6,22,15,7,Emergency
+2025-05-29,D1,39,19,20,Cardiology
+2025-05-29,D2,30,24,6,Orthopedics
+2025-05-29,D3,27,15,12,Neurology
+2025-05-29,D4,54,27,27,General Medicine
+2025-05-29,D5,43,21,22,Surgery
+2025-05-29,D6,21,13,8,Emergency
+2025-05-30,D1,39,27,12,Cardiology
+2025-05-30,D2,35,28,7,Orthopedics
+2025-05-30,D3,28,21,7,Neurology
+2025-05-30,D4,54,32,22,General Medicine
+2025-05-30,D5,42,35,7,Surgery
+2025-05-30,D6,21,13,8,Emergency
+2025-05-31,D1,37,32,5,Cardiology
+2025-05-31,D2,34,17,17,Orthopedics
+2025-05-31,D3,28,18,10,Neurology
+2025-05-31,D4,53,35,18,General Medicine
+2025-05-31,D5,43,24,19,Surgery
+2025-05-31,D6,20,15,5,Emergency
+2025-06-01,D1,38,28,10,Cardiology
+2025-06-01,D2,33,26,7,Orthopedics
+2025-06-01,D3,28,21,7,Neurology
+2025-06-01,D4,55,27,28,General Medicine
+2025-06-01,D5,48,34,14,Surgery
+2025-06-01,D6,19,11,8,Emergency
+2025-06-02,D1,42,23,19,Cardiology
+2025-06-02,D2,29,15,14,Orthopedics
+2025-06-02,D3,33,30,3,Neurology
+2025-06-02,D4,53,48,5,General Medicine
+2025-06-02,D5,46,44,2,Surgery
+2025-06-02,D6,20,16,4,Emergency
+2025-06-03,D1,43,42,1,Cardiology
+2025-06-03,D2,32,17,15,Orthopedics
+2025-06-03,D3,33,26,7,Neurology
+2025-06-03,D4,58,56,2,General Medicine
+2025-06-03,D5,45,39,6,Surgery
+2025-06-03,D6,24,18,6,Emergency
+2025-06-04,D1,43,22,21,Cardiology
+2025-06-04,D2,34,20,14,Orthopedics
+2025-06-04,D3,33,28,5,Neurology
+2025-06-04,D4,55,27,28,General Medicine
+2025-06-04,D5,47,37,10,Surgery
+2025-06-04,D6,25,19,6,Emergency
+2025-06-05,D1,38,32,6,Cardiology
+2025-06-05,D2,31,29,2,Orthopedics
+2025-06-05,D3,30,19,11,Neurology
+2025-06-05,D4,53,44,9,General Medicine
+2025-06-05,D5,46,25,21,Surgery
+2025-06-05,D6,20,10,10,Emergency
+2025-06-06,D1,39,32,7,Cardiology
+2025-06-06,D2,34,29,5,Orthopedics
+2025-06-06,D3,32,23,9,Neurology
+2025-06-06,D4,54,51,3,General Medicine
+2025-06-06,D5,48,37,11,Surgery
+2025-06-06,D6,20,14,6,Emergency
+2025-06-07,D1,42,27,15,Cardiology
+2025-06-07,D2,30,24,6,Orthopedics
+2025-06-07,D3,33,27,6,Neurology
+2025-06-07,D4,55,30,25,General Medicine
+2025-06-07,D5,48,29,19,Surgery
+2025-06-07,D6,19,13,6,Emergency
+2025-06-08,D1,39,23,16,Cardiology
+2025-06-08,D2,31,27,4,Orthopedics
+2025-06-08,D3,33,32,1,Neurology
+2025-06-08,D4,54,35,19,General Medicine
+2025-06-08,D5,44,35,9,Surgery
+2025-06-08,D6,19,11,8,Emergency
+2025-06-09,D1,38,19,19,Cardiology
+2025-06-09,D2,35,23,12,Orthopedics
+2025-06-09,D3,32,23,9,Neurology
+2025-06-09,D4,52,32,20,General Medicine
+2025-06-09,D5,46,26,20,Surgery
+2025-06-09,D6,25,22,3,Emergency
+2025-06-10,D1,38,22,16,Cardiology
+2025-06-10,D2,33,29,4,Orthopedics
+2025-06-10,D3,30,23,7,Neurology
+2025-06-10,D4,57,44,13,General Medicine
+2025-06-10,D5,48,38,10,Surgery
+2025-06-10,D6,22,14,8,Emergency
+2025-06-11,D1,38,25,13,Cardiology
+2025-06-11,D2,35,21,14,Orthopedics
+2025-06-11,D3,29,28,1,Neurology
+2025-06-11,D4,55,37,18,General Medicine
+2025-06-11,D5,47,33,14,Surgery
+2025-06-11,D6,21,18,3,Emergency
+2025-06-12,D1,43,41,2,Cardiology
+2025-06-12,D2,31,15,16,Orthopedics
+2025-06-12,D3,27,22,5,Neurology
+2025-06-12,D4,57,45,12,General Medicine
+2025-06-12,D5,48,26,22,Surgery
+2025-06-12,D6,25,16,9,Emergency
+2025-06-13,D1,39,26,13,Cardiology
+2025-06-13,D2,35,23,12,Orthopedics
+2025-06-13,D3,29,23,6,Neurology
+2025-06-13,D4,52,26,26,General Medicine
+2025-06-13,D5,42,24,18,Surgery
+2025-06-13,D6,24,21,3,Emergency
+2025-06-14,D1,38,30,8,Cardiology
+2025-06-14,D2,29,20,9,Orthopedics
+2025-06-14,D3,33,21,12,Neurology
+2025-06-14,D4,55,39,16,General Medicine
+2025-06-14,D5,47,40,7,Surgery
+2025-06-14,D6,21,10,11,Emergency
+2025-06-15,D1,40,31,9,Cardiology
+2025-06-15,D2,30,18,12,Orthopedics
+2025-06-15,D3,30,15,15,Neurology
+2025-06-15,D4,52,40,12,General Medicine
+2025-06-15,D5,47,42,5,Surgery
+2025-06-15,D6,25,17,8,Emergency
+2025-06-16,D1,38,36,2,Cardiology
+2025-06-16,D2,32,28,4,Orthopedics
+2025-06-16,D3,29,16,13,Neurology
+2025-06-16,D4,52,29,23,General Medicine
+2025-06-16,D5,43,24,19,Surgery
+2025-06-16,D6,20,17,3,Emergency
+2025-06-17,D1,39,20,19,Cardiology
+2025-06-17,D2,31,18,13,Orthopedics
+2025-06-17,D3,32,27,5,Neurology
+2025-06-17,D4,57,30,27,General Medicine
+2025-06-17,D5,44,40,4,Surgery
+2025-06-17,D6,20,16,4,Emergency
+2025-06-18,D1,38,33,5,Cardiology
+2025-06-18,D2,35,31,4,Orthopedics
+2025-06-18,D3,32,17,15,Neurology
+2025-06-18,D4,52,34,18,General Medicine
+2025-06-18,D5,43,34,9,Surgery
+2025-06-18,D6,19,12,7,Emergency
+2025-06-19,D1,42,36,6,Cardiology
+2025-06-19,D2,32,23,9,Orthopedics
+2025-06-19,D3,33,30,3,Neurology
+2025-06-19,D4,57,36,21,General Medicine
+2025-06-19,D5,48,32,16,Surgery
+2025-06-19,D6,20,19,1,Emergency
+2025-06-20,D1,39,31,8,Cardiology
+2025-06-20,D2,34,27,7,Orthopedics
+2025-06-20,D3,33,19,14,Neurology
+2025-06-20,D4,54,41,13,General Medicine
+2025-06-20,D5,48,38,10,Surgery
+2025-06-20,D6,22,17,5,Emergency
+2025-06-21,D1,39,23,16,Cardiology
+2025-06-21,D2,35,26,9,Orthopedics
+2025-06-21,D3,28,17,11,Neurology
+2025-06-21,D4,54,48,6,General Medicine
+2025-06-21,D5,45,31,14,Surgery
+2025-06-21,D6,23,19,4,Emergency
+2025-06-22,D1,37,31,6,Cardiology
+2025-06-22,D2,32,16,16,Orthopedics
+2025-06-22,D3,30,15,15,Neurology
+2025-06-22,D4,53,47,6,General Medicine
+2025-06-22,D5,46,25,21,Surgery
+2025-06-22,D6,24,13,11,Emergency
+2025-06-23,D1,41,22,19,Cardiology
+2025-06-23,D2,33,22,11,Orthopedics
+2025-06-23,D3,28,16,12,Neurology
+2025-06-23,D4,56,31,25,General Medicine
+2025-06-23,D5,44,24,20,Surgery
+2025-06-23,D6,21,20,1,Emergency
+2025-06-24,D1,43,33,10,Cardiology
+2025-06-24,D2,35,32,3,Orthopedics
+2025-06-24,D3,33,30,3,Neurology
+2025-06-24,D4,55,46,9,General Medicine
+2025-06-24,D5,44,24,20,Surgery
+2025-06-24,D6,22,20,2,Emergency
+2025-06-25,D1,41,32,9,Cardiology
+2025-06-25,D2,29,20,9,Orthopedics
+2025-06-25,D3,27,19,8,Neurology
+2025-06-25,D4,53,41,12,General Medicine
+2025-06-25,D5,43,35,8,Surgery
+2025-06-25,D6,23,13,10,Emergency
+2025-06-26,D1,41,30,11,Cardiology
+2025-06-26,D2,29,21,8,Orthopedics
+2025-06-26,D3,29,28,1,Neurology
+2025-06-26,D4,55,49,6,General Medicine
+2025-06-26,D5,43,24,19,Surgery
+2025-06-26,D6,20,14,6,Emergency
+2025-06-27,D1,40,21,19,Cardiology
+2025-06-27,D2,35,25,10,Orthopedics
+2025-06-27,D3,27,14,13,Neurology
+2025-06-27,D4,52,45,7,General Medicine
+2025-06-27,D5,46,41,5,Surgery
+2025-06-27,D6,20,15,5,Emergency
+2025-06-28,D1,37,24,13,Cardiology
+2025-06-28,D2,32,25,7,Orthopedics
+2025-06-28,D3,29,18,11,Neurology
+2025-06-28,D4,58,40,18,General Medicine
+2025-06-28,D5,45,33,12,Surgery
+2025-06-28,D6,25,24,1,Emergency
+2025-06-29,D1,38,36,2,Cardiology
+2025-06-29,D2,29,17,12,Orthopedics
+2025-06-29,D3,31,24,7,Neurology
+2025-06-29,D4,58,51,7,General Medicine
+2025-06-29,D5,46,42,4,Surgery
+2025-06-29,D6,23,13,10,Emergency
+2025-06-30,D1,42,27,15,Cardiology
+2025-06-30,D2,34,22,12,Orthopedics
+2025-06-30,D3,28,20,8,Neurology
+2025-06-30,D4,53,32,21,General Medicine
+2025-06-30,D5,42,32,10,Surgery
+2025-06-30,D6,25,18,7,Emergency
+2025-07-01,D1,38,24,14,Cardiology
+2025-07-01,D2,32,18,14,Orthopedics
+2025-07-01,D3,33,29,4,Neurology
+2025-07-01,D4,55,37,18,General Medicine
+2025-07-01,D5,46,25,21,Surgery
+2025-07-01,D6,25,20,5,Emergency
+2025-07-02,D1,42,40,2,Cardiology
+2025-07-02,D2,29,21,8,Orthopedics
+2025-07-02,D3,30,22,8,Neurology
+2025-07-02,D4,56,30,26,General Medicine
+2025-07-02,D5,47,27,20,Surgery
+2025-07-02,D6,19,13,6,Emergency
+2025-07-03,D1,42,34,8,Cardiology
+2025-07-03,D2,35,18,17,Orthopedics
+2025-07-03,D3,30,19,11,Neurology
+2025-07-03,D4,53,43,10,General Medicine
+2025-07-03,D5,48,43,5,Surgery
+2025-07-03,D6,23,19,4,Emergency
+2025-07-04,D1,43,21,22,Cardiology
+2025-07-04,D2,33,17,16,Orthopedics
+2025-07-04,D3,33,24,9,Neurology
+2025-07-04,D4,54,27,27,General Medicine
+2025-07-04,D5,42,35,7,Surgery
+2025-07-04,D6,19,16,3,Emergency
+2025-07-05,D1,38,33,5,Cardiology
+2025-07-05,D2,29,22,7,Orthopedics
+2025-07-05,D3,33,20,13,Neurology
+2025-07-05,D4,55,34,21,General Medicine
+2025-07-05,D5,48,41,7,Surgery
+2025-07-05,D6,25,13,12,Emergency
+2025-07-06,D1,39,29,10,Cardiology
+2025-07-06,D2,33,23,10,Orthopedics
+2025-07-06,D3,32,23,9,Neurology
+2025-07-06,D4,54,29,25,General Medicine
+2025-07-06,D5,45,24,21,Surgery
+2025-07-06,D6,21,12,9,Emergency
+2025-07-07,D1,37,20,17,Cardiology
+2025-07-07,D2,34,28,6,Orthopedics
+2025-07-07,D3,29,22,7,Neurology
+2025-07-07,D4,55,27,28,General Medicine
+2025-07-07,D5,44,40,4,Surgery
+2025-07-07,D6,24,19,5,Emergency
+2025-07-08,D1,42,39,3,Cardiology
+2025-07-08,D2,29,26,3,Orthopedics
+2025-07-08,D3,32,18,14,Neurology
+2025-07-08,D4,52,31,21,General Medicine
+2025-07-08,D5,48,44,4,Surgery
+2025-07-08,D6,22,12,10,Emergency
+2025-07-09,D1,38,36,2,Cardiology
+2025-07-09,D2,33,22,11,Orthopedics
+2025-07-09,D3,33,17,16,Neurology
+2025-07-09,D4,57,49,8,General Medicine
+2025-07-09,D5,42,29,13,Surgery
+2025-07-09,D6,21,13,8,Emergency
+2025-07-10,D1,43,39,4,Cardiology
+2025-07-10,D2,34,30,4,Orthopedics
+2025-07-10,D3,33,21,12,Neurology
+2025-07-10,D4,57,30,27,General Medicine
+2025-07-10,D5,43,30,13,Surgery
+2025-07-10,D6,20,13,7,Emergency
+2025-07-11,D1,39,27,12,Cardiology
+2025-07-11,D2,34,26,8,Orthopedics
+2025-07-11,D3,31,17,14,Neurology
+2025-07-11,D4,53,42,11,General Medicine
+2025-07-11,D5,45,24,21,Surgery
+2025-07-11,D6,25,13,12,Emergency
+2025-07-12,D1,40,36,4,Cardiology
+2025-07-12,D2,30,15,15,Orthopedics
+2025-07-12,D3,32,25,7,Neurology
+2025-07-12,D4,57,29,28,General Medicine
+2025-07-12,D5,46,41,5,Surgery
+2025-07-12,D6,19,14,5,Emergency
+2025-07-13,D1,37,24,13,Cardiology
+2025-07-13,D2,35,29,6,Orthopedics
+2025-07-13,D3,30,25,5,Neurology
+2025-07-13,D4,54,40,14,General Medicine
+2025-07-13,D5,42,37,5,Surgery
+2025-07-13,D6,20,14,6,Emergency
+2025-07-14,D1,42,33,9,Cardiology
+2025-07-14,D2,29,15,14,Orthopedics
+2025-07-14,D3,30,17,13,Neurology
+2025-07-14,D4,53,36,17,General Medicine
+2025-07-14,D5,44,35,9,Surgery
+2025-07-14,D6,22,19,3,Emergency
+2025-07-15,D1,39,36,3,Cardiology
+2025-07-15,D2,30,18,12,Orthopedics
+2025-07-15,D3,30,28,2,Neurology
+2025-07-15,D4,55,51,4,General Medicine
+2025-07-15,D5,48,45,3,Surgery
+2025-07-15,D6,19,10,9,Emergency
+2025-07-16,D1,37,26,11,Cardiology
+2025-07-16,D2,34,23,11,Orthopedics
+2025-07-16,D3,31,17,14,Neurology
+2025-07-16,D4,53,48,5,General Medicine
+2025-07-16,D5,44,42,2,Surgery
+2025-07-16,D6,23,19,4,Emergency
+2025-07-17,D1,41,37,4,Cardiology
+2025-07-17,D2,34,24,10,Orthopedics
+2025-07-17,D3,32,26,6,Neurology
+2025-07-17,D4,56,36,20,General Medicine
+2025-07-17,D5,46,42,4,Surgery
+2025-07-17,D6,25,18,7,Emergency
+2025-07-18,D1,42,39,3,Cardiology
+2025-07-18,D2,29,24,5,Orthopedics
+2025-07-18,D3,30,16,14,Neurology
+2025-07-18,D4,53,36,17,General Medicine
+2025-07-18,D5,48,35,13,Surgery
+2025-07-18,D6,20,15,5,Emergency
+2025-07-19,D1,41,34,7,Cardiology
+2025-07-19,D2,30,29,1,Orthopedics
+2025-07-19,D3,28,25,3,Neurology
+2025-07-19,D4,56,46,10,General Medicine
+2025-07-19,D5,42,40,2,Surgery
+2025-07-19,D6,22,13,9,Emergency
+2025-07-20,D1,40,24,16,Cardiology
+2025-07-20,D2,29,23,6,Orthopedics
+2025-07-20,D3,29,16,13,Neurology
+2025-07-20,D4,58,36,22,General Medicine
+2025-07-20,D5,43,32,11,Surgery
+2025-07-20,D6,23,19,4,Emergency
+2025-07-21,D1,40,20,20,Cardiology
+2025-07-21,D2,32,20,12,Orthopedics
+2025-07-21,D3,27,14,13,Neurology
+2025-07-21,D4,57,32,25,General Medicine
+2025-07-21,D5,43,36,7,Surgery
+2025-07-21,D6,24,14,10,Emergency
+2025-07-22,D1,41,23,18,Cardiology
+2025-07-22,D2,34,20,14,Orthopedics
+2025-07-22,D3,29,23,6,Neurology
+2025-07-22,D4,56,27,29,General Medicine
+2025-07-22,D5,46,29,17,Surgery
+2025-07-22,D6,21,12,9,Emergency
+2025-07-23,D1,38,26,12,Cardiology
+2025-07-23,D2,33,17,16,Orthopedics
+2025-07-23,D3,32,29,3,Neurology
+2025-07-23,D4,58,48,10,General Medicine
+2025-07-23,D5,45,36,9,Surgery
+2025-07-23,D6,25,13,12,Emergency
+2025-07-24,D1,40,28,12,Cardiology
+2025-07-24,D2,35,33,2,Orthopedics
+2025-07-24,D3,31,29,2,Neurology
+2025-07-24,D4,53,44,9,General Medicine
+2025-07-24,D5,43,32,11,Surgery
+2025-07-24,D6,23,18,5,Emergency
+2025-07-25,D1,43,22,21,Cardiology
+2025-07-25,D2,33,19,14,Orthopedics
+2025-07-25,D3,27,19,8,Neurology
+2025-07-25,D4,52,48,4,General Medicine
+2025-07-25,D5,42,33,9,Surgery
+2025-07-25,D6,23,17,6,Emergency
+2025-07-26,D1,43,27,16,Cardiology
+2025-07-26,D2,32,30,2,Orthopedics
+2025-07-26,D3,27,18,9,Neurology
+2025-07-26,D4,55,42,13,General Medicine
+2025-07-26,D5,48,42,6,Surgery
+2025-07-26,D6,19,15,4,Emergency
+2025-07-27,D1,43,40,3,Cardiology
+2025-07-27,D2,34,33,1,Orthopedics
+2025-07-27,D3,33,28,5,Neurology
+2025-07-27,D4,55,32,23,General Medicine
+2025-07-27,D5,45,25,20,Surgery
+2025-07-27,D6,23,12,11,Emergency
+2025-07-28,D1,43,21,22,Cardiology
+2025-07-28,D2,29,24,5,Orthopedics
+2025-07-28,D3,32,23,9,Neurology
+2025-07-28,D4,58,31,27,General Medicine
+2025-07-28,D5,47,27,20,Surgery
+2025-07-28,D6,24,14,10,Emergency
+2025-07-29,D1,42,39,3,Cardiology
+2025-07-29,D2,33,27,6,Orthopedics
+2025-07-29,D3,30,16,14,Neurology
+2025-07-29,D4,52,37,15,General Medicine
+2025-07-29,D5,48,34,14,Surgery
+2025-07-29,D6,22,14,8,Emergency
+2025-07-30,D1,43,33,10,Cardiology
+2025-07-30,D2,34,22,12,Orthopedics
+2025-07-30,D3,27,18,9,Neurology
+2025-07-30,D4,52,26,26,General Medicine
+2025-07-30,D5,45,38,7,Surgery
+2025-07-30,D6,21,15,6,Emergency
+2025-07-31,D1,39,36,3,Cardiology
+2025-07-31,D2,30,15,15,Orthopedics
+2025-07-31,D3,31,24,7,Neurology
+2025-07-31,D4,58,38,20,General Medicine
+2025-07-31,D5,45,42,3,Surgery
+2025-07-31,D6,20,13,7,Emergency
+2025-08-01,D1,38,26,12,Cardiology
+2025-08-01,D2,33,18,15,Orthopedics
+2025-08-01,D3,27,22,5,Neurology
+2025-08-01,D4,55,31,24,General Medicine
+2025-08-01,D5,48,41,7,Surgery
+2025-08-01,D6,20,11,9,Emergency
+2025-08-02,D1,39,26,13,Cardiology
+2025-08-02,D2,35,21,14,Orthopedics
+2025-08-02,D3,30,24,6,Neurology
+2025-08-02,D4,58,55,3,General Medicine
+2025-08-02,D5,42,34,8,Surgery
+2025-08-02,D6,25,13,12,Emergency
+2025-08-03,D1,41,24,17,Cardiology
+2025-08-03,D2,35,17,18,Orthopedics
+2025-08-03,D3,33,21,12,Neurology
+2025-08-03,D4,53,42,11,General Medicine
+2025-08-03,D5,42,36,6,Surgery
+2025-08-03,D6,25,20,5,Emergency
+2025-08-04,D1,37,28,9,Cardiology
+2025-08-04,D2,34,26,8,Orthopedics
+2025-08-04,D3,32,27,5,Neurology
+2025-08-04,D4,55,52,3,General Medicine
+2025-08-04,D5,48,34,14,Surgery
+2025-08-04,D6,22,13,9,Emergency
+2025-08-05,D1,41,35,6,Cardiology
+2025-08-05,D2,30,21,9,Orthopedics
+2025-08-05,D3,27,25,2,Neurology
+2025-08-05,D4,52,32,20,General Medicine
+2025-08-05,D5,45,39,6,Surgery
+2025-08-05,D6,19,10,9,Emergency
+2025-08-06,D1,39,27,12,Cardiology
+2025-08-06,D2,34,17,17,Orthopedics
+2025-08-06,D3,33,31,2,Neurology
+2025-08-06,D4,52,47,5,General Medicine
+2025-08-06,D5,46,29,17,Surgery
+2025-08-06,D6,19,15,4,Emergency
+2025-08-07,D1,41,25,16,Cardiology
+2025-08-07,D2,35,28,7,Orthopedics
+2025-08-07,D3,28,19,9,Neurology
+2025-08-07,D4,57,30,27,General Medicine
+2025-08-07,D5,46,38,8,Surgery
+2025-08-07,D6,19,9,10,Emergency
+2025-08-08,D1,38,36,2,Cardiology
+2025-08-08,D2,33,18,15,Orthopedics
+2025-08-08,D3,30,17,13,Neurology
+2025-08-08,D4,54,47,7,General Medicine
+2025-08-08,D5,48,41,7,Surgery
+2025-08-08,D6,20,11,9,Emergency
+2025-08-09,D1,37,33,4,Cardiology
+2025-08-09,D2,29,20,9,Orthopedics
+2025-08-09,D3,30,17,13,Neurology
+2025-08-09,D4,56,33,23,General Medicine
+2025-08-09,D5,46,39,7,Surgery
+2025-08-09,D6,21,20,1,Emergency
+2025-08-10,D1,43,28,15,Cardiology
+2025-08-10,D2,29,24,5,Orthopedics
+2025-08-10,D3,33,30,3,Neurology
+2025-08-10,D4,52,36,16,General Medicine
+2025-08-10,D5,45,31,14,Surgery
+2025-08-10,D6,24,20,4,Emergency
+2025-08-11,D1,43,40,3,Cardiology
+2025-08-11,D2,34,32,2,Orthopedics
+2025-08-11,D3,28,14,14,Neurology
+2025-08-11,D4,53,46,7,General Medicine
+2025-08-11,D5,42,28,14,Surgery
+2025-08-11,D6,19,15,4,Emergency
+2025-08-12,D1,41,29,12,Cardiology
+2025-08-12,D2,29,15,14,Orthopedics
+2025-08-12,D3,33,28,5,Neurology
+2025-08-12,D4,53,39,14,General Medicine
+2025-08-12,D5,43,24,19,Surgery
+2025-08-12,D6,20,14,6,Emergency
+2025-08-13,D1,38,30,8,Cardiology
+2025-08-13,D2,32,19,13,Orthopedics
+2025-08-13,D3,28,21,7,Neurology
+2025-08-13,D4,52,28,24,General Medicine
+2025-08-13,D5,48,28,20,Surgery
+2025-08-13,D6,24,14,10,Emergency
+2025-08-14,D1,40,30,10,Cardiology
+2025-08-14,D2,30,24,6,Orthopedics
+2025-08-14,D3,32,18,14,Neurology
+2025-08-14,D4,55,49,6,General Medicine
+2025-08-14,D5,47,27,20,Surgery
+2025-08-14,D6,25,23,2,Emergency
+2025-08-15,D1,41,37,4,Cardiology
+2025-08-15,D2,30,27,3,Orthopedics
+2025-08-15,D3,31,24,7,Neurology
+2025-08-15,D4,57,28,29,General Medicine
+2025-08-15,D5,44,26,18,Surgery
+2025-08-15,D6,24,21,3,Emergency
+2025-08-16,D1,43,30,13,Cardiology
+2025-08-16,D2,29,28,1,Orthopedics
+2025-08-16,D3,31,22,9,Neurology
+2025-08-16,D4,57,39,18,General Medicine
+2025-08-16,D5,47,44,3,Surgery
+2025-08-16,D6,19,18,1,Emergency
+2025-08-17,D1,40,22,18,Cardiology
+2025-08-17,D2,31,15,16,Orthopedics
+2025-08-17,D3,30,25,5,Neurology
+2025-08-17,D4,57,53,4,General Medicine
+2025-08-17,D5,47,44,3,Surgery
+2025-08-17,D6,25,20,5,Emergency
+2025-08-18,D1,42,29,13,Cardiology
+2025-08-18,D2,35,19,16,Orthopedics
+2025-08-18,D3,29,23,6,Neurology
+2025-08-18,D4,57,31,26,General Medicine
+2025-08-18,D5,46,35,11,Surgery
+2025-08-18,D6,24,17,7,Emergency
+2025-08-19,D1,43,31,12,Cardiology
+2025-08-19,D2,31,26,5,Orthopedics
+2025-08-19,D3,31,19,12,Neurology
+2025-08-19,D4,56,43,13,General Medicine
+2025-08-19,D5,47,40,7,Surgery
+2025-08-19,D6,21,16,5,Emergency
+2025-08-20,D1,42,33,9,Cardiology
+2025-08-20,D2,29,25,4,Orthopedics
+2025-08-20,D3,32,20,12,Neurology
+2025-08-20,D4,58,54,4,General Medicine
+2025-08-20,D5,45,38,7,Surgery
+2025-08-20,D6,21,17,4,Emergency
+2025-08-21,D1,39,34,5,Cardiology
+2025-08-21,D2,29,17,12,Orthopedics
+2025-08-21,D3,33,25,8,Neurology
+2025-08-21,D4,54,35,19,General Medicine
+2025-08-21,D5,42,25,17,Surgery
+2025-08-21,D6,19,15,4,Emergency
+2025-08-22,D1,38,34,4,Cardiology
+2025-08-22,D2,32,20,12,Orthopedics
+2025-08-22,D3,32,19,13,Neurology
+2025-08-22,D4,57,55,2,General Medicine
+2025-08-22,D5,47,25,22,Surgery
+2025-08-22,D6,24,17,7,Emergency
+2025-08-23,D1,42,39,3,Cardiology
+2025-08-23,D2,33,30,3,Orthopedics
+2025-08-23,D3,28,22,6,Neurology
+2025-08-23,D4,57,44,13,General Medicine
+2025-08-23,D5,42,28,14,Surgery
+2025-08-23,D6,24,15,9,Emergency
+2025-08-24,D1,37,31,6,Cardiology
+2025-08-24,D2,33,23,10,Orthopedics
+2025-08-24,D3,29,27,2,Neurology
+2025-08-24,D4,56,28,28,General Medicine
+2025-08-24,D5,45,27,18,Surgery
+2025-08-24,D6,24,14,10,Emergency
+2025-08-25,D1,38,29,9,Cardiology
+2025-08-25,D2,34,27,7,Orthopedics
+2025-08-25,D3,32,28,4,Neurology
+2025-08-25,D4,57,31,26,General Medicine
+2025-08-25,D5,47,23,24,Surgery
+2025-08-25,D6,20,16,4,Emergency
+2025-08-26,D1,37,21,16,Cardiology
+2025-08-26,D2,34,22,12,Orthopedics
+2025-08-26,D3,32,18,14,Neurology
+2025-08-26,D4,57,48,9,General Medicine
+2025-08-26,D5,48,30,18,Surgery
+2025-08-26,D6,22,16,6,Emergency
+2025-08-27,D1,43,36,7,Cardiology
+2025-08-27,D2,32,25,7,Orthopedics
+2025-08-27,D3,28,24,4,Neurology
+2025-08-27,D4,56,27,29,General Medicine
+2025-08-27,D5,42,33,9,Surgery
+2025-08-27,D6,21,10,11,Emergency
+2025-08-28,D1,38,28,10,Cardiology
+2025-08-28,D2,30,28,2,Orthopedics
+2025-08-28,D3,29,26,3,Neurology
+2025-08-28,D4,56,35,21,General Medicine
+2025-08-28,D5,43,37,6,Surgery
+2025-08-28,D6,25,15,10,Emergency
+2025-08-29,D1,37,20,17,Cardiology
+2025-08-29,D2,30,19,11,Orthopedics
+2025-08-29,D3,28,13,15,Neurology
+2025-08-29,D4,52,45,7,General Medicine
+2025-08-29,D5,48,44,4,Surgery
+2025-08-29,D6,19,17,2,Emergency
+2025-08-30,D1,43,24,19,Cardiology
+2025-08-30,D2,30,22,8,Orthopedics
+2025-08-30,D3,27,25,2,Neurology
+2025-08-30,D4,56,51,5,General Medicine
+2025-08-30,D5,43,32,11,Surgery
+2025-08-30,D6,20,15,5,Emergency
+2025-08-31,D1,42,37,5,Cardiology
+2025-08-31,D2,35,27,8,Orthopedics
+2025-08-31,D3,32,22,10,Neurology
+2025-08-31,D4,55,46,9,General Medicine
+2025-08-31,D5,43,32,11,Surgery
+2025-08-31,D6,24,21,3,Emergency
+2025-09-01,D1,42,33,9,Cardiology
+2025-09-01,D2,31,22,9,Orthopedics
+2025-09-01,D3,27,19,8,Neurology
+2025-09-01,D4,53,30,23,General Medicine
+2025-09-01,D5,45,31,14,Surgery
+2025-09-01,D6,22,11,11,Emergency
+2025-09-02,D1,37,27,10,Cardiology
+2025-09-02,D2,32,30,2,Orthopedics
+2025-09-02,D3,32,21,11,Neurology
+2025-09-02,D4,57,36,21,General Medicine
+2025-09-02,D5,48,26,22,Surgery
+2025-09-02,D6,23,14,9,Emergency
+2025-09-03,D1,43,33,10,Cardiology
+2025-09-03,D2,32,22,10,Orthopedics
+2025-09-03,D3,31,27,4,Neurology
+2025-09-03,D4,54,40,14,General Medicine
+2025-09-03,D5,45,43,2,Surgery
+2025-09-03,D6,20,14,6,Emergency
+2025-09-04,D1,42,26,16,Cardiology
+2025-09-04,D2,33,31,2,Orthopedics
+2025-09-04,D3,29,27,2,Neurology
+2025-09-04,D4,54,49,5,General Medicine
+2025-09-04,D5,46,27,19,Surgery
+2025-09-04,D6,23,16,7,Emergency
+2025-09-05,D1,39,24,15,Cardiology
+2025-09-05,D2,30,18,12,Orthopedics
+2025-09-05,D3,27,18,9,Neurology
+2025-09-05,D4,58,31,27,General Medicine
+2025-09-05,D5,47,27,20,Surgery
+2025-09-05,D6,23,18,5,Emergency
+2025-09-06,D1,39,25,14,Cardiology
+2025-09-06,D2,34,22,12,Orthopedics
+2025-09-06,D3,31,24,7,Neurology
+2025-09-06,D4,54,41,13,General Medicine
+2025-09-06,D5,44,24,20,Surgery
+2025-09-06,D6,21,13,8,Emergency
+2025-09-07,D1,39,31,8,Cardiology
+2025-09-07,D2,29,18,11,Orthopedics
+2025-09-07,D3,27,25,2,Neurology
+2025-09-07,D4,58,37,21,General Medicine
+2025-09-07,D5,44,30,14,Surgery
+2025-09-07,D6,25,14,11,Emergency
+2025-09-08,D1,41,35,6,Cardiology
+2025-09-08,D2,32,17,15,Orthopedics
+2025-09-08,D3,28,15,13,Neurology
+2025-09-08,D4,54,43,11,General Medicine
+2025-09-08,D5,46,29,17,Surgery
+2025-09-08,D6,20,12,8,Emergency
+2025-09-09,D1,43,32,11,Cardiology
+2025-09-09,D2,32,26,6,Orthopedics
+2025-09-09,D3,31,27,4,Neurology
+2025-09-09,D4,56,46,10,General Medicine
+2025-09-09,D5,45,36,9,Surgery
+2025-09-09,D6,22,17,5,Emergency
+2025-09-10,D1,43,36,7,Cardiology
+2025-09-10,D2,32,27,5,Orthopedics
+2025-09-10,D3,27,22,5,Neurology
+2025-09-10,D4,56,39,17,General Medicine
+2025-09-10,D5,45,30,15,Surgery
+2025-09-10,D6,21,18,3,Emergency
+2025-09-11,D1,42,35,7,Cardiology
+2025-09-11,D2,34,17,17,Orthopedics
+2025-09-11,D3,30,28,2,Neurology
+2025-09-11,D4,52,49,3,General Medicine
+2025-09-11,D5,43,32,11,Surgery
+2025-09-11,D6,22,15,7,Emergency
+2025-09-12,D1,40,23,17,Cardiology
+2025-09-12,D2,34,19,15,Orthopedics
+2025-09-12,D3,32,20,12,Neurology
+2025-09-12,D4,54,41,13,General Medicine
+2025-09-12,D5,45,23,22,Surgery
+2025-09-12,D6,24,13,11,Emergency
+2025-09-13,D1,41,34,7,Cardiology
+2025-09-13,D2,35,28,7,Orthopedics
+2025-09-13,D3,29,15,14,Neurology
+2025-09-13,D4,52,27,25,General Medicine
+2025-09-13,D5,48,38,10,Surgery
+2025-09-13,D6,21,19,2,Emergency
+2025-09-14,D1,39,30,9,Cardiology
+2025-09-14,D2,34,23,11,Orthopedics
+2025-09-14,D3,27,20,7,Neurology
+2025-09-14,D4,54,32,22,General Medicine
+2025-09-14,D5,46,36,10,Surgery
+2025-09-14,D6,21,18,3,Emergency
+2025-09-15,D1,43,35,8,Cardiology
+2025-09-15,D2,31,17,14,Orthopedics
+2025-09-15,D3,32,19,13,Neurology
+2025-09-15,D4,58,35,23,General Medicine
+2025-09-15,D5,44,22,22,Surgery
+2025-09-15,D6,19,16,3,Emergency
+2025-09-16,D1,39,24,15,Cardiology
+2025-09-16,D2,35,21,14,Orthopedics
+2025-09-16,D3,30,18,12,Neurology
+2025-09-16,D4,58,43,15,General Medicine
+2025-09-16,D5,48,27,21,Surgery
+2025-09-16,D6,22,18,4,Emergency
+2025-09-17,D1,42,37,5,Cardiology
+2025-09-17,D2,33,27,6,Orthopedics
+2025-09-17,D3,32,26,6,Neurology
+2025-09-17,D4,57,32,25,General Medicine
+2025-09-17,D5,46,34,12,Surgery
+2025-09-17,D6,21,12,9,Emergency
+2025-09-18,D1,39,34,5,Cardiology
+2025-09-18,D2,34,22,12,Orthopedics
+2025-09-18,D3,27,16,11,Neurology
+2025-09-18,D4,55,45,10,General Medicine
+2025-09-18,D5,46,24,22,Surgery
+2025-09-18,D6,20,18,2,Emergency
+2025-09-19,D1,42,26,16,Cardiology
+2025-09-19,D2,29,15,14,Orthopedics
+2025-09-19,D3,31,18,13,Neurology
+2025-09-19,D4,57,49,8,General Medicine
+2025-09-19,D5,48,38,10,Surgery
+2025-09-19,D6,22,15,7,Emergency
+2025-09-20,D1,38,21,17,Cardiology
+2025-09-20,D2,30,25,5,Orthopedics
+2025-09-20,D3,28,18,10,Neurology
+2025-09-20,D4,54,33,21,General Medicine
+2025-09-20,D5,46,39,7,Surgery
+2025-09-20,D6,25,24,1,Emergency
+2025-09-21,D1,43,40,3,Cardiology
+2025-09-21,D2,34,31,3,Orthopedics
+2025-09-21,D3,28,27,1,Neurology
+2025-09-21,D4,57,41,16,General Medicine
+2025-09-21,D5,44,34,10,Surgery
+2025-09-21,D6,22,21,1,Emergency
+2025-09-22,D1,37,27,10,Cardiology
+2025-09-22,D2,34,27,7,Orthopedics
+2025-09-22,D3,33,20,13,Neurology
+2025-09-22,D4,55,49,6,General Medicine
+2025-09-22,D5,46,25,21,Surgery
+2025-09-22,D6,22,11,11,Emergency
+2025-09-23,D1,40,20,20,Cardiology
+2025-09-23,D2,31,24,7,Orthopedics
+2025-09-23,D3,29,17,12,Neurology
+2025-09-23,D4,54,52,2,General Medicine
+2025-09-23,D5,46,43,3,Surgery
+2025-09-23,D6,20,10,10,Emergency
+2025-09-24,D1,39,35,4,Cardiology
+2025-09-24,D2,29,23,6,Orthopedics
+2025-09-24,D3,31,30,1,Neurology
+2025-09-24,D4,52,42,10,General Medicine
+2025-09-24,D5,42,40,2,Surgery
+2025-09-24,D6,23,22,1,Emergency
+2025-09-25,D1,43,40,3,Cardiology
+2025-09-25,D2,31,21,10,Orthopedics
+2025-09-25,D3,27,21,6,Neurology
+2025-09-25,D4,55,36,19,General Medicine
+2025-09-25,D5,42,20,22,Surgery
+2025-09-25,D6,24,12,12,Emergency
+2025-09-26,D1,42,38,4,Cardiology
+2025-09-26,D2,34,31,3,Orthopedics
+2025-09-26,D3,29,17,12,Neurology
+2025-09-26,D4,57,28,29,General Medicine
+2025-09-26,D5,48,36,12,Surgery
+2025-09-26,D6,24,13,11,Emergency
+2025-09-27,D1,37,23,14,Cardiology
+2025-09-27,D2,34,23,11,Orthopedics
+2025-09-27,D3,28,15,13,Neurology
+2025-09-27,D4,52,36,16,General Medicine
+2025-09-27,D5,43,31,12,Surgery
+2025-09-27,D6,22,20,2,Emergency
+2025-09-28,D1,42,35,7,Cardiology
+2025-09-28,D2,29,17,12,Orthopedics
+2025-09-28,D3,32,22,10,Neurology
+2025-09-28,D4,53,51,2,General Medicine
+2025-09-28,D5,42,32,10,Surgery
+2025-09-28,D6,19,15,4,Emergency
+2025-09-29,D1,41,38,3,Cardiology
+2025-09-29,D2,29,28,1,Orthopedics
+2025-09-29,D3,27,16,11,Neurology
+2025-09-29,D4,52,50,2,General Medicine
+2025-09-29,D5,48,42,6,Surgery
+2025-09-29,D6,25,18,7,Emergency
+2025-09-30,D1,43,30,13,Cardiology
+2025-09-30,D2,34,19,15,Orthopedics
+2025-09-30,D3,28,17,11,Neurology
+2025-09-30,D4,56,43,13,General Medicine
+2025-09-30,D5,46,44,2,Surgery
+2025-09-30,D6,22,14,8,Emergency
+2025-10-01,D1,42,32,10,Cardiology
+2025-10-01,D2,33,17,16,Orthopedics
+2025-10-01,D3,30,21,9,Neurology
+2025-10-01,D4,53,48,5,General Medicine
+2025-10-01,D5,43,34,9,Surgery
+2025-10-01,D6,20,11,9,Emergency
+2025-10-02,D1,37,20,17,Cardiology
+2025-10-02,D2,30,15,15,Orthopedics
+2025-10-02,D3,33,31,2,Neurology
+2025-10-02,D4,52,26,26,General Medicine
+2025-10-02,D5,42,32,10,Surgery
+2025-10-02,D6,23,20,3,Emergency
+2025-10-03,D1,41,36,5,Cardiology
+2025-10-03,D2,31,25,6,Orthopedics
+2025-10-03,D3,30,17,13,Neurology
+2025-10-03,D4,56,32,24,General Medicine
+2025-10-03,D5,48,39,9,Surgery
+2025-10-03,D6,23,11,12,Emergency
+2025-10-04,D1,40,32,8,Cardiology
+2025-10-04,D2,32,28,4,Orthopedics
+2025-10-04,D3,31,24,7,Neurology
+2025-10-04,D4,54,40,14,General Medicine
+2025-10-04,D5,46,40,6,Surgery
+2025-10-04,D6,21,15,6,Emergency
+2025-10-05,D1,42,34,8,Cardiology
+2025-10-05,D2,32,17,15,Orthopedics
+2025-10-05,D3,32,26,6,Neurology
+2025-10-05,D4,55,34,21,General Medicine
+2025-10-05,D5,43,26,17,Surgery
+2025-10-05,D6,19,18,1,Emergency
+2025-10-06,D1,40,34,6,Cardiology
+2025-10-06,D2,32,28,4,Orthopedics
+2025-10-06,D3,30,26,4,Neurology
+2025-10-06,D4,53,45,8,General Medicine
+2025-10-06,D5,46,35,11,Surgery
+2025-10-06,D6,25,19,6,Emergency
+2025-10-07,D1,40,33,7,Cardiology
+2025-10-07,D2,31,16,15,Orthopedics
+2025-10-07,D3,33,30,3,Neurology
+2025-10-07,D4,56,35,21,General Medicine
+2025-10-07,D5,44,39,5,Surgery
+2025-10-07,D6,23,21,2,Emergency
+2025-10-08,D1,39,20,19,Cardiology
+2025-10-08,D2,31,20,11,Orthopedics
+2025-10-08,D3,31,26,5,Neurology
+2025-10-08,D4,52,28,24,General Medicine
+2025-10-08,D5,47,23,24,Surgery
+2025-10-08,D6,22,19,3,Emergency
+2025-10-09,D1,43,22,21,Cardiology
+2025-10-09,D2,34,31,3,Orthopedics
+2025-10-09,D3,30,23,7,Neurology
+2025-10-09,D4,52,44,8,General Medicine
+2025-10-09,D5,43,28,15,Surgery
+2025-10-09,D6,20,15,5,Emergency
+2025-10-10,D1,38,31,7,Cardiology
+2025-10-10,D2,34,32,2,Orthopedics
+2025-10-10,D3,29,20,9,Neurology
+2025-10-10,D4,57,51,6,General Medicine
+2025-10-10,D5,46,30,16,Surgery
+2025-10-10,D6,19,12,7,Emergency
+2025-10-11,D1,40,37,3,Cardiology
+2025-10-11,D2,29,16,13,Orthopedics
+2025-10-11,D3,30,26,4,Neurology
+2025-10-11,D4,53,46,7,General Medicine
+2025-10-11,D5,44,26,18,Surgery
+2025-10-11,D6,24,19,5,Emergency
+2025-10-12,D1,40,23,17,Cardiology
+2025-10-12,D2,35,30,5,Orthopedics
+2025-10-12,D3,32,25,7,Neurology
+2025-10-12,D4,52,27,25,General Medicine
+2025-10-12,D5,44,36,8,Surgery
+2025-10-12,D6,21,19,2,Emergency
+2025-10-13,D1,42,35,7,Cardiology
+2025-10-13,D2,33,27,6,Orthopedics
+2025-10-13,D3,27,22,5,Neurology
+2025-10-13,D4,53,39,14,General Medicine
+2025-10-13,D5,48,36,12,Surgery
+2025-10-13,D6,19,18,1,Emergency
+2025-10-14,D1,38,32,6,Cardiology
+2025-10-14,D2,32,26,6,Orthopedics
+2025-10-14,D3,31,23,8,Neurology
+2025-10-14,D4,52,42,10,General Medicine
+2025-10-14,D5,42,34,8,Surgery
+2025-10-14,D6,25,13,12,Emergency
+2025-10-15,D1,38,23,15,Cardiology
+2025-10-15,D2,35,30,5,Orthopedics
+2025-10-15,D3,33,16,17,Neurology
+2025-10-15,D4,55,48,7,General Medicine
+2025-10-15,D5,48,41,7,Surgery
+2025-10-15,D6,21,20,1,Emergency
+2025-10-16,D1,37,18,19,Cardiology
+2025-10-16,D2,34,28,6,Orthopedics
+2025-10-16,D3,27,17,10,Neurology
+2025-10-16,D4,53,29,24,General Medicine
+2025-10-16,D5,42,41,1,Surgery
+2025-10-16,D6,21,13,8,Emergency
+2025-10-17,D1,38,31,7,Cardiology
+2025-10-17,D2,35,17,18,Orthopedics
+2025-10-17,D3,33,29,4,Neurology
+2025-10-17,D4,55,28,27,General Medicine
+2025-10-17,D5,45,38,7,Surgery
+2025-10-17,D6,25,15,10,Emergency
+2025-10-18,D1,40,21,19,Cardiology
+2025-10-18,D2,34,31,3,Orthopedics
+2025-10-18,D3,33,20,13,Neurology
+2025-10-18,D4,52,45,7,General Medicine
+2025-10-18,D5,48,34,14,Surgery
+2025-10-18,D6,25,20,5,Emergency
+2025-10-19,D1,40,39,1,Cardiology
+2025-10-19,D2,32,20,12,Orthopedics
+2025-10-19,D3,31,19,12,Neurology
+2025-10-19,D4,54,45,9,General Medicine
+2025-10-19,D5,48,27,21,Surgery
+2025-10-19,D6,22,13,9,Emergency
+2025-10-20,D1,41,20,21,Cardiology
+2025-10-20,D2,31,19,12,Orthopedics
+2025-10-20,D3,29,24,5,Neurology
+2025-10-20,D4,55,30,25,General Medicine
+2025-10-20,D5,42,34,8,Surgery
+2025-10-20,D6,20,15,5,Emergency
+2025-10-21,D1,37,34,3,Cardiology
+2025-10-21,D2,32,17,15,Orthopedics
+2025-10-21,D3,33,23,10,Neurology
+2025-10-21,D4,54,29,25,General Medicine
+2025-10-21,D5,47,29,18,Surgery
+2025-10-21,D6,20,16,4,Emergency
+2025-10-22,D1,40,24,16,Cardiology
+2025-10-22,D2,32,25,7,Orthopedics
+2025-10-22,D3,29,24,5,Neurology
+2025-10-22,D4,53,30,23,General Medicine
+2025-10-22,D5,44,31,13,Surgery
+2025-10-22,D6,22,19,3,Emergency
+2025-10-23,D1,41,27,14,Cardiology
+2025-10-23,D2,32,30,2,Orthopedics
+2025-10-23,D3,30,19,11,Neurology
+2025-10-23,D4,54,31,23,General Medicine
+2025-10-23,D5,44,30,14,Surgery
+2025-10-23,D6,23,19,4,Emergency
+2025-10-24,D1,43,39,4,Cardiology
+2025-10-24,D2,35,27,8,Orthopedics
+2025-10-24,D3,29,19,10,Neurology
+2025-10-24,D4,57,55,2,General Medicine
+2025-10-24,D5,43,25,18,Surgery
+2025-10-24,D6,25,22,3,Emergency
+2025-10-25,D1,42,31,11,Cardiology
+2025-10-25,D2,32,17,15,Orthopedics
+2025-10-25,D3,32,27,5,Neurology
+2025-10-25,D4,57,35,22,General Medicine
+2025-10-25,D5,42,30,12,Surgery
+2025-10-25,D6,19,11,8,Emergency
+2025-10-26,D1,43,26,17,Cardiology
+2025-10-26,D2,35,32,3,Orthopedics
+2025-10-26,D3,30,20,10,Neurology
+2025-10-26,D4,54,33,21,General Medicine
+2025-10-26,D5,44,35,9,Surgery
+2025-10-26,D6,23,15,8,Emergency
+2025-10-27,D1,43,39,4,Cardiology
+2025-10-27,D2,34,27,7,Orthopedics
+2025-10-27,D3,29,23,6,Neurology
+2025-10-27,D4,53,42,11,General Medicine
+2025-10-27,D5,46,42,4,Surgery
+2025-10-27,D6,20,19,1,Emergency
+2025-10-28,D1,42,36,6,Cardiology
+2025-10-28,D2,33,21,12,Orthopedics
+2025-10-28,D3,27,24,3,Neurology
+2025-10-28,D4,54,49,5,General Medicine
+2025-10-28,D5,43,28,15,Surgery
+2025-10-28,D6,19,12,7,Emergency
+2025-10-29,D1,37,25,12,Cardiology
+2025-10-29,D2,35,29,6,Orthopedics
+2025-10-29,D3,31,25,6,Neurology
+2025-10-29,D4,58,46,12,General Medicine
+2025-10-29,D5,46,27,19,Surgery
+2025-10-29,D6,23,15,8,Emergency
+2025-10-30,D1,41,34,7,Cardiology
+2025-10-30,D2,33,23,10,Orthopedics
+2025-10-30,D3,28,19,9,Neurology
+2025-10-30,D4,53,41,12,General Medicine
+2025-10-30,D5,44,35,9,Surgery
+2025-10-30,D6,19,15,4,Emergency
+2025-10-31,D1,43,36,7,Cardiology
+2025-10-31,D2,35,19,16,Orthopedics
+2025-10-31,D3,27,19,8,Neurology
+2025-10-31,D4,56,54,2,General Medicine
+2025-10-31,D5,43,26,17,Surgery
+2025-10-31,D6,23,19,4,Emergency
+2025-11-01,D1,43,34,9,Cardiology
+2025-11-01,D2,31,30,1,Orthopedics
+2025-11-01,D3,28,24,4,Neurology
+2025-11-01,D4,54,27,27,General Medicine
+2025-11-01,D5,46,35,11,Surgery
+2025-11-01,D6,21,14,7,Emergency
+2025-11-02,D1,39,31,8,Cardiology
+2025-11-02,D2,33,16,17,Orthopedics
+2025-11-02,D3,27,15,12,Neurology
+2025-11-02,D4,58,54,4,General Medicine
+2025-11-02,D5,45,22,23,Surgery
+2025-11-02,D6,25,23,2,Emergency
+2025-11-03,D1,41,38,3,Cardiology
+2025-11-03,D2,33,26,7,Orthopedics
+2025-11-03,D3,28,20,8,Neurology
+2025-11-03,D4,54,32,22,General Medicine
+2025-11-03,D5,45,26,19,Surgery
+2025-11-03,D6,20,14,6,Emergency
+2025-11-04,D1,40,23,17,Cardiology
+2025-11-04,D2,32,16,16,Orthopedics
+2025-11-04,D3,28,25,3,Neurology
+2025-11-04,D4,58,29,29,General Medicine
+2025-11-04,D5,47,36,11,Surgery
+2025-11-04,D6,20,19,1,Emergency
+2025-11-05,D1,41,33,8,Cardiology
+2025-11-05,D2,33,28,5,Orthopedics
+2025-11-05,D3,29,21,8,Neurology
+2025-11-05,D4,55,45,10,General Medicine
+2025-11-05,D5,44,37,7,Surgery
+2025-11-05,D6,22,18,4,Emergency
+2025-11-06,D1,40,25,15,Cardiology
+2025-11-06,D2,33,20,13,Orthopedics
+2025-11-06,D3,31,28,3,Neurology
+2025-11-06,D4,58,49,9,General Medicine
+2025-11-06,D5,42,20,22,Surgery
+2025-11-06,D6,23,15,8,Emergency
+2025-11-07,D1,39,24,15,Cardiology
+2025-11-07,D2,34,32,2,Orthopedics
+2025-11-07,D3,30,17,13,Neurology
+2025-11-07,D4,55,43,12,General Medicine
+2025-11-07,D5,46,40,6,Surgery
+2025-11-07,D6,23,16,7,Emergency
+2025-11-08,D1,40,33,7,Cardiology
+2025-11-08,D2,34,19,15,Orthopedics
+2025-11-08,D3,29,25,4,Neurology
+2025-11-08,D4,56,42,14,General Medicine
+2025-11-08,D5,42,23,19,Surgery
+2025-11-08,D6,20,10,10,Emergency
+2025-11-09,D1,43,21,22,Cardiology
+2025-11-09,D2,31,19,12,Orthopedics
+2025-11-09,D3,32,19,13,Neurology
+2025-11-09,D4,53,34,19,General Medicine
+2025-11-09,D5,42,30,12,Surgery
+2025-11-09,D6,24,18,6,Emergency
+2025-11-10,D1,38,25,13,Cardiology
+2025-11-10,D2,34,26,8,Orthopedics
+2025-11-10,D3,29,19,10,Neurology
+2025-11-10,D4,55,36,19,General Medicine
+2025-11-10,D5,42,36,6,Surgery
+2025-11-10,D6,21,17,4,Emergency
+2025-11-11,D1,43,37,6,Cardiology
+2025-11-11,D2,29,15,14,Orthopedics
+2025-11-11,D3,33,17,16,Neurology
+2025-11-11,D4,53,47,6,General Medicine
+2025-11-11,D5,47,31,16,Surgery
+2025-11-11,D6,19,17,2,Emergency
+2025-11-12,D1,38,22,16,Cardiology
+2025-11-12,D2,30,15,15,Orthopedics
+2025-11-12,D3,31,29,2,Neurology
+2025-11-12,D4,55,35,20,General Medicine
+2025-11-12,D5,48,29,19,Surgery
+2025-11-12,D6,19,18,1,Emergency
+2025-11-13,D1,42,28,14,Cardiology
+2025-11-13,D2,35,34,1,Orthopedics
+2025-11-13,D3,33,26,7,Neurology
+2025-11-13,D4,52,31,21,General Medicine
+2025-11-13,D5,44,29,15,Surgery
+2025-11-13,D6,23,14,9,Emergency
+2025-11-14,D1,40,37,3,Cardiology
+2025-11-14,D2,35,24,11,Orthopedics
+2025-11-14,D3,32,30,2,Neurology
+2025-11-14,D4,58,39,19,General Medicine
+2025-11-14,D5,45,38,7,Surgery
+2025-11-14,D6,21,12,9,Emergency
+2025-11-15,D1,38,31,7,Cardiology
+2025-11-15,D2,30,19,11,Orthopedics
+2025-11-15,D3,29,26,3,Neurology
+2025-11-15,D4,55,32,23,General Medicine
+2025-11-15,D5,45,32,13,Surgery
+2025-11-15,D6,20,14,6,Emergency
+2025-11-16,D1,42,23,19,Cardiology
+2025-11-16,D2,30,17,13,Orthopedics
+2025-11-16,D3,30,23,7,Neurology
+2025-11-16,D4,57,44,13,General Medicine
+2025-11-16,D5,47,25,22,Surgery
+2025-11-16,D6,20,12,8,Emergency
+2025-11-17,D1,37,36,1,Cardiology
+2025-11-17,D2,34,26,8,Orthopedics
+2025-11-17,D3,28,27,1,Neurology
+2025-11-17,D4,55,47,8,General Medicine
+2025-11-17,D5,48,28,20,Surgery
+2025-11-17,D6,20,13,7,Emergency
+2025-11-18,D1,43,28,15,Cardiology
+2025-11-18,D2,31,21,10,Orthopedics
+2025-11-18,D3,30,17,13,Neurology
+2025-11-18,D4,52,43,9,General Medicine
+2025-11-18,D5,43,27,16,Surgery
+2025-11-18,D6,25,23,2,Emergency
+2025-11-19,D1,41,39,2,Cardiology
+2025-11-19,D2,34,18,16,Orthopedics
+2025-11-19,D3,32,25,7,Neurology
+2025-11-19,D4,57,29,28,General Medicine
+2025-11-19,D5,42,34,8,Surgery
+2025-11-19,D6,23,21,2,Emergency
+2025-11-20,D1,43,39,4,Cardiology
+2025-11-20,D2,35,34,1,Orthopedics
+2025-11-20,D3,29,15,14,Neurology
+2025-11-20,D4,58,35,23,General Medicine
+2025-11-20,D5,44,28,16,Surgery
+2025-11-20,D6,23,16,7,Emergency
+2025-11-21,D1,37,21,16,Cardiology
+2025-11-21,D2,34,30,4,Orthopedics
+2025-11-21,D3,29,14,15,Neurology
+2025-11-21,D4,58,55,3,General Medicine
+2025-11-21,D5,48,30,18,Surgery
+2025-11-21,D6,20,13,7,Emergency
+2025-11-22,D1,41,21,20,Cardiology
+2025-11-22,D2,35,34,1,Orthopedics
+2025-11-22,D3,28,24,4,Neurology
+2025-11-22,D4,56,29,27,General Medicine
+2025-11-22,D5,44,41,3,Surgery
+2025-11-22,D6,22,17,5,Emergency
+2025-11-23,D1,40,31,9,Cardiology
+2025-11-23,D2,32,18,14,Orthopedics
+2025-11-23,D3,33,31,2,Neurology
+2025-11-23,D4,55,42,13,General Medicine
+2025-11-23,D5,42,31,11,Surgery
+2025-11-23,D6,22,12,10,Emergency
+2025-11-24,D1,38,30,8,Cardiology
+2025-11-24,D2,35,29,6,Orthopedics
+2025-11-24,D3,31,28,3,Neurology
+2025-11-24,D4,53,30,23,General Medicine
+2025-11-24,D5,48,37,11,Surgery
+2025-11-24,D6,21,11,10,Emergency
+2025-11-25,D1,39,20,19,Cardiology
+2025-11-25,D2,34,18,16,Orthopedics
+2025-11-25,D3,31,19,12,Neurology
+2025-11-25,D4,56,50,6,General Medicine
+2025-11-25,D5,45,42,3,Surgery
+2025-11-25,D6,21,15,6,Emergency
+2025-11-26,D1,40,28,12,Cardiology
+2025-11-26,D2,31,19,12,Orthopedics
+2025-11-26,D3,32,19,13,Neurology
+2025-11-26,D4,52,30,22,General Medicine
+2025-11-26,D5,46,41,5,Surgery
+2025-11-26,D6,19,18,1,Emergency
+2025-11-27,D1,43,21,22,Cardiology
+2025-11-27,D2,33,24,9,Orthopedics
+2025-11-27,D3,29,22,7,Neurology
+2025-11-27,D4,53,44,9,General Medicine
+2025-11-27,D5,44,22,22,Surgery
+2025-11-27,D6,20,11,9,Emergency
+2025-11-28,D1,40,34,6,Cardiology
+2025-11-28,D2,33,24,9,Orthopedics
+2025-11-28,D3,30,17,13,Neurology
+2025-11-28,D4,55,48,7,General Medicine
+2025-11-28,D5,42,37,5,Surgery
+2025-11-28,D6,23,13,10,Emergency
+2025-11-29,D1,41,30,11,Cardiology
+2025-11-29,D2,35,32,3,Orthopedics
+2025-11-29,D3,33,28,5,Neurology
+2025-11-29,D4,57,32,25,General Medicine
+2025-11-29,D5,46,26,20,Surgery
+2025-11-29,D6,19,12,7,Emergency
+2025-11-30,D1,39,23,16,Cardiology
+2025-11-30,D2,32,21,11,Orthopedics
+2025-11-30,D3,29,24,5,Neurology
+2025-11-30,D4,54,36,18,General Medicine
+2025-11-30,D5,42,33,9,Surgery
+2025-11-30,D6,19,12,7,Emergency
+2025-12-01,D1,40,27,13,Cardiology
+2025-12-01,D2,30,17,13,Orthopedics
+2025-12-01,D3,30,18,12,Neurology
+2025-12-01,D4,58,37,21,General Medicine
+2025-12-01,D5,46,31,15,Surgery
+2025-12-01,D6,19,12,7,Emergency
+2025-12-02,D1,37,23,14,Cardiology
+2025-12-02,D2,30,23,7,Orthopedics
+2025-12-02,D3,32,20,12,Neurology
+2025-12-02,D4,53,33,20,General Medicine
+2025-12-02,D5,45,26,19,Surgery
+2025-12-02,D6,24,18,6,Emergency
+2025-12-03,D1,40,32,8,Cardiology
+2025-12-03,D2,34,16,18,Orthopedics
+2025-12-03,D3,28,25,3,Neurology
+2025-12-03,D4,56,41,15,General Medicine
+2025-12-03,D5,47,45,2,Surgery
+2025-12-03,D6,23,16,7,Emergency
+2025-12-04,D1,41,36,5,Cardiology
+2025-12-04,D2,29,24,5,Orthopedics
+2025-12-04,D3,33,29,4,Neurology
+2025-12-04,D4,53,42,11,General Medicine
+2025-12-04,D5,45,38,7,Surgery
+2025-12-04,D6,21,11,10,Emergency
+2025-12-05,D1,43,23,20,Cardiology
+2025-12-05,D2,35,34,1,Orthopedics
+2025-12-05,D3,29,16,13,Neurology
+2025-12-05,D4,53,32,21,General Medicine
+2025-12-05,D5,45,38,7,Surgery
+2025-12-05,D6,20,16,4,Emergency
+2025-12-06,D1,40,25,15,Cardiology
+2025-12-06,D2,29,26,3,Orthopedics
+2025-12-06,D3,30,27,3,Neurology
+2025-12-06,D4,55,43,12,General Medicine
+2025-12-06,D5,43,36,7,Surgery
+2025-12-06,D6,24,20,4,Emergency
+2025-12-07,D1,41,33,8,Cardiology
+2025-12-07,D2,32,19,13,Orthopedics
+2025-12-07,D3,32,16,16,Neurology
+2025-12-07,D4,57,53,4,General Medicine
+2025-12-07,D5,44,38,6,Surgery
+2025-12-07,D6,24,12,12,Emergency
+2025-12-08,D1,43,29,14,Cardiology
+2025-12-08,D2,31,28,3,Orthopedics
+2025-12-08,D3,31,29,2,Neurology
+2025-12-08,D4,57,28,29,General Medicine
+2025-12-08,D5,42,22,20,Surgery
+2025-12-08,D6,20,16,4,Emergency
+2025-12-09,D1,41,25,16,Cardiology
+2025-12-09,D2,34,22,12,Orthopedics
+2025-12-09,D3,30,19,11,Neurology
+2025-12-09,D4,57,28,29,General Medicine
+2025-12-09,D5,42,30,12,Surgery
+2025-12-09,D6,19,14,5,Emergency
+2025-12-10,D1,43,31,12,Cardiology
+2025-12-10,D2,35,29,6,Orthopedics
+2025-12-10,D3,28,24,4,Neurology
+2025-12-10,D4,55,45,10,General Medicine
+2025-12-10,D5,46,37,9,Surgery
+2025-12-10,D6,24,13,11,Emergency
+2025-12-11,D1,41,22,19,Cardiology
+2025-12-11,D2,34,30,4,Orthopedics
+2025-12-11,D3,32,24,8,Neurology
+2025-12-11,D4,54,36,18,General Medicine
+2025-12-11,D5,46,33,13,Surgery
+2025-12-11,D6,20,16,4,Emergency
+2025-12-12,D1,43,35,8,Cardiology
+2025-12-12,D2,33,30,3,Orthopedics
+2025-12-12,D3,32,18,14,Neurology
+2025-12-12,D4,57,55,2,General Medicine
+2025-12-12,D5,45,27,18,Surgery
+2025-12-12,D6,20,11,9,Emergency
+2025-12-13,D1,42,21,21,Cardiology
+2025-12-13,D2,35,28,7,Orthopedics
+2025-12-13,D3,29,17,12,Neurology
+2025-12-13,D4,56,48,8,General Medicine
+2025-12-13,D5,46,39,7,Surgery
+2025-12-13,D6,19,15,4,Emergency
+2025-12-14,D1,39,37,2,Cardiology
+2025-12-14,D2,30,17,13,Orthopedics
+2025-12-14,D3,33,19,14,Neurology
+2025-12-14,D4,52,40,12,General Medicine
+2025-12-14,D5,43,30,13,Surgery
+2025-12-14,D6,19,17,2,Emergency
+2025-12-15,D1,39,35,4,Cardiology
+2025-12-15,D2,30,28,2,Orthopedics
+2025-12-15,D3,29,16,13,Neurology
+2025-12-15,D4,52,29,23,General Medicine
+2025-12-15,D5,42,23,19,Surgery
+2025-12-15,D6,21,19,2,Emergency
+2025-12-16,D1,39,22,17,Cardiology
+2025-12-16,D2,33,24,9,Orthopedics
+2025-12-16,D3,33,31,2,Neurology
+2025-12-16,D4,57,31,26,General Medicine
+2025-12-16,D5,42,38,4,Surgery
+2025-12-16,D6,20,19,1,Emergency
+2025-12-17,D1,41,30,11,Cardiology
+2025-12-17,D2,32,30,2,Orthopedics
+2025-12-17,D3,27,25,2,Neurology
+2025-12-17,D4,57,51,6,General Medicine
+2025-12-17,D5,45,43,2,Surgery
+2025-12-17,D6,19,17,2,Emergency
+2025-12-18,D1,43,37,6,Cardiology
+2025-12-18,D2,29,26,3,Orthopedics
+2025-12-18,D3,33,32,1,Neurology
+2025-12-18,D4,58,47,11,General Medicine
+2025-12-18,D5,44,27,17,Surgery
+2025-12-18,D6,20,17,3,Emergency
+2025-12-19,D1,37,32,5,Cardiology
+2025-12-19,D2,35,33,2,Orthopedics
+2025-12-19,D3,32,16,16,Neurology
+2025-12-19,D4,58,56,2,General Medicine
+2025-12-19,D5,46,44,2,Surgery
+2025-12-19,D6,24,20,4,Emergency
+2025-12-20,D1,40,29,11,Cardiology
+2025-12-20,D2,32,16,16,Orthopedics
+2025-12-20,D3,28,19,9,Neurology
+2025-12-20,D4,54,34,20,General Medicine
+2025-12-20,D5,48,34,14,Surgery
+2025-12-20,D6,20,17,3,Emergency
+2025-12-21,D1,42,36,6,Cardiology
+2025-12-21,D2,31,16,15,Orthopedics
+2025-12-21,D3,29,18,11,Neurology
+2025-12-21,D4,57,32,25,General Medicine
+2025-12-21,D5,43,26,17,Surgery
+2025-12-21,D6,20,16,4,Emergency
+2025-12-22,D1,42,23,19,Cardiology
+2025-12-22,D2,35,19,16,Orthopedics
+2025-12-22,D3,30,25,5,Neurology
+2025-12-22,D4,55,32,23,General Medicine
+2025-12-22,D5,46,26,20,Surgery
+2025-12-22,D6,21,17,4,Emergency
+2025-12-23,D1,37,21,16,Cardiology
+2025-12-23,D2,30,23,7,Orthopedics
+2025-12-23,D3,33,26,7,Neurology
+2025-12-23,D4,52,48,4,General Medicine
+2025-12-23,D5,44,40,4,Surgery
+2025-12-23,D6,24,13,11,Emergency
+2025-12-24,D1,37,34,3,Cardiology
+2025-12-24,D2,35,22,13,Orthopedics
+2025-12-24,D3,28,18,10,Neurology
+2025-12-24,D4,57,53,4,General Medicine
+2025-12-24,D5,48,38,10,Surgery
+2025-12-24,D6,20,10,10,Emergency
+2025-12-25,D1,41,38,3,Cardiology
+2025-12-25,D2,31,16,15,Orthopedics
+2025-12-25,D3,33,26,7,Neurology
+2025-12-25,D4,53,38,15,General Medicine
+2025-12-25,D5,44,37,7,Surgery
+2025-12-25,D6,22,12,10,Emergency
+2025-12-26,D1,43,33,10,Cardiology
+2025-12-26,D2,34,17,17,Orthopedics
+2025-12-26,D3,29,16,13,Neurology
+2025-12-26,D4,54,51,3,General Medicine
+2025-12-26,D5,45,30,15,Surgery
+2025-12-26,D6,22,12,10,Emergency
+2025-12-27,D1,39,35,4,Cardiology
+2025-12-27,D2,29,16,13,Orthopedics
+2025-12-27,D3,29,26,3,Neurology
+2025-12-27,D4,58,46,12,General Medicine
+2025-12-27,D5,43,32,11,Surgery
+2025-12-27,D6,23,19,4,Emergency
+2025-12-28,D1,38,23,15,Cardiology
+2025-12-28,D2,30,21,9,Orthopedics
+2025-12-28,D3,29,21,8,Neurology
+2025-12-28,D4,55,41,14,General Medicine
+2025-12-28,D5,46,30,16,Surgery
+2025-12-28,D6,25,18,7,Emergency
+2025-12-29,D1,42,31,11,Cardiology
+2025-12-29,D2,33,17,16,Orthopedics
+2025-12-29,D3,31,17,14,Neurology
+2025-12-29,D4,54,47,7,General Medicine
+2025-12-29,D5,46,28,18,Surgery
+2025-12-29,D6,19,12,7,Emergency
+2025-12-30,D1,37,19,18,Cardiology
+2025-12-30,D2,35,26,9,Orthopedics
+2025-12-30,D3,28,23,5,Neurology
+2025-12-30,D4,58,32,26,General Medicine
+2025-12-30,D5,43,23,20,Surgery
+2025-12-30,D6,20,12,8,Emergency
+2025-12-31,D1,42,28,14,Cardiology
+2025-12-31,D2,32,30,2,Orthopedics
+2025-12-31,D3,29,21,8,Neurology
+2025-12-31,D4,55,28,27,General Medicine
+2025-12-31,D5,44,30,14,Surgery
+2025-12-31,D6,20,15,5,Emergency

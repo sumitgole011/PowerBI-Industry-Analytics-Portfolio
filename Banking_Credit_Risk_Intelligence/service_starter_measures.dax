@@ -1,0 +1,5 @@
+Loan Count = COUNTROWS(ServiceFact)
+Principal Disbursed = SUM(ServiceFact[Principal])
+Default Loan % = DIVIDE(CALCULATE(COUNTROWS(ServiceFact),ServiceFact[LoanStatusAsOf]="Default"),COUNTROWS(ServiceFact))
+30+ DPD Loans = CALCULATE(COUNTROWS(ServiceFact),ServiceFact[DaysPastDueAsOf]>=30)
+-- Approval rate requires service_applications.csv as a SEPARATE model, or the advanced multi-table model.

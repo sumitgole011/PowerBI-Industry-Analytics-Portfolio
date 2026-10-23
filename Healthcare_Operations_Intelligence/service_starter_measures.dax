@@ -1,0 +1,6 @@
+Encounters = COUNTROWS(ServiceFact)
+Average Stay Days = AVERAGE(ServiceFact[StayDays])
+Avg Wait Minutes = AVERAGE(ServiceFact[WaitingMinutes])
+Return Visit % = DIVIDE(SUM(ServiceFact[ReturnWithin30Days]),COUNTROWS(ServiceFact))
+Margin = SUM(ServiceFact[CollectedRevenue])-SUM(ServiceFact[DirectCost])
+-- Occupancy requires service_capacity.csv as a separate model or the advanced multi-table model.
