@@ -1,1 +1,161 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Industry BI Portfolio</title><style>body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#07111e;color:#eff9ff;margin:0}main{max-width:1100px;margin:80px auto;padding:30px}.over{font-size:12px;font-weight:700;letter-spacing:2px;color:#38bdf8}h1{font-size:44px;max-width:770px;line-height:1.15}.sub{color:#9bb0c2;max-width:690px;line-height:1.75}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:45px}.item{display:block;background:linear-gradient(135deg,#14293e,#0b1828);border:1px solid #263c54;border-radius:16px;padding:30px;text-decoration:none;color:#f3f9ff;transition:.2s}.item:hover{transform:translateY(-4px);border-color:#38bdf8}.no{color:#38bdf8;letter-spacing:2px}h2{font-size:22px;margin:20px 0 8px}p{color:#95a9bc}.link{font-size:13px;color:#7bd5ff;display:inline-block;margin-top:18px}footer{margin-top:45px;color:#6d869d;font-size:12px}@media(max-width:700px){.grid{grid-template-columns:1fr}h1{font-size:34px}main{margin:30px auto}}</style><main><div class="over">ANALYTICS LAB / POWER BI CASE STUDIES</div><h1>Four industries. Four decision-ready analytics solutions.</h1><div class="sub">Original synthetic datasets, validated KPI definitions, professional data models, DAX starters and four offline interactive preview dashboards. Native Power BI reports to be authored from the packaged import workbooks.</div><div class="grid"><a href="SaaS_Revenue_Churn_Intelligence/dashboard_preview.html" class="item"><span class="no">01</span><h2>SaaS Revenue &amp; Customer Churn Intelligence</h2><p>Explore interactive offline dashboard</p><span class="link">Open live preview ↗</span></a><a href="Banking_Credit_Risk_Intelligence/dashboard_preview.html" class="item"><span class="no">02</span><h2>Banking Credit Risk &amp; Loan Portfolio Intelligence</h2><p>Explore interactive offline dashboard</p><span class="link">Open live preview ↗</span></a><a href="Healthcare_Operations_Intelligence/dashboard_preview.html" class="item"><span class="no">03</span><h2>Healthcare Operations &amp; Hospital Performance</h2><p>Explore interactive offline dashboard</p><span class="link">Open live preview ↗</span></a><a href="Supply_Chain_Inventory_Intelligence/dashboard_preview.html" class="item"><span class="no">04</span><h2>Supply Chain &amp; Inventory Optimization</h2><p>Explore interactive offline dashboard</p><span class="link">Open live preview ↗</span></a></div><footer>Demonstration only · All data is fictional · HTML is a dashboard design prototype, not a native Power BI report</footer></main></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Four interactive industry analytics case studies by Sumit Gole.">
+  <title>Industry Analytics Portfolio | Sumit Gole</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #f5f6f3;
+      --surface: #fff;
+      --ink: #1e2c27;
+      --muted: #52615a;
+      --line: #dbe1da;
+      --green: #236854;
+      --green-dark: #174c3d;
+      --wash: #edf4ee;
+      --radius: 10px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font: 1rem/1.5 Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .container { width: min(calc(100% - 2.5rem), 1160px); margin-inline: auto; }
+    .site-header { background: var(--surface); border-bottom: 1px solid var(--line); }
+    .site-header .container {
+      min-height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 0.65rem; font-weight: 700; }
+    .brand-mark {
+      display: inline-flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 3px;
+      width: 30px;
+      height: 30px;
+      padding-bottom: 7px;
+      border-radius: 7px;
+      background: var(--green-dark);
+    }
+    .brand-mark span { width: 3px; border-radius: 1px; background: #fff; }
+    .brand-mark span:nth-child(1) { height: 7px; }
+    .brand-mark span:nth-child(2) { height: 11px; }
+    .brand-mark span:nth-child(3) { height: 16px; }
+    .source-link { color: var(--green-dark); font-size: 0.88rem; text-underline-offset: 0.2em; }
+    main { padding-block: clamp(1.8rem, 5vw, 3rem) 3rem; }
+    .intro { margin-bottom: 1.5rem; }
+    h1 { margin: 0; font-size: clamp(1.85rem, 4vw, 2.6rem); line-height: 1.15; letter-spacing: -0.035em; }
+    .intro p { margin: 0.6rem 0 0; color: var(--muted); }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .project-heading { flex: 1; padding: 1rem 1.25rem; }
+    h2 { margin: 0; font-size: 1.2rem; line-height: 1.3; }
+    .project-heading p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.92rem; }
+    .project-preview {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 1;
+      object-fit: cover;
+      object-position: center 23%;
+      border-block: 1px solid var(--line);
+      background: var(--wash);
+    }
+    .project-action { padding: 0.9rem 1.25rem 1rem; }
+    .dashboard-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 44px;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      background: var(--green);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+    .dashboard-link:hover { background: var(--green-dark); }
+    a:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 3px; }
+    @media (max-width: 700px) {
+      .projects { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .container { width: calc(100% - 2rem); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <span class="brand"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>BI Portfolio</span>
+      <a class="source-link" href="https://github.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio">Source on GitHub</a>
+    </div>
+  </header>
+  <main class="container">
+    <div class="intro">
+      <h1>Industry Analytics Portfolio</h1>
+      <p>Sumit Gole · Four interactive case studies with synthetic data</p>
+    </div>
+    <section class="projects" aria-label="Analytics dashboards">
+      <article class="project">
+        <div class="project-heading">
+          <h2>SaaS Revenue &amp; Churn</h2>
+          <p>Which customer segments drive recurring revenue and churn?</p>
+        </div>
+        <img class="project-preview" src="https://raw.githubusercontent.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio/main/SaaS_Revenue_Churn_Intelligence/dashboard_screenshot.png" width="1470" height="1040" alt="SaaS dashboard with recurring revenue, churn and retention metrics">
+        <div class="project-action">
+          <a class="dashboard-link" href="SaaS_Revenue_Churn_Intelligence/dashboard_preview.html" aria-label="Open SaaS Revenue &amp; Churn dashboard">Open dashboard <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="project">
+        <div class="project-heading">
+          <h2>Banking Credit Risk</h2>
+          <p>How do loan approval rates and the default snapshot vary by product?</p>
+        </div>
+        <img class="project-preview" src="https://raw.githubusercontent.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio/main/Banking_Credit_Risk_Intelligence/dashboard_screenshot.png" width="981" height="1043" alt="Banking dashboard with approvals, originated principal and loan defaults">
+        <div class="project-action">
+          <a class="dashboard-link" href="Banking_Credit_Risk_Intelligence/dashboard_preview.html" aria-label="Open Banking Credit Risk dashboard">Open dashboard <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="project">
+        <div class="project-heading">
+          <h2>Healthcare Operations</h2>
+          <p>How do patient volume and bed occupancy compare across departments?</p>
+        </div>
+        <img class="project-preview" src="https://raw.githubusercontent.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio/main/Healthcare_Operations_Intelligence/dashboard_screenshot.png" width="981" height="1070" alt="Healthcare dashboard with encounters, length of stay and bed occupancy">
+        <div class="project-action">
+          <a class="dashboard-link" href="Healthcare_Operations_Intelligence/dashboard_preview.html" aria-label="Open Healthcare Operations dashboard">Open dashboard <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="project">
+        <div class="project-heading">
+          <h2>Supply Chain &amp; Inventory</h2>
+          <p>Which product categories have lower fulfillment rates and more stockouts?</p>
+        </div>
+        <img class="project-preview" src="https://raw.githubusercontent.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio/main/Supply_Chain_Inventory_Intelligence/dashboard_screenshot.png" width="981" height="1043" alt="Supply chain dashboard with net sales, order fulfillment and stockout metrics">
+        <div class="project-action">
+          <a class="dashboard-link" href="Supply_Chain_Inventory_Intelligence/dashboard_preview.html" aria-label="Open Supply Chain &amp; Inventory dashboard">Open dashboard <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
