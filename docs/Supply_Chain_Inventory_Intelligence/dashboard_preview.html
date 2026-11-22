@@ -1,16 +1,753 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Supply Chain &amp; Inventory Optimization - BI dashboard preview</title><style>
-:root{--bg:#07111e;--panel:#0e1c2c;--muted:#93a4b8;--line:#223349;--accent:#f59e0b;--txt:#eff6fc}*{box-sizing:border-box}body{background:radial-gradient(circle at 90% -15%,#133151,transparent 40%),var(--bg);color:var(--txt);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0} .app{max-width:1440px;margin:auto;padding:26px 30px 48px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px;gap:15px}.brand{letter-spacing:2px;color:var(--accent);font-size:12px;font-weight:700}.title{font-size:29px;font-weight:750;margin:8px 0 3px}.sub{color:var(--muted);font-size:13px} .pill{border:1px solid #295066;background:#10293b;border-radius:99px;font-size:11px;color:#abd4f2;padding:8px 12px}.filters{display:flex;flex-wrap:wrap;gap:13px;margin:17px 0 23px}.filter{border:1px solid var(--line);border-radius:10px;background:#102032;padding:11px 15px;min-width:230px}label{font-size:11px;color:var(--muted);display:block;letter-spacing:.6px;text-transform:uppercase;margin-bottom:5px}select{width:100%;background:transparent;border:0;outline:none;color:#fff;font-size:14px;cursor:pointer}option{background:#14283b} .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.kpi{background:linear-gradient(160deg,#14273b,#0b1a2b);border:1px solid #1c3548;padding:19px 22px;border-radius:13px;min-height:121px}.kpi .value{font-size:28px;font-weight:750;margin-top:13px;letter-spacing:-1px}.kpi .mini{font-size:11px;color:#99aec5;margin-top:8px}.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px;margin-top:16px}.panel{border-radius:14px;background:linear-gradient(165deg,#102032,#0b1725);border:1px solid #1f3448;padding:19px;min-width:0}.panel h3{font-weight:650;margin:1px 0 4px;font-size:16px}.panel p{color:var(--muted);margin:0;font-size:12px}.chart{height:260px;margin-top:17px}.legend{font-size:11px;color:var(--muted);margin-top:8px}.second{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}table{width:100%;border-collapse:collapse;font-size:12px;margin-top:18px}th{text-align:left;font-size:11px;text-transform:uppercase;color:#8da2b8;font-weight:550;padding-bottom:12px}td{padding:11px 0;border-top:1px solid #20354a}td:last-child,th:last-child{text-align:right}footer{margin-top:27px;color:#7891a9;font-size:11px;line-height:1.7} @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.layout,.second{grid-template-columns:1fr}} @media(max-width:500px){.app{padding:17px}.title{font-size:23px}.kpis{grid-template-columns:1fr}.pill{display:none}}
-</style></head><body><div class="app"><header><div><div class="brand">NOVA / ANALYTICS LAB&nbsp; • &nbsp;POWER BI PORTFOLIO</div><div class="title">Supply Chain &amp; Inventory Optimization</div><div class="sub">Executive intelligence workspace / portfolio design prototype</div></div><span class="pill">● INTERACTIVE OFFLINE PREVIEW</span></header><div class="filters"><div class="filter"><label>Reporting period</label><select id="period"><option value="all">All available data</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2025-Q1">2025 · Q1</option><option value="2025-Q2">2025 · Q2</option><option value="2025-Q3">2025 · Q3</option><option value="2025-Q4">2025 · Q4</option></select></div><div class="filter"><label>Product category</label><select id="cat"></select></div></div><section class="kpis" id="kpis"></section><section class="layout"><div class="panel"><h3>Net sales by month</h3><p>Actuals derived from synthetic transactions • filtered by selection</p><div class="chart" id="lineChart"></div><div class="legend">Monthly performance · hover each point for exact numbers</div></div><div class="panel"><h3>Performance by Product category</h3><p>Selected period · portfolio contribution</p><div class="chart" id="barChart"></div><div class="legend">Categories remain comparable under period filter</div></div></section><section class="second"><div class="panel"><h3>Monthly breakdown</h3><p>Most recent five available months</p><table><thead><tr><th>Month</th><th>NetSales</th></tr></thead><tbody id="monthly"></tbody></table></div><div class="panel"><h3>Business narrative</h3><p>Executive handoff / technical notes</p><div style="font-size:13px;line-height:1.85;color:#bed0df;margin-top:16px">OTIF uses a line-based denominator including cancelled or partially delivered lines. Inventory stockout rate is the share of monthly SKU-location snapshots at zero stock.</div></div></section><footer>LOCAL DESIGN PROTOTYPE ONLY · Not authored or published in Microsoft Power BI · Synthetic data • See source CSVs, model relationships, DAX measures and project brief to implement the report in Power BI.</footer></div>
-<script>const DATA=[{"month":"2025-05","cat":"Office","OrderLines":90.0,"NetSales":183377.03000000003,"COGS":114498.68,"OTIF":28.0,"Ordered":795.0,"Delivered":758.0,"Stockouts":9.0,"Snapshots":140.0,"InventoryValue":748634.7},{"month":"2025-08","cat":"Industrial","OrderLines":25.0,"NetSales":41479.64,"COGS":26210.699999999997,"OTIF":10.0,"Ordered":230.0,"Delivered":224.0,"Stockouts":11.0,"Snapshots":52.0,"InventoryValue":130027.51999999999},{"month":"2025-06","cat":"Office","OrderLines":91.0,"NetSales":180825.33000000005,"COGS":113611.80000000003,"OTIF":38.0,"Ordered":768.0,"Delivered":719.0,"Stockouts":14.0,"Snapshots":140.0,"InventoryValue":716785.4600000001},{"month":"2025-11","cat":"Home","OrderLines":43.0,"NetSales":54387.659999999996,"COGS":35544.69,"OTIF":13.0,"Ordered":334.0,"Delivered":300.0,"Stockouts":7.0,"Snapshots":72.0,"InventoryValue":288553.76},{"month":"2025-01","cat":"Industrial","OrderLines":44.0,"NetSales":59140.15,"COGS":38116.520000000004,"OTIF":18.0,"Ordered":412.0,"Delivered":387.0,"Stockouts":10.0,"Snapshots":52.0,"InventoryValue":116580.85000000002},{"month":"2025-01","cat":"Office","OrderLines":90.0,"NetSales":179534.19999999995,"COGS":113493.6,"OTIF":33.0,"Ordered":877.0,"Delivered":802.0,"Stockouts":8.0,"Snapshots":140.0,"InventoryValue":737323.3599999995},{"month":"2025-04","cat":"Office","OrderLines":94.0,"NetSales":225486.20999999996,"COGS":141210.65,"OTIF":39.0,"Ordered":879.0,"Delivered":835.0,"Stockouts":14.0,"Snapshots":140.0,"InventoryValue":632113.3200000002},{"month":"2025-11","cat":"Office","OrderLines":71.0,"NetSales":119673.86,"COGS":75691.33,"OTIF":31.0,"Ordered":529.0,"Delivered":511.0,"Stockouts":8.0,"Snapshots":140.0,"InventoryValue":683117.6099999999},{"month":"2025-06","cat":"Apparel","OrderLines":34.0,"NetSales":44963.409999999996,"COGS":29428.76,"OTIF":11.0,"Ordered":308.0,"Delivered":269.0,"Stockouts":7.0,"Snapshots":48.0,"InventoryValue":177822.15000000002},{"month":"2025-07","cat":"Office","OrderLines":93.0,"NetSales":204698.47,"COGS":128692.34999999996,"OTIF":26.0,"Ordered":883.0,"Delivered":827.0,"Stockouts":16.0,"Snapshots":140.0,"InventoryValue":668424.9099999999},{"month":"2025-06","cat":"Home","OrderLines":41.0,"NetSales":75780.45,"COGS":49821.759999999995,"OTIF":12.0,"Ordered":342.0,"Delivered":319.0,"Stockouts":5.0,"Snapshots":72.0,"InventoryValue":298704.35000000003},{"month":"2025-03","cat":"Office","OrderLines":111.0,"NetSales":234937.06000000014,"COGS":146480.43999999994,"OTIF":52.0,"Ordered":1001.0,"Delivered":967.0,"Stockouts":13.0,"Snapshots":140.0,"InventoryValue":646837.9799999995},{"month":"2025-04","cat":"Home","OrderLines":45.0,"NetSales":87794.99000000002,"COGS":58729.58,"OTIF":14.0,"Ordered":413.0,"Delivered":397.0,"Stockouts":4.0,"Snapshots":72.0,"InventoryValue":386876.60999999987},{"month":"2025-07","cat":"Electronics","OrderLines":24.0,"NetSales":61734.65,"COGS":39467.70999999999,"OTIF":9.0,"Ordered":227.0,"Delivered":202.0,"Stockouts":2.0,"Snapshots":48.0,"InventoryValue":239851.86000000002},{"month":"2025-02","cat":"Home","OrderLines":41.0,"NetSales":89179.17,"COGS":56314.09000000001,"OTIF":19.0,"Ordered":394.0,"Delivered":391.0,"Stockouts":7.0,"Snapshots":72.0,"InventoryValue":323580.42999999993},{"month":"2025-10","cat":"Office","OrderLines":93.0,"NetSales":176025.16,"COGS":112276.9,"OTIF":32.0,"Ordered":804.0,"Delivered":755.0,"Stockouts":6.0,"Snapshots":140.0,"InventoryValue":730151.1799999999},{"month":"2025-09","cat":"Office","OrderLines":74.0,"NetSales":129688.82999999999,"COGS":83013.53,"OTIF":29.0,"Ordered":637.0,"Delivered":610.0,"Stockouts":12.0,"Snapshots":140.0,"InventoryValue":699422.51},{"month":"2025-05","cat":"Industrial","OrderLines":21.0,"NetSales":41140.89000000001,"COGS":25531.740000000005,"OTIF":8.0,"Ordered":217.0,"Delivered":201.0,"Stockouts":11.0,"Snapshots":52.0,"InventoryValue":132597.04000000004},{"month":"2025-06","cat":"Electronics","OrderLines":23.0,"NetSales":52026.49000000001,"COGS":34007.8,"OTIF":13.0,"Ordered":221.0,"Delivered":219.0,"Stockouts":2.0,"Snapshots":48.0,"InventoryValue":262098.74999999997},{"month":"2025-02","cat":"Apparel","OrderLines":32.0,"NetSales":69478.01000000001,"COGS":43601.89000000001,"OTIF":14.0,"Ordered":333.0,"Delivered":317.0,"Stockouts":2.0,"Snapshots":48.0,"InventoryValue":186978.23999999996},{"month":"2025-08","cat":"Home","OrderLines":55.0,"NetSales":101714.66,"COGS":65964.44,"OTIF":24.0,"Ordered":439.0,"Delivered":430.0,"Stockouts":8.0,"Snapshots":72.0,"InventoryValue":354902.4900000001},{"month":"2025-02","cat":"Office","OrderLines":80.0,"NetSales":158126.74000000002,"COGS":101070.61,"OTIF":28.0,"Ordered":727.0,"Delivered":697.0,"Stockouts":7.0,"Snapshots":140.0,"InventoryValue":705754.3999999997},{"month":"2025-08","cat":"Electronics","OrderLines":36.0,"NetSales":71252.61999999998,"COGS":46878.94,"OTIF":13.0,"Ordered":312.0,"Delivered":282.0,"Stockouts":6.0,"Snapshots":48.0,"InventoryValue":248550.61000000004},{"month":"2025-04","cat":"Electronics","OrderLines":35.0,"NetSales":89239.50000000003,"COGS":58659.10999999999,"OTIF":11.0,"Ordered":333.0,"Delivered":326.0,"Stockouts":1.0,"Snapshots":48.0,"InventoryValue":314481.45000000007},{"month":"2025-05","cat":"Home","OrderLines":33.0,"NetSales":54080.19,"COGS":37290.880000000005,"OTIF":15.0,"Ordered":328.0,"Delivered":322.0,"Stockouts":5.0,"Snapshots":72.0,"InventoryValue":353793.68},{"month":"2025-08","cat":"Office","OrderLines":108.0,"NetSales":215696.58999999994,"COGS":134356.78999999998,"OTIF":45.0,"Ordered":888.0,"Delivered":826.0,"Stockouts":9.0,"Snapshots":140.0,"InventoryValue":665906.1700000003},{"month":"2025-05","cat":"Apparel","OrderLines":34.0,"NetSales":50139.4,"COGS":34726.17,"OTIF":10.0,"Ordered":347.0,"Delivered":324.0,"Stockouts":3.0,"Snapshots":48.0,"InventoryValue":218951.91999999998},{"month":"2025-01","cat":"Apparel","OrderLines":33.0,"NetSales":58399.95,"COGS":37674.32000000001,"OTIF":13.0,"Ordered":327.0,"Delivered":286.0,"Stockouts":4.0,"Snapshots":48.0,"InventoryValue":182455.81999999998},{"month":"2025-12","cat":"Industrial","OrderLines":9.0,"NetSales":8996.0,"COGS":5852.2300000000005,"OTIF":3.0,"Ordered":78.0,"Delivered":78.0,"Stockouts":16.0,"Snapshots":52.0,"InventoryValue":124945.75000000001},{"month":"2025-10","cat":"Home","OrderLines":46.0,"NetSales":81338.32,"COGS":52247.74000000001,"OTIF":19.0,"Ordered":370.0,"Delivered":336.0,"Stockouts":5.0,"Snapshots":72.0,"InventoryValue":367595.01999999996},{"month":"2025-09","cat":"Electronics","OrderLines":34.0,"NetSales":67765.09,"COGS":44316.829999999994,"OTIF":15.0,"Ordered":280.0,"Delivered":261.0,"Stockouts":4.0,"Snapshots":48.0,"InventoryValue":264692.07999999996},{"month":"2025-09","cat":"Apparel","OrderLines":28.0,"NetSales":40687.13,"COGS":25102.949999999993,"OTIF":9.0,"Ordered":261.0,"Delivered":235.0,"Stockouts":2.0,"Snapshots":48.0,"InventoryValue":205665.46000000002},{"month":"2025-10","cat":"Apparel","OrderLines":20.0,"NetSales":26723.909999999993,"COGS":18538.91,"OTIF":6.0,"Ordered":186.0,"Delivered":132.0,"Stockouts":5.0,"Snapshots":48.0,"InventoryValue":190678.72000000003},{"month":"2025-05","cat":"Electronics","OrderLines":30.0,"NetSales":80228.07,"COGS":51609.32000000001,"OTIF":9.0,"Ordered":273.0,"Delivered":263.0,"Stockouts":3.0,"Snapshots":48.0,"InventoryValue":267281.57999999996},{"month":"2025-10","cat":"Electronics","OrderLines":28.0,"NetSales":50422.24000000001,"COGS":32326.47,"OTIF":7.0,"Ordered":204.0,"Delivered":196.0,"Stockouts":6.0,"Snapshots":48.0,"InventoryValue":246581.94},{"month":"2025-04","cat":"Apparel","OrderLines":45.0,"NetSales":65841.66999999997,"COGS":42892.31999999999,"OTIF":15.0,"Ordered":422.0,"Delivered":379.0,"Stockouts":5.0,"Snapshots":48.0,"InventoryValue":206764.52999999997},{"month":"2025-03","cat":"Electronics","OrderLines":19.0,"NetSales":41742.67999999999,"COGS":26931.079999999994,"OTIF":4.0,"Ordered":174.0,"Delivered":166.0,"Stockouts":3.0,"Snapshots":48.0,"InventoryValue":255970.13999999998},{"month":"2025-03","cat":"Home","OrderLines":43.0,"NetSales":77208.37000000001,"COGS":49163.38000000001,"OTIF":15.0,"Ordered":372.0,"Delivered":344.0,"Stockouts":7.0,"Snapshots":72.0,"InventoryValue":308941.27},{"month":"2025-12","cat":"Office","OrderLines":16.0,"NetSales":37073.46000000001,"COGS":22515.759999999995,"OTIF":9.0,"Ordered":171.0,"Delivered":169.0,"Stockouts":12.0,"Snapshots":140.0,"InventoryValue":761652.3899999999},{"month":"2025-09","cat":"Industrial","OrderLines":33.0,"NetSales":59853.670000000006,"COGS":37835.57000000001,"OTIF":17.0,"Ordered":260.0,"Delivered":242.0,"Stockouts":10.0,"Snapshots":52.0,"InventoryValue":138453.39999999994},{"month":"2025-01","cat":"Home","OrderLines":52.0,"NetSales":105772.58999999997,"COGS":69241.68,"OTIF":12.0,"Ordered":511.0,"Delivered":479.0,"Stockouts":3.0,"Snapshots":72.0,"InventoryValue":353170.0999999999},{"month":"2025-06","cat":"Industrial","OrderLines":28.0,"NetSales":56041.51999999999,"COGS":35869.79000000001,"OTIF":12.0,"Ordered":271.0,"Delivered":268.0,"Stockouts":8.0,"Snapshots":52.0,"InventoryValue":156351.63999999998},{"month":"2025-03","cat":"Industrial","OrderLines":38.0,"NetSales":47166.41,"COGS":29273.139999999996,"OTIF":11.0,"Ordered":321.0,"Delivered":267.0,"Stockouts":13.0,"Snapshots":52.0,"InventoryValue":112211.95},{"month":"2025-12","cat":"Apparel","OrderLines":6.0,"NetSales":14524.280000000002,"COGS":9966.9,"OTIF":2.0,"Ordered":81.0,"Delivered":78.0,"Stockouts":2.0,"Snapshots":48.0,"InventoryValue":219025.71000000002},{"month":"2025-09","cat":"Home","OrderLines":42.0,"NetSales":71513.37999999999,"COGS":48322.48,"OTIF":20.0,"Ordered":342.0,"Delivered":321.0,"Stockouts":6.0,"Snapshots":72.0,"InventoryValue":318763.49000000005},{"month":"2025-12","cat":"Home","OrderLines":6.0,"NetSales":12208.29,"COGS":7636.63,"OTIF":3.0,"Ordered":67.0,"Delivered":63.0,"Stockouts":5.0,"Snapshots":72.0,"InventoryValue":330539.07000000007},{"month":"2025-07","cat":"Home","OrderLines":40.0,"NetSales":75209.26,"COGS":47716.72999999999,"OTIF":14.0,"Ordered":373.0,"Delivered":341.0,"Stockouts":10.0,"Snapshots":72.0,"InventoryValue":323302.64999999997},{"month":"2025-07","cat":"Industrial","OrderLines":34.0,"NetSales":43017.31,"COGS":27953.42,"OTIF":10.0,"Ordered":258.0,"Delivered":237.0,"Stockouts":12.0,"Snapshots":52.0,"InventoryValue":134371.86000000002},{"month":"2025-07","cat":"Apparel","OrderLines":24.0,"NetSales":44798.64,"COGS":30955.809999999998,"OTIF":11.0,"Ordered":234.0,"Delivered":227.0,"Stockouts":5.0,"Snapshots":48.0,"InventoryValue":218020.42000000004},{"month":"2025-02","cat":"Industrial","OrderLines":42.0,"NetSales":63279.88000000002,"COGS":40061.51000000002,"OTIF":13.0,"Ordered":378.0,"Delivered":361.0,"Stockouts":14.0,"Snapshots":52.0,"InventoryValue":119229.62999999998},{"month":"2025-11","cat":"Industrial","OrderLines":37.0,"NetSales":52170.12000000001,"COGS":33935.79000000001,"OTIF":11.0,"Ordered":330.0,"Delivered":310.0,"Stockouts":6.0,"Snapshots":52.0,"InventoryValue":112998.63999999998},{"month":"2025-08","cat":"Apparel","OrderLines":32.0,"NetSales":46248.49,"COGS":29958.320000000003,"OTIF":15.0,"Ordered":248.0,"Delivered":240.0,"Stockouts":2.0,"Snapshots":48.0,"InventoryValue":199999.79000000007},{"month":"2025-04","cat":"Industrial","OrderLines":29.0,"NetSales":63579.61000000001,"COGS":39832.29999999999,"OTIF":12.0,"Ordered":278.0,"Delivered":268.0,"Stockouts":18.0,"Snapshots":52.0,"InventoryValue":85079.56999999999},{"month":"2025-10","cat":"Industrial","OrderLines":34.0,"NetSales":41586.299999999996,"COGS":27500.91,"OTIF":13.0,"Ordered":295.0,"Delivered":258.0,"Stockouts":17.0,"Snapshots":52.0,"InventoryValue":109870.79999999999},{"month":"2025-11","cat":"Apparel","OrderLines":20.0,"NetSales":33011.43,"COGS":21285.239999999998,"OTIF":5.0,"Ordered":166.0,"Delivered":149.0,"Stockouts":5.0,"Snapshots":48.0,"InventoryValue":200486.84},{"month":"2025-02","cat":"Electronics","OrderLines":21.0,"NetSales":50613.229999999996,"COGS":31186.769999999997,"OTIF":12.0,"Ordered":171.0,"Delivered":163.0,"Stockouts":4.0,"Snapshots":48.0,"InventoryValue":250265.04000000004},{"month":"2025-01","cat":"Electronics","OrderLines":25.0,"NetSales":43138.340000000004,"COGS":26338.31,"OTIF":9.0,"Ordered":160.0,"Delivered":156.0,"Stockouts":5.0,"Snapshots":48.0,"InventoryValue":282959.19999999995},{"month":"2025-11","cat":"Electronics","OrderLines":20.0,"NetSales":48760.409999999996,"COGS":30572.42,"OTIF":7.0,"Ordered":223.0,"Delivered":218.0,"Stockouts":5.0,"Snapshots":48.0,"InventoryValue":275771.91000000003},{"month":"2025-03","cat":"Apparel","OrderLines":21.0,"NetSales":38253.57000000001,"COGS":24387.43999999999,"OTIF":4.0,"Ordered":197.0,"Delivered":171.0,"Stockouts":4.0,"Snapshots":48.0,"InventoryValue":209604.74},{"month":"2025-12","cat":"Electronics","OrderLines":4.0,"NetSales":13276.859999999999,"COGS":8400.86,"OTIF":1.0,"Ordered":37.0,"Delivered":37.0,"Stockouts":6.0,"Snapshots":48.0,"InventoryValue":264340.22000000003}]; const CATS=["Electronics", "Home", "Industrial", "Office", "Apparel"]; const SPEC={"label": "Product category", "metric": "NetSales", "trend": "Net sales by month", "unit": "$", "cards": [["Net sales", "sum", "NetSales", "$"], ["Order-line OTIF", "ratio", "OTIF/OrderLines", "%"], ["Unit fill rate", "ratio", "Delivered/Ordered", "%"], ["Stockout snapshots", "ratio", "Stockouts/Snapshots", "%"]]};const ACCENT='#f59e0b';
-const el=id=>document.getElementById(id);const comma=n=>Math.round(n).toLocaleString('en-US');const money=n=>'$'+Math.round(n).toLocaleString('en-US');const percent=n=>(n*100).toFixed(1)+'%';const fmt=(n,unit)=>unit==='$'?money(n):unit==='%'?percent(n):unit===' days'?n.toFixed(1)+' days':comma(n);
-function matchPeriod(m,period){if(period==='all')return true; if(period.includes('-Q')){const yr=period.slice(0,4),q=Number(period.at(-1)),mn=Number(m.slice(5,7));return m.startsWith(yr) && Math.ceil(mn/3)===q;}return m.startsWith(period)}
-function subset(){let p=el('period').value,c=el('cat').value;return DATA.filter(r=>matchPeriod(r.month,p)&&(c==='all'||c===r.cat));}
-function totals(rows){let o={}; for(let r of rows)for(let[k,v]of Object.entries(r)){if(k!=='month'&&k!=='cat')o[k]=(o[k]||0)+v;}return o;}
-function value(rows,type,field){if(type==='latest'||type==='latest12'){let last=[...new Set(rows.map(r=>r.month))].sort().at(-1);let n=totals(rows.filter(r=>r.month===last))[field]||0;return type==='latest12'?n*12:n;}let s=totals(rows);if(type==='sum')return s[field]||0;if(type==='ratio'){let[a,b]=field.split('/');return(s[b]||0)?(s[a]||0)/s[b]:0;}if(type==='nrr')return(s.StartingMRR||0)?((s.StartingMRR||0)-(s.ChurnMRR||0)-(s.ContractionMRR||0)+(s.ExpansionMRR||0))/s.StartingMRR:0;return 0}
-function monthSeries(rows){let m={}; for(let r of rows){if(!m[r.month])m[r.month]=0;m[r.month]+=r[SPEC.metric]||0;}return Object.entries(m).sort((a,b)=>a[0].localeCompare(b[0])).map(([x,y])=>({x,y}));}
-function escapeHTML(x){return String(x).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k]));}
-function lineChart(points){if(!points.length)return'<p>No data for this selection.</p>';const W=850,H=248,left=55,right=25,top=20,bottom=35,max=Math.max(1,...points.map(p=>p.y))*1.16;let coords=points.map((p,i)=>({...p,value:p.y,x:left+(W-left-right)*(points.length===1?.5:i/(points.length-1)),y:top+(H-top-bottom)*(1-p.y/max)}));let grid=[0,.25,.5,.75,1].map(q=>{let y=top+(H-top-bottom)*(1-q);return `<line x1="${left}" y1="${y}" x2="${W-right}" y2="${y}" stroke="#264159" stroke-dasharray="4 5"/><text x="${left-10}" y="${y+4}" fill="#88a1b9" text-anchor="end" font-size="12">${Math.round(max*q).toLocaleString('en-US')}</text>`}).join('');let xlabels=coords.filter((p,i)=>i%Math.max(1,Math.ceil(coords.length/6))===0||i===coords.length-1).map(p=>`<text x="${p.x}" y="${H-10}" font-size="12" text-anchor="middle" fill="#93a4b8">${p.x===undefined?'':p.xlbl||p.x}</text>`).join('');let area=`${left},${H-bottom} `+coords.map(p=>`${p.x},${p.y}`).join(' ')+` ${coords.at(-1).x},${H-bottom}`;let circles=coords.map(p=>`<circle cx="${p.x}" cy="${p.y}" r="4" fill="${ACCENT}" stroke="#0c2234" stroke-width="2"><title>${p.xlbl||p.x}: ${fmt(p.value,SPEC.unit)}</title></circle>`).join('');let months=coords.filter((p,i)=>i%Math.max(1,Math.ceil(coords.length/7))===0||i===coords.length-1).map(p=>`<text x="${p.x}" y="${H-8}" font-size="12" text-anchor="middle" fill="#93a4b8">${p.xdate.slice(2)}</text>`).join('');return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:100%" role="img" aria-label="Monthly ${SPEC.trend}">${grid}<polygon points="${area}" fill="${ACCENT}" fill-opacity=".09"/><polyline points="${coords.map(p=>p.x+','+p.y).join(' ')}" fill="none" stroke="${ACCENT}" stroke-width="3"/>${circles}${months}</svg>`;}
-function bars(rows){let c=el('cat').value;let p=el('period').value;let vals=CATS.map(cat=>({cat,value:totals(DATA.filter(r=>r.cat===cat&&matchPeriod(r.month,p)))[SPEC.metric]||0}));if(c!=='all')vals=vals.filter(x=>x.cat===c);let max=Math.max(1,...vals.map(x=>x.value));return `<div style="display:flex;flex-direction:column;justify-content:space-around;height:240px;gap:9px">${vals.map(x=>`<div><div style="display:flex;justify-content:space-between;gap:6px;margin-bottom:7px;font-size:12px"><span style="color:#d6e6f7">${escapeHTML(x.cat)}</span><b>${fmt(x.value,SPEC.unit)}</b></div><div style="background:#21374b;height:10px;border-radius:99px"><div style="height:100%;width:${(x.value/max*100).toFixed(2)}%;border-radius:99px;background:linear-gradient(90deg,${ACCENT},#e0eafa)"></div></div></div>`).join('')}</div>`}
-function draw(){const rows=subset();el('kpis').innerHTML=SPEC.cards.map(([label,t,f,unit])=>{let n=value(rows,t,f);return `<article class="kpi"><label>${escapeHTML(label)}</label><div class="value">${fmt(n,unit)}</div><div class="mini">Calculated from current selection</div></article>`}).join('');let m=monthSeries(rows).map(x=>({...x,xdate:x.x}));el('lineChart').innerHTML=lineChart(m);el('barChart').innerHTML=bars(rows);el('monthly').innerHTML=m.slice(-5).reverse().map(x=>`<tr><td>${x.x}</td><td>${fmt(x.y,SPEC.unit)}</td></tr>`).join('')||'<tr><td colspan="2">No records</td></tr>'}
-for(let cat of ['All categories',...CATS]){let opt=document.createElement('option');opt.value=cat==='All categories'?'all':cat;opt.textContent=cat;el('cat').append(opt)}for(let p of [...el('period').options]){if(p.value!=='all'&&!DATA.some(x=>matchPeriod(x.month,p.value)))p.remove()}el('cat').addEventListener('change',draw);el('period').addEventListener('change',draw);draw();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supply Chain &amp; Inventory | BI Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #f5f6f3;
+      --surface: #fff;
+      --ink: #1e2c27;
+      --muted: #52615a;
+      --line: #dbe1da;
+      --green: #236854;
+      --green-dark: #174c3d;
+      --wash: #edf4ee;
+      --radius: 10px;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); }
+    a { color: var(--green-dark); text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+    h1, h2, p, dl, dd { margin: 0; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+    .site-nav, .page {
+      max-width: 1328px;
+      margin-inline: auto;
+      padding-inline: clamp(16px, 3vw, 44px);
+    }
+    .site-nav {
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: .875rem;
+    }
+    .portfolio {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .portfolio:hover { text-decoration: underline; }
+    .portfolio-mark {
+      display: inline-flex;
+      align-items: end;
+      justify-content: center;
+      gap: 3px;
+      width: 30px;
+      height: 30px;
+      padding-bottom: 7px;
+      border-radius: 7px;
+      background: var(--green-dark);
+    }
+    .portfolio-mark i {
+      display: block;
+      width: 3px;
+      height: 7px;
+      border-radius: 1px;
+      background: #f1f7f2;
+    }
+    .portfolio-mark i:nth-child(2) { height: 11px; }
+    .portfolio-mark i:nth-child(3) { height: 16px; }
+    .repo-link { color: var(--muted); }
+
+    .page { padding-block: 32px 38px; }
+    .page-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px 28px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(1.7rem, 3.3vw, 2.2rem);
+      line-height: 1.12;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+    .data-context {
+      margin-top: 9px;
+      font-size: .875rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .filters { display: flex; gap: 12px; }
+    .field { display: grid; gap: 6px; min-width: 0; }
+    .field > span:first-child { color: var(--muted); font-size: .8125rem; font-weight: 600; }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: calc(50% - 4px);
+      width: 6px;
+      height: 6px;
+      border: solid currentColor;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+    select {
+      appearance: none;
+      width: 100%;
+      min-width: 168px;
+      min-height: 42px;
+      padding: 8px 34px 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: .875rem;
+      cursor: pointer;
+    }
+    select:hover { border-color: #98aa9d; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .metric, .panel {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .metric { padding: 17px 18px 16px; }
+    .metric-primary { background: var(--wash); border-color: #ceded2; }
+    .metric dt { color: var(--muted); font-size: .875rem; font-weight: 600; line-height: 1.3; }
+    .metric-value {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(1.38rem, 2.65vw, 2rem);
+      font-weight: 675;
+      line-height: 1.15;
+      letter-spacing: -.05em;
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-primary .metric-value { color: var(--green-dark); }
+    .metric-note { margin-top: 9px; color: var(--muted); font-size: .8125rem; line-height: 1.4; }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .panel { padding: 18px; }
+    .panel-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .panel-heading h2 { font-size: 1.0625rem; letter-spacing: -.02em; font-weight: 650; line-height: 1.25; }
+    .panel-meta { color: var(--muted); font-size: .8125rem; line-height: 1.35; }
+    .panel-description { margin-top: 6px; color: var(--muted); font-size: .8125rem; line-height: 1.4; }
+
+    .chart { position: relative; height: 258px; margin-top: 14px; border-radius: 5px; }
+    .chart canvas { display: block; width: 100%; height: 100%; }
+    .chart-tooltip {
+      position: absolute;
+      display: grid;
+      gap: 4px;
+      z-index: 1;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      box-shadow: 0 3px 12px #263a2613;
+      font-size: .8125rem;
+      font-variant-numeric: tabular-nums;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .chart-tooltip[hidden] { display: none; }
+    .chart-tooltip span { color: var(--muted); }
+
+    .segments { display: grid; gap: 18px; padding: 0; margin: 20px 0 0; list-style: none; }
+    .segment-heading, .segment-share { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+    .segment-heading { font-size: .875rem; font-weight: 550; }
+    .segment-amount { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .segment-amount { font-weight: 650; }
+    .segment-share { margin-top: 8px; }
+    .segment-track { flex: 1; height: 7px; border-radius: 3px; background: #e8eee9; }
+    .segment-fill { display: block; height: 100%; border-radius: inherit; background: var(--green); }
+
+    .table-wrap { margin-top: 13px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: right; font-size: .875rem; }
+    th, td { padding: 10px 8px; vertical-align: top; }
+    th:first-child, td:first-child { text-align: left; padding-left: 0; }
+    th:last-child, td:last-child { padding-right: 0; }
+    th { color: var(--muted); font-weight: 600; font-size: .8125rem; }
+    td { border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    .definitions { margin-top: 12px; line-height: 1.45; }
+    .definitions > div + div { margin-top: 11px; padding-top: 11px; border-top: 1px solid var(--line); }
+    .definitions dt { font-size: .875rem; font-weight: 650; }
+    .definitions dd { margin-top: 3px; color: var(--muted); font-size: .8125rem; }
+    .table-empty { text-align: left; color: var(--muted); }
+
+    @media (max-width: 980px) {
+      .page { padding-block-start: 26px; }
+      .metric { padding-inline: 14px; }
+      .report-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .page-heading { gap: 16px; }
+      .filters, .field { width: 100%; }
+      select { min-width: 0; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .report-grid { grid-template-columns: minmax(0, 1fr); }
+      .chart { height: 228px; }
+    }
+    @media (max-width: 440px) {
+      .site-nav { min-height: 54px; }
+      .metrics { gap: 10px; }
+      .metric { padding: 13px 11px; }
+      .metric dt, .metric-note { font-size: .75rem; }
+      .metric-value { font-size: clamp(1.18rem, 5.4vw, 1.45rem); }
+      .panel { padding: 15px; }
+      th, td { padding-inline: 5px; font-size: .75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Portfolio">
+      <a class="portfolio" href="https://sumitgole011.github.io/PowerBI-Industry-Analytics-Portfolio/">
+        <span class="portfolio-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        BI Portfolio
+      </a>
+      <a class="repo-link" href="https://github.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio/tree/main/Supply_Chain_Inventory_Intelligence">Case study &amp; data</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <header class="page-heading">
+      <div>
+        <h1>Supply Chain &amp; Inventory</h1>
+        <p class="data-context" id="data-context">Synthetic data</p>
+      </div>
+      <div class="filters" role="group" aria-label="Dashboard filters">
+        <label class="field">
+          <span>Reporting period</span>
+          <span class="select-wrap">
+            <select id="period">
+              <option value="all">All available data</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2025-Q1">2025 · Q1</option>
+              <option value="2025-Q2">2025 · Q2</option>
+              <option value="2025-Q3">2025 · Q3</option>
+              <option value="2025-Q4">2025 · Q4</option>
+            </select>
+          </span>
+        </label>
+        <label class="field">
+          <span>Product category</span>
+          <span class="select-wrap">
+            <select id="cat">
+              <option value="all">All categories</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <section class="metrics" id="kpis" aria-label="Key metrics">
+      <dl class="metric metric-primary">
+        <dt>Net sales</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">Total for the selected period</dd>
+      </dl>
+      <dl class="metric">
+        <dt>Order-line OTIF</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">On-time, in-full lines as a share of all order lines</dd>
+      </dl>
+      <dl class="metric">
+        <dt>Unit fill rate</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">Delivered units as a share of ordered units</dd>
+      </dl>
+      <dl class="metric">
+        <dt>Stockout snapshots</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">Zero-stock snapshots as a share of all snapshots</dd>
+      </dl>
+    </section>
+
+    <div class="report-grid">
+      <section class="panel" aria-labelledby="trend-heading">
+        <div class="panel-heading">
+          <h2 id="trend-heading">Net sales by month</h2>
+          <span class="panel-meta">USD</span>
+        </div>
+        <p class="panel-description" id="trend-period"></p>
+        <p class="sr-only" id="chart-help">Use the arrow keys to read monthly values. Recent months are also in the monthly breakdown table.</p>
+        <div class="chart" id="lineChart" role="group" aria-labelledby="trend-heading" aria-describedby="chart-help" tabindex="0">
+          <canvas aria-hidden="true"></canvas>
+          <div class="chart-tooltip" id="chart-tooltip" hidden aria-hidden="true">
+            <span></span>
+            <strong></strong>
+          </div>
+          <span class="sr-only" id="chart-value" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="categories-heading">
+        <div class="panel-heading">
+          <h2 id="categories-heading">Net sales by category</h2>
+        </div>
+        <p class="panel-description">Totals for the selected period</p>
+        <ul class="segments" id="barChart"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="breakdown-heading">
+        <div class="panel-heading">
+          <h2 id="breakdown-heading">Monthly breakdown</h2>
+          <span class="panel-meta" id="table-period"></span>
+        </div>
+        <div class="table-wrap">
+          <table aria-labelledby="breakdown-heading">
+            <thead>
+              <tr>
+                <th scope="col">Month</th>
+                <th scope="col">Net sales</th>
+              </tr>
+            </thead>
+            <tbody id="monthly"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="definitions-heading">
+        <div class="panel-heading">
+          <h2 id="definitions-heading">Metric definitions</h2>
+        </div>
+        <dl class="definitions">
+          <div>
+            <dt>Order-line OTIF</dt>
+            <dd>Includes cancelled and partially delivered lines in the denominator.</dd>
+          </div>
+          <div>
+            <dt>Stockout snapshots</dt>
+            <dd>Monthly SKU-location snapshots with zero stock divided by all snapshots.</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+    <p class="sr-only" id="filter-status" role="status"></p>
+  </main>
+
+  <template id="category-row">
+    <li>
+      <div class="segment-heading"><span></span><strong class="segment-amount"></strong></div>
+      <div class="segment-share">
+        <span class="segment-track" aria-hidden="true"><span class="segment-fill"></span></span>
+      </div>
+    </li>
+  </template>
+
+  <script id="dashboard-data" type="application/json">
+    {
+      "rows": [
+        {"month":"2025-05","cat":"Office","OrderLines":90,"NetSales":183377.03000000003,"COGS":114498.68,"OTIF":28,"Ordered":795,"Delivered":758,"Stockouts":9,"Snapshots":140,"InventoryValue":748634.7},
+        {"month":"2025-08","cat":"Industrial","OrderLines":25,"NetSales":41479.64,"COGS":26210.699999999997,"OTIF":10,"Ordered":230,"Delivered":224,"Stockouts":11,"Snapshots":52,"InventoryValue":130027.51999999999},
+        {"month":"2025-06","cat":"Office","OrderLines":91,"NetSales":180825.33000000005,"COGS":113611.80000000003,"OTIF":38,"Ordered":768,"Delivered":719,"Stockouts":14,"Snapshots":140,"InventoryValue":716785.4600000001},
+        {"month":"2025-11","cat":"Home","OrderLines":43,"NetSales":54387.659999999996,"COGS":35544.69,"OTIF":13,"Ordered":334,"Delivered":300,"Stockouts":7,"Snapshots":72,"InventoryValue":288553.76},
+        {"month":"2025-01","cat":"Industrial","OrderLines":44,"NetSales":59140.15,"COGS":38116.520000000004,"OTIF":18,"Ordered":412,"Delivered":387,"Stockouts":10,"Snapshots":52,"InventoryValue":116580.85000000002},
+        {"month":"2025-01","cat":"Office","OrderLines":90,"NetSales":179534.19999999995,"COGS":113493.6,"OTIF":33,"Ordered":877,"Delivered":802,"Stockouts":8,"Snapshots":140,"InventoryValue":737323.3599999995},
+        {"month":"2025-04","cat":"Office","OrderLines":94,"NetSales":225486.20999999996,"COGS":141210.65,"OTIF":39,"Ordered":879,"Delivered":835,"Stockouts":14,"Snapshots":140,"InventoryValue":632113.3200000002},
+        {"month":"2025-11","cat":"Office","OrderLines":71,"NetSales":119673.86,"COGS":75691.33,"OTIF":31,"Ordered":529,"Delivered":511,"Stockouts":8,"Snapshots":140,"InventoryValue":683117.6099999999},
+        {"month":"2025-06","cat":"Apparel","OrderLines":34,"NetSales":44963.409999999996,"COGS":29428.76,"OTIF":11,"Ordered":308,"Delivered":269,"Stockouts":7,"Snapshots":48,"InventoryValue":177822.15000000002},
+        {"month":"2025-07","cat":"Office","OrderLines":93,"NetSales":204698.47,"COGS":128692.34999999996,"OTIF":26,"Ordered":883,"Delivered":827,"Stockouts":16,"Snapshots":140,"InventoryValue":668424.9099999999},
+        {"month":"2025-06","cat":"Home","OrderLines":41,"NetSales":75780.45,"COGS":49821.759999999995,"OTIF":12,"Ordered":342,"Delivered":319,"Stockouts":5,"Snapshots":72,"InventoryValue":298704.35000000003},
+        {"month":"2025-03","cat":"Office","OrderLines":111,"NetSales":234937.06000000014,"COGS":146480.43999999994,"OTIF":52,"Ordered":1001,"Delivered":967,"Stockouts":13,"Snapshots":140,"InventoryValue":646837.9799999995},
+        {"month":"2025-04","cat":"Home","OrderLines":45,"NetSales":87794.99000000002,"COGS":58729.58,"OTIF":14,"Ordered":413,"Delivered":397,"Stockouts":4,"Snapshots":72,"InventoryValue":386876.60999999987},
+        {"month":"2025-07","cat":"Electronics","OrderLines":24,"NetSales":61734.65,"COGS":39467.70999999999,"OTIF":9,"Ordered":227,"Delivered":202,"Stockouts":2,"Snapshots":48,"InventoryValue":239851.86000000002},
+        {"month":"2025-02","cat":"Home","OrderLines":41,"NetSales":89179.17,"COGS":56314.09000000001,"OTIF":19,"Ordered":394,"Delivered":391,"Stockouts":7,"Snapshots":72,"InventoryValue":323580.42999999993},
+        {"month":"2025-10","cat":"Office","OrderLines":93,"NetSales":176025.16,"COGS":112276.9,"OTIF":32,"Ordered":804,"Delivered":755,"Stockouts":6,"Snapshots":140,"InventoryValue":730151.1799999999},
+        {"month":"2025-09","cat":"Office","OrderLines":74,"NetSales":129688.82999999999,"COGS":83013.53,"OTIF":29,"Ordered":637,"Delivered":610,"Stockouts":12,"Snapshots":140,"InventoryValue":699422.51},
+        {"month":"2025-05","cat":"Industrial","OrderLines":21,"NetSales":41140.89000000001,"COGS":25531.740000000005,"OTIF":8,"Ordered":217,"Delivered":201,"Stockouts":11,"Snapshots":52,"InventoryValue":132597.04000000004},
+        {"month":"2025-06","cat":"Electronics","OrderLines":23,"NetSales":52026.49000000001,"COGS":34007.8,"OTIF":13,"Ordered":221,"Delivered":219,"Stockouts":2,"Snapshots":48,"InventoryValue":262098.74999999997},
+        {"month":"2025-02","cat":"Apparel","OrderLines":32,"NetSales":69478.01000000001,"COGS":43601.89000000001,"OTIF":14,"Ordered":333,"Delivered":317,"Stockouts":2,"Snapshots":48,"InventoryValue":186978.23999999996},
+        {"month":"2025-08","cat":"Home","OrderLines":55,"NetSales":101714.66,"COGS":65964.44,"OTIF":24,"Ordered":439,"Delivered":430,"Stockouts":8,"Snapshots":72,"InventoryValue":354902.4900000001},
+        {"month":"2025-02","cat":"Office","OrderLines":80,"NetSales":158126.74000000002,"COGS":101070.61,"OTIF":28,"Ordered":727,"Delivered":697,"Stockouts":7,"Snapshots":140,"InventoryValue":705754.3999999997},
+        {"month":"2025-08","cat":"Electronics","OrderLines":36,"NetSales":71252.61999999998,"COGS":46878.94,"OTIF":13,"Ordered":312,"Delivered":282,"Stockouts":6,"Snapshots":48,"InventoryValue":248550.61000000004},
+        {"month":"2025-04","cat":"Electronics","OrderLines":35,"NetSales":89239.50000000003,"COGS":58659.10999999999,"OTIF":11,"Ordered":333,"Delivered":326,"Stockouts":1,"Snapshots":48,"InventoryValue":314481.45000000007},
+        {"month":"2025-05","cat":"Home","OrderLines":33,"NetSales":54080.19,"COGS":37290.880000000005,"OTIF":15,"Ordered":328,"Delivered":322,"Stockouts":5,"Snapshots":72,"InventoryValue":353793.68},
+        {"month":"2025-08","cat":"Office","OrderLines":108,"NetSales":215696.58999999994,"COGS":134356.78999999998,"OTIF":45,"Ordered":888,"Delivered":826,"Stockouts":9,"Snapshots":140,"InventoryValue":665906.1700000003},
+        {"month":"2025-05","cat":"Apparel","OrderLines":34,"NetSales":50139.4,"COGS":34726.17,"OTIF":10,"Ordered":347,"Delivered":324,"Stockouts":3,"Snapshots":48,"InventoryValue":218951.91999999998},
+        {"month":"2025-01","cat":"Apparel","OrderLines":33,"NetSales":58399.95,"COGS":37674.32000000001,"OTIF":13,"Ordered":327,"Delivered":286,"Stockouts":4,"Snapshots":48,"InventoryValue":182455.81999999998},
+        {"month":"2025-12","cat":"Industrial","OrderLines":9,"NetSales":8996,"COGS":5852.2300000000005,"OTIF":3,"Ordered":78,"Delivered":78,"Stockouts":16,"Snapshots":52,"InventoryValue":124945.75000000001},
+        {"month":"2025-10","cat":"Home","OrderLines":46,"NetSales":81338.32,"COGS":52247.74000000001,"OTIF":19,"Ordered":370,"Delivered":336,"Stockouts":5,"Snapshots":72,"InventoryValue":367595.01999999996},
+        {"month":"2025-09","cat":"Electronics","OrderLines":34,"NetSales":67765.09,"COGS":44316.829999999994,"OTIF":15,"Ordered":280,"Delivered":261,"Stockouts":4,"Snapshots":48,"InventoryValue":264692.07999999996},
+        {"month":"2025-09","cat":"Apparel","OrderLines":28,"NetSales":40687.13,"COGS":25102.949999999993,"OTIF":9,"Ordered":261,"Delivered":235,"Stockouts":2,"Snapshots":48,"InventoryValue":205665.46000000002},
+        {"month":"2025-10","cat":"Apparel","OrderLines":20,"NetSales":26723.909999999993,"COGS":18538.91,"OTIF":6,"Ordered":186,"Delivered":132,"Stockouts":5,"Snapshots":48,"InventoryValue":190678.72000000003},
+        {"month":"2025-05","cat":"Electronics","OrderLines":30,"NetSales":80228.07,"COGS":51609.32000000001,"OTIF":9,"Ordered":273,"Delivered":263,"Stockouts":3,"Snapshots":48,"InventoryValue":267281.57999999996},
+        {"month":"2025-10","cat":"Electronics","OrderLines":28,"NetSales":50422.24000000001,"COGS":32326.47,"OTIF":7,"Ordered":204,"Delivered":196,"Stockouts":6,"Snapshots":48,"InventoryValue":246581.94},
+        {"month":"2025-04","cat":"Apparel","OrderLines":45,"NetSales":65841.66999999997,"COGS":42892.31999999999,"OTIF":15,"Ordered":422,"Delivered":379,"Stockouts":5,"Snapshots":48,"InventoryValue":206764.52999999997},
+        {"month":"2025-03","cat":"Electronics","OrderLines":19,"NetSales":41742.67999999999,"COGS":26931.079999999994,"OTIF":4,"Ordered":174,"Delivered":166,"Stockouts":3,"Snapshots":48,"InventoryValue":255970.13999999998},
+        {"month":"2025-03","cat":"Home","OrderLines":43,"NetSales":77208.37000000001,"COGS":49163.38000000001,"OTIF":15,"Ordered":372,"Delivered":344,"Stockouts":7,"Snapshots":72,"InventoryValue":308941.27},
+        {"month":"2025-12","cat":"Office","OrderLines":16,"NetSales":37073.46000000001,"COGS":22515.759999999995,"OTIF":9,"Ordered":171,"Delivered":169,"Stockouts":12,"Snapshots":140,"InventoryValue":761652.3899999999},
+        {"month":"2025-09","cat":"Industrial","OrderLines":33,"NetSales":59853.670000000006,"COGS":37835.57000000001,"OTIF":17,"Ordered":260,"Delivered":242,"Stockouts":10,"Snapshots":52,"InventoryValue":138453.39999999994},
+        {"month":"2025-01","cat":"Home","OrderLines":52,"NetSales":105772.58999999997,"COGS":69241.68,"OTIF":12,"Ordered":511,"Delivered":479,"Stockouts":3,"Snapshots":72,"InventoryValue":353170.0999999999},
+        {"month":"2025-06","cat":"Industrial","OrderLines":28,"NetSales":56041.51999999999,"COGS":35869.79000000001,"OTIF":12,"Ordered":271,"Delivered":268,"Stockouts":8,"Snapshots":52,"InventoryValue":156351.63999999998},
+        {"month":"2025-03","cat":"Industrial","OrderLines":38,"NetSales":47166.41,"COGS":29273.139999999996,"OTIF":11,"Ordered":321,"Delivered":267,"Stockouts":13,"Snapshots":52,"InventoryValue":112211.95},
+        {"month":"2025-12","cat":"Apparel","OrderLines":6,"NetSales":14524.280000000002,"COGS":9966.9,"OTIF":2,"Ordered":81,"Delivered":78,"Stockouts":2,"Snapshots":48,"InventoryValue":219025.71000000002},
+        {"month":"2025-09","cat":"Home","OrderLines":42,"NetSales":71513.37999999999,"COGS":48322.48,"OTIF":20,"Ordered":342,"Delivered":321,"Stockouts":6,"Snapshots":72,"InventoryValue":318763.49000000005},
+        {"month":"2025-12","cat":"Home","OrderLines":6,"NetSales":12208.29,"COGS":7636.63,"OTIF":3,"Ordered":67,"Delivered":63,"Stockouts":5,"Snapshots":72,"InventoryValue":330539.07000000007},
+        {"month":"2025-07","cat":"Home","OrderLines":40,"NetSales":75209.26,"COGS":47716.72999999999,"OTIF":14,"Ordered":373,"Delivered":341,"Stockouts":10,"Snapshots":72,"InventoryValue":323302.64999999997},
+        {"month":"2025-07","cat":"Industrial","OrderLines":34,"NetSales":43017.31,"COGS":27953.42,"OTIF":10,"Ordered":258,"Delivered":237,"Stockouts":12,"Snapshots":52,"InventoryValue":134371.86000000002},
+        {"month":"2025-07","cat":"Apparel","OrderLines":24,"NetSales":44798.64,"COGS":30955.809999999998,"OTIF":11,"Ordered":234,"Delivered":227,"Stockouts":5,"Snapshots":48,"InventoryValue":218020.42000000004},
+        {"month":"2025-02","cat":"Industrial","OrderLines":42,"NetSales":63279.88000000002,"COGS":40061.51000000002,"OTIF":13,"Ordered":378,"Delivered":361,"Stockouts":14,"Snapshots":52,"InventoryValue":119229.62999999998},
+        {"month":"2025-11","cat":"Industrial","OrderLines":37,"NetSales":52170.12000000001,"COGS":33935.79000000001,"OTIF":11,"Ordered":330,"Delivered":310,"Stockouts":6,"Snapshots":52,"InventoryValue":112998.63999999998},
+        {"month":"2025-08","cat":"Apparel","OrderLines":32,"NetSales":46248.49,"COGS":29958.320000000003,"OTIF":15,"Ordered":248,"Delivered":240,"Stockouts":2,"Snapshots":48,"InventoryValue":199999.79000000007},
+        {"month":"2025-04","cat":"Industrial","OrderLines":29,"NetSales":63579.61000000001,"COGS":39832.29999999999,"OTIF":12,"Ordered":278,"Delivered":268,"Stockouts":18,"Snapshots":52,"InventoryValue":85079.56999999999},
+        {"month":"2025-10","cat":"Industrial","OrderLines":34,"NetSales":41586.299999999996,"COGS":27500.91,"OTIF":13,"Ordered":295,"Delivered":258,"Stockouts":17,"Snapshots":52,"InventoryValue":109870.79999999999},
+        {"month":"2025-11","cat":"Apparel","OrderLines":20,"NetSales":33011.43,"COGS":21285.239999999998,"OTIF":5,"Ordered":166,"Delivered":149,"Stockouts":5,"Snapshots":48,"InventoryValue":200486.84},
+        {"month":"2025-02","cat":"Electronics","OrderLines":21,"NetSales":50613.229999999996,"COGS":31186.769999999997,"OTIF":12,"Ordered":171,"Delivered":163,"Stockouts":4,"Snapshots":48,"InventoryValue":250265.04000000004},
+        {"month":"2025-01","cat":"Electronics","OrderLines":25,"NetSales":43138.340000000004,"COGS":26338.31,"OTIF":9,"Ordered":160,"Delivered":156,"Stockouts":5,"Snapshots":48,"InventoryValue":282959.19999999995},
+        {"month":"2025-11","cat":"Electronics","OrderLines":20,"NetSales":48760.409999999996,"COGS":30572.42,"OTIF":7,"Ordered":223,"Delivered":218,"Stockouts":5,"Snapshots":48,"InventoryValue":275771.91000000003},
+        {"month":"2025-03","cat":"Apparel","OrderLines":21,"NetSales":38253.57000000001,"COGS":24387.43999999999,"OTIF":4,"Ordered":197,"Delivered":171,"Stockouts":4,"Snapshots":48,"InventoryValue":209604.74},
+        {"month":"2025-12","cat":"Electronics","OrderLines":4,"NetSales":13276.859999999999,"COGS":8400.86,"OTIF":1,"Ordered":37,"Delivered":37,"Stockouts":6,"Snapshots":48,"InventoryValue":264340.22000000003}
+      ],
+      "categories": ["Electronics","Home","Industrial","Office","Apparel"],
+      "spec": {"label":"Product category","metric":"NetSales","trend":"Net sales by month","unit":"$","cards":[["Net sales","sum","NetSales","$"],["Order-line OTIF","ratio","OTIF/OrderLines","%"],["Unit fill rate","ratio","Delivered/Ordered","%"],["Stockout snapshots","ratio","Stockouts/Snapshots","%"]]}
+    }
+  </script>
+  <script>
+    "use strict";
+
+    const byId = id => document.getElementById(id);
+    const { rows: data, categories, spec } = JSON.parse(byId("dashboard-data").textContent);
+    const periods = [...new Set(data.map(row => row.month))].sort();
+    const periodFilter = byId("period");
+    const categoryFilter = byId("cat");
+    const axisFormat = new Intl.NumberFormat("en-US", {
+      notation: "compact",
+      ...(spec.unit === "$" ? { style: "currency", currency: "USD" } : {})
+    });
+    const monthDate = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+    const axisDate = new Intl.DateTimeFormat("en-US", { month: "short", year: "2-digit", timeZone: "UTC" });
+
+    function monthLabel(month, formatter = monthDate) {
+      return formatter.format(new Date(month + "-01T00:00:00Z"));
+    }
+
+    function monthRange(first, last) {
+      return first === last ? monthLabel(last) : monthLabel(first) + " – " + monthLabel(last);
+    }
+
+    function matchesPeriod(month, selection) {
+      if (selection === "all") return true;
+      if (selection.includes("-Q")) {
+        const quarter = Math.ceil(Number(month.slice(5, 7)) / 3);
+        return selection === month.slice(0, 4) + "-Q" + quarter;
+      }
+      return month.startsWith(selection);
+    }
+
+    function format(value, unit) {
+      if (unit === "%") return (value * 100).toFixed(1) + "%";
+      if (unit === " days") return value.toFixed(1) + " days";
+      const whole = Math.round(value).toLocaleString("en-US");
+      return unit === "$" ? "$" + whole : whole;
+    }
+
+    function totals(rows) {
+      const result = {};
+      for (const row of rows) {
+        for (const [field, value] of Object.entries(row)) {
+          if (field !== "month" && field !== "cat") result[field] = (result[field] || 0) + value;
+        }
+      }
+      return result;
+    }
+
+    function metricValue(stats, kind, field) {
+      if (kind === "sum") return stats[field] || 0;
+      const [numerator, denominator] = field.split("/");
+      return stats[denominator] ? (stats[numerator] || 0) / stats[denominator] : 0;
+    }
+
+    function monthSeries(rows) {
+      const amounts = new Map();
+      for (const row of rows) {
+        amounts.set(row.month, (amounts.get(row.month) || 0) + (row[spec.metric] || 0));
+      }
+      return [...amounts.keys()].sort().map(month => ({ month, amount: amounts.get(month) }));
+    }
+
+    function renderMetrics(rows) {
+      const stats = totals(rows);
+      const cards = byId("kpis").querySelectorAll(".metric");
+      for (const [index, [label, kind, field, unit]] of spec.cards.entries()) {
+        const card = cards[index];
+        card.querySelector("dt").textContent = label;
+        card.querySelector(".metric-value").textContent = format(metricValue(stats, kind, field), unit);
+      }
+    }
+
+    function renderCategories(rows, selection) {
+      const shown = selection === "all" ? categories : categories.filter(category => category === selection);
+      const amounts = shown.map(category => ({
+        category,
+        amount: totals(rows.filter(row => row.cat === category))[spec.metric] || 0
+      }));
+      const maximum = Math.max(1, ...amounts.map(item => item.amount));
+      const chart = byId("barChart");
+      chart.replaceChildren();
+      for (const { category, amount } of amounts) {
+        const item = byId("category-row").content.cloneNode(true);
+        item.querySelector(".segment-heading span").textContent = category;
+        item.querySelector(".segment-amount").textContent = format(amount, spec.unit);
+        item.querySelector(".segment-fill").style.width = (amount / maximum * 100).toFixed(2) + "%";
+        chart.append(item);
+      }
+    }
+
+    function renderTable(months) {
+      const body = byId("monthly");
+      body.replaceChildren();
+      const recent = months.slice(-5).reverse();
+      byId("table-period").textContent = months.length > recent.length ? "Latest " + recent.length + " months" : "";
+      for (const item of recent) {
+        const row = body.insertRow();
+        const date = document.createElement("time");
+        date.dateTime = item.month;
+        date.textContent = monthLabel(item.month);
+        row.insertCell().append(date);
+        row.insertCell().textContent = format(item.amount, spec.unit);
+      }
+      if (!recent.length) {
+        const cell = body.insertRow().insertCell();
+        cell.colSpan = 2;
+        cell.className = "table-empty";
+        cell.textContent = "No records";
+      }
+    }
+
+    const chart = byId("lineChart");
+    const canvas = chart.querySelector("canvas");
+    const context = canvas.getContext("2d");
+    const tooltip = byId("chart-tooltip");
+    const chartValue = byId("chart-value");
+    let timeline = [];
+    let points = [];
+    let activePoint = -1;
+
+    function chartScale(maximum) {
+      const target = maximum / 5;
+      const magnitude = 10 ** Math.floor(Math.log10(target));
+      const step = [1, 2, 2.5, 5, 10].map(size => size * magnitude).find(size => size >= target);
+      return { step, intervals: Math.ceil(maximum / step) };
+    }
+
+    function drawChart() {
+      if (!context) return;
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      if (!width || !height) return;
+      const scale = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * scale);
+      canvas.height = Math.round(height * scale);
+      context.setTransform(scale, 0, 0, scale, 0, 0);
+      context.font = "12px " + getComputedStyle(chart).fontFamily;
+      context.fillStyle = "#52615a";
+      context.textBaseline = "middle";
+
+      if (!timeline.length) {
+        points = [];
+        context.textAlign = "center";
+        context.fillText("No data for this selection.", width / 2, height / 2);
+        return;
+      }
+
+      const left = 49;
+      const right = width - 13;
+      const top = 11;
+      const bottom = height - 28;
+      const { step, intervals } = chartScale(Math.max(1, ...timeline.map(row => row.amount)));
+      const topValue = step * intervals;
+      const plotHeight = bottom - top;
+      const plotWidth = right - left;
+      const position = index => timeline.length === 1 ? .5 : index / (timeline.length - 1);
+      points = timeline.map((row, index) => ({
+        month: row.month,
+        amount: row.amount,
+        x: left + plotWidth * position(index),
+        y: bottom - plotHeight * (row.amount / topValue)
+      }));
+
+      context.textAlign = "right";
+      for (let i = 0; i <= intervals; i++) {
+        const y = bottom - plotHeight * i / intervals;
+        context.strokeStyle = i === 0 ? "#cfd9d2" : "#e6ece7";
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(left, y);
+        context.lineTo(right, y);
+        context.stroke();
+        context.fillText(axisFormat.format(step * i), left - 9, y);
+      }
+
+      const labelCount = Math.min(points.length, Math.max(2, Math.floor(plotWidth / 94) + 1));
+      for (let i = 0; i < labelCount; i++) {
+        const point = points[labelCount === 1 ? 0 : Math.round(i * (points.length - 1) / (labelCount - 1))];
+        context.textAlign = labelCount === 1 ? "center" : i === 0 ? "left" : i === labelCount - 1 ? "right" : "center";
+        context.fillText(monthLabel(point.month, axisDate), point.x, bottom + 16);
+      }
+
+      if (points.length > 1) {
+        function traceRevenue() {
+          context.beginPath();
+          context.moveTo(points[0].x, points[0].y);
+          for (const point of points.slice(1)) context.lineTo(point.x, point.y);
+        }
+        traceRevenue();
+        context.lineTo(points.at(-1).x, bottom);
+        context.lineTo(points[0].x, bottom);
+        context.closePath();
+        context.fillStyle = "#edf4ef";
+        context.fill();
+        traceRevenue();
+        context.strokeStyle = "#236854";
+        context.lineWidth = 2.5;
+        context.lineJoin = "round";
+        context.stroke();
+      }
+
+      const marker = points[activePoint] || points.at(-1);
+      if (activePoint >= 0) {
+        context.strokeStyle = "#a3b8ad";
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(marker.x, top);
+        context.lineTo(marker.x, bottom);
+        context.stroke();
+      }
+      context.beginPath();
+      context.arc(marker.x, marker.y, 4.5, 0, 2 * Math.PI);
+      context.fillStyle = "#236854";
+      context.fill();
+      context.lineWidth = 2;
+      context.strokeStyle = "#fff";
+      context.stroke();
+    }
+
+    function updateTooltip() {
+      const point = points[activePoint];
+      tooltip.hidden = !point;
+      if (!point) return;
+      tooltip.querySelector("span").textContent = monthLabel(point.month);
+      tooltip.querySelector("strong").textContent = format(point.amount, spec.unit);
+      const left = Math.max(0, Math.min(point.x - tooltip.offsetWidth / 2, chart.clientWidth - tooltip.offsetWidth));
+      const top = point.y >= tooltip.offsetHeight + 11 ? point.y - tooltip.offsetHeight - 10 : point.y + 11;
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+    }
+
+    function selectPoint(index, announce = false) {
+      if (activePoint !== index) {
+        activePoint = index;
+        drawChart();
+        updateTooltip();
+      }
+      if (announce && points[index]) {
+        chartValue.textContent = monthLabel(points[index].month) + ", " + format(points[index].amount, spec.unit);
+      }
+    }
+
+    function selectNearestPoint(event) {
+      if (!points.length) return;
+      const x = event.clientX - canvas.getBoundingClientRect().left;
+      const nearest = points.reduce((best, point, i) =>
+        Math.abs(point.x - x) < Math.abs(points[best].x - x) ? i : best, 0);
+      selectPoint(nearest);
+    }
+
+    chart.addEventListener("pointermove", selectNearestPoint);
+    chart.addEventListener("click", selectNearestPoint);
+    chart.addEventListener("pointerleave", () => selectPoint(-1));
+    chart.addEventListener("focus", () => selectPoint(points.length - 1, true));
+    chart.addEventListener("blur", () => selectPoint(-1));
+    chart.addEventListener("keydown", event => {
+      if (!points.length) return;
+      const current = activePoint < 0 ? points.length - 1 : activePoint;
+      const indexes = {
+        ArrowLeft: Math.max(0, current - 1),
+        ArrowRight: Math.min(points.length - 1, current + 1),
+        Home: 0,
+        End: points.length - 1
+      };
+      if (!Object.hasOwn(indexes, event.key)) return;
+      event.preventDefault();
+      selectPoint(indexes[event.key], true);
+    });
+
+    function renderDashboard() {
+      const category = categoryFilter.value;
+      const periodRows = data.filter(row => matchesPeriod(row.month, periodFilter.value));
+      const rows = periodRows.filter(row => category === "all" || row.cat === category);
+      timeline = monthSeries(rows);
+      const first = timeline[0]?.month;
+      const last = timeline.at(-1)?.month;
+      byId("trend-period").textContent = first ? monthRange(first, last) : "";
+      renderMetrics(rows);
+      renderCategories(periodRows, category);
+      renderTable(timeline);
+      activePoint = -1;
+      chartValue.textContent = "";
+      drawChart();
+      updateTooltip();
+      byId("filter-status").textContent = "Showing " + periodFilter.selectedOptions[0].textContent
+        + " for " + categoryFilter.selectedOptions[0].textContent + ".";
+    }
+
+    categoryFilter.append(...categories.map(category => new Option(category, category)));
+    for (const option of [...periodFilter.options]) {
+      if (option.value !== "all" && !periods.some(month => matchesPeriod(month, option.value))) option.remove();
+    }
+    if (periods.length) byId("data-context").append(" · " + monthRange(periods[0], periods.at(-1)));
+    periodFilter.addEventListener("change", renderDashboard);
+    categoryFilter.addEventListener("change", renderDashboard);
+    new ResizeObserver(() => {
+      drawChart();
+      updateTooltip();
+    }).observe(chart);
+    renderDashboard();
+  </script>
+</body>
+</html>

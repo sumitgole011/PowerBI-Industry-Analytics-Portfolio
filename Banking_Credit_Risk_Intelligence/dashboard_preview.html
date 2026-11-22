@@ -1,16 +1,737 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Banking Credit Risk &amp; Loan Portfolio Intelligence - BI dashboard preview</title><style>
-:root{--bg:#07111e;--panel:#0e1c2c;--muted:#93a4b8;--line:#223349;--accent:#a78bfa;--txt:#eff6fc}*{box-sizing:border-box}body{background:radial-gradient(circle at 90% -15%,#133151,transparent 40%),var(--bg);color:var(--txt);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0} .app{max-width:1440px;margin:auto;padding:26px 30px 48px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px;gap:15px}.brand{letter-spacing:2px;color:var(--accent);font-size:12px;font-weight:700}.title{font-size:29px;font-weight:750;margin:8px 0 3px}.sub{color:var(--muted);font-size:13px} .pill{border:1px solid #295066;background:#10293b;border-radius:99px;font-size:11px;color:#abd4f2;padding:8px 12px}.filters{display:flex;flex-wrap:wrap;gap:13px;margin:17px 0 23px}.filter{border:1px solid var(--line);border-radius:10px;background:#102032;padding:11px 15px;min-width:230px}label{font-size:11px;color:var(--muted);display:block;letter-spacing:.6px;text-transform:uppercase;margin-bottom:5px}select{width:100%;background:transparent;border:0;outline:none;color:#fff;font-size:14px;cursor:pointer}option{background:#14283b} .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.kpi{background:linear-gradient(160deg,#14273b,#0b1a2b);border:1px solid #1c3548;padding:19px 22px;border-radius:13px;min-height:121px}.kpi .value{font-size:28px;font-weight:750;margin-top:13px;letter-spacing:-1px}.kpi .mini{font-size:11px;color:#99aec5;margin-top:8px}.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px;margin-top:16px}.panel{border-radius:14px;background:linear-gradient(165deg,#102032,#0b1725);border:1px solid #1f3448;padding:19px;min-width:0}.panel h3{font-weight:650;margin:1px 0 4px;font-size:16px}.panel p{color:var(--muted);margin:0;font-size:12px}.chart{height:260px;margin-top:17px}.legend{font-size:11px;color:var(--muted);margin-top:8px}.second{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}table{width:100%;border-collapse:collapse;font-size:12px;margin-top:18px}th{text-align:left;font-size:11px;text-transform:uppercase;color:#8da2b8;font-weight:550;padding-bottom:12px}td{padding:11px 0;border-top:1px solid #20354a}td:last-child,th:last-child{text-align:right}footer{margin-top:27px;color:#7891a9;font-size:11px;line-height:1.7} @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.layout,.second{grid-template-columns:1fr}} @media(max-width:500px){.app{padding:17px}.title{font-size:23px}.kpis{grid-template-columns:1fr}.pill{display:none}}
-</style></head><body><div class="app"><header><div><div class="brand">NOVA / ANALYTICS LAB&nbsp; • &nbsp;POWER BI PORTFOLIO</div><div class="title">Banking Credit Risk &amp; Loan Portfolio Intelligence</div><div class="sub">Executive intelligence workspace / portfolio design prototype</div></div><span class="pill">● INTERACTIVE OFFLINE PREVIEW</span></header><div class="filters"><div class="filter"><label>Reporting period</label><select id="period"><option value="all">All available data</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2025-Q1">2025 · Q1</option><option value="2025-Q2">2025 · Q2</option><option value="2025-Q3">2025 · Q3</option><option value="2025-Q4">2025 · Q4</option></select></div><div class="filter"><label>Loan product</label><select id="cat"></select></div></div><section class="kpis" id="kpis"></section><section class="layout"><div class="panel"><h3>Originated principal by month</h3><p>Actuals derived from synthetic transactions • filtered by selection</p><div class="chart" id="lineChart"></div><div class="legend">Monthly performance · hover each point for exact numbers</div></div><div class="panel"><h3>Performance by Loan product</h3><p>Selected period · portfolio contribution</p><div class="chart" id="barChart"></div><div class="legend">Categories remain comparable under period filter</div></div></section><section class="second"><div class="panel"><h3>Monthly breakdown</h3><p>Most recent five available months</p><table><thead><tr><th>Month</th><th>Principal</th></tr></thead><tbody id="monthly"></tbody></table></div><div class="panel"><h3>Business narrative</h3><p>Executive handoff / technical notes</p><div style="font-size:13px;line-height:1.85;color:#bed0df;margin-top:16px">The loan default status is a single September 2026 snapshot. Do not interpret its share as a historical default rate in each origination month.</div></div></section><footer>LOCAL DESIGN PROTOTYPE ONLY · Not authored or published in Microsoft Power BI · Synthetic data • See source CSVs, model relationships, DAX measures and project brief to implement the report in Power BI.</footer></div>
-<script>const DATA=[{"month":"2025-06","cat":"Education Loan","Apps":14.0,"Approvals":13.0,"Loans":13.0,"Principal":239729.22,"Defaults":2.0,"DPD30":2.0},{"month":"2025-11","cat":"Auto Loan","Apps":17.0,"Approvals":14.0,"Loans":14.0,"Principal":274298.86000000004,"Defaults":1.0,"DPD30":1.0},{"month":"2025-05","cat":"Personal Loan","Apps":14.0,"Approvals":13.0,"Loans":13.0,"Principal":240035.87,"Defaults":0.0,"DPD30":1.0},{"month":"2025-11","cat":"Education Loan","Apps":19.0,"Approvals":17.0,"Loans":17.0,"Principal":442864.20000000007,"Defaults":0.0,"DPD30":1.0},{"month":"2025-09","cat":"Auto Loan","Apps":15.0,"Approvals":8.0,"Loans":8.0,"Principal":205760.15000000002,"Defaults":1.0,"DPD30":1.0},{"month":"2025-01","cat":"SME Loan","Apps":11.0,"Approvals":11.0,"Loans":11.0,"Principal":257417.41,"Defaults":2.0,"DPD30":3.0},{"month":"2025-08","cat":"Auto Loan","Apps":9.0,"Approvals":9.0,"Loans":9.0,"Principal":209437.12000000002,"Defaults":2.0,"DPD30":2.0},{"month":"2025-05","cat":"Education Loan","Apps":11.0,"Approvals":9.0,"Loans":9.0,"Principal":187317.42,"Defaults":0.0,"DPD30":1.0},{"month":"2025-04","cat":"SME Loan","Apps":14.0,"Approvals":12.0,"Loans":12.0,"Principal":373689.02999999997,"Defaults":2.0,"DPD30":2.0},{"month":"2025-12","cat":"Personal Loan","Apps":10.0,"Approvals":8.0,"Loans":8.0,"Principal":122077.47000000002,"Defaults":0.0,"DPD30":0.0},{"month":"2025-07","cat":"Personal Loan","Apps":16.0,"Approvals":11.0,"Loans":11.0,"Principal":243277.65000000002,"Defaults":1.0,"DPD30":1.0},{"month":"2025-04","cat":"Education Loan","Apps":13.0,"Approvals":9.0,"Loans":9.0,"Principal":139906.08,"Defaults":1.0,"DPD30":1.0},{"month":"2025-08","cat":"SME Loan","Apps":20.0,"Approvals":15.0,"Loans":15.0,"Principal":358676.85000000003,"Defaults":1.0,"DPD30":3.0},{"month":"2025-03","cat":"Personal Loan","Apps":9.0,"Approvals":8.0,"Loans":8.0,"Principal":189703.97999999998,"Defaults":0.0,"DPD30":0.0},{"month":"2025-03","cat":"SME Loan","Apps":13.0,"Approvals":7.0,"Loans":7.0,"Principal":160551.27,"Defaults":2.0,"DPD30":3.0},{"month":"2025-05","cat":"Auto Loan","Apps":15.0,"Approvals":11.0,"Loans":11.0,"Principal":229307.78000000003,"Defaults":0.0,"DPD30":1.0},{"month":"2025-12","cat":"Auto Loan","Apps":10.0,"Approvals":5.0,"Loans":5.0,"Principal":95765.52000000002,"Defaults":1.0,"DPD30":3.0},{"month":"2025-06","cat":"SME Loan","Apps":15.0,"Approvals":12.0,"Loans":12.0,"Principal":240034.31,"Defaults":1.0,"DPD30":1.0},{"month":"2025-02","cat":"Auto Loan","Apps":13.0,"Approvals":12.0,"Loans":12.0,"Principal":207935.21999999997,"Defaults":1.0,"DPD30":1.0},{"month":"2025-02","cat":"Education Loan","Apps":13.0,"Approvals":9.0,"Loans":9.0,"Principal":185944.66,"Defaults":2.0,"DPD30":2.0},{"month":"2025-04","cat":"Personal Loan","Apps":23.0,"Approvals":18.0,"Loans":18.0,"Principal":409232.59,"Defaults":2.0,"DPD30":2.0},{"month":"2025-11","cat":"SME Loan","Apps":10.0,"Approvals":9.0,"Loans":9.0,"Principal":207744.87000000002,"Defaults":1.0,"DPD30":1.0},{"month":"2025-08","cat":"Education Loan","Apps":9.0,"Approvals":6.0,"Loans":6.0,"Principal":96817.70999999999,"Defaults":0.0,"DPD30":0.0},{"month":"2025-07","cat":"SME Loan","Apps":15.0,"Approvals":9.0,"Loans":9.0,"Principal":170468.96,"Defaults":2.0,"DPD30":2.0},{"month":"2025-10","cat":"Education Loan","Apps":16.0,"Approvals":13.0,"Loans":13.0,"Principal":281101.53,"Defaults":0.0,"DPD30":0.0},{"month":"2025-01","cat":"Education Loan","Apps":16.0,"Approvals":13.0,"Loans":13.0,"Principal":336821.16000000003,"Defaults":3.0,"DPD30":3.0},{"month":"2025-07","cat":"Auto Loan","Apps":15.0,"Approvals":11.0,"Loans":11.0,"Principal":352315.89999999997,"Defaults":1.0,"DPD30":2.0},{"month":"2025-09","cat":"Education Loan","Apps":17.0,"Approvals":12.0,"Loans":12.0,"Principal":279048.25999999995,"Defaults":0.0,"DPD30":3.0},{"month":"2025-02","cat":"SME Loan","Apps":15.0,"Approvals":12.0,"Loans":12.0,"Principal":321131.20999999996,"Defaults":1.0,"DPD30":1.0},{"month":"2025-09","cat":"SME Loan","Apps":12.0,"Approvals":10.0,"Loans":10.0,"Principal":217651.62,"Defaults":1.0,"DPD30":1.0},{"month":"2025-06","cat":"Personal Loan","Apps":17.0,"Approvals":14.0,"Loans":14.0,"Principal":352594.81,"Defaults":2.0,"DPD30":3.0},{"month":"2025-03","cat":"Education Loan","Apps":12.0,"Approvals":10.0,"Loans":10.0,"Principal":220764.43000000002,"Defaults":0.0,"DPD30":0.0},{"month":"2025-12","cat":"SME Loan","Apps":10.0,"Approvals":7.0,"Loans":7.0,"Principal":111088.91,"Defaults":2.0,"DPD30":2.0},{"month":"2025-10","cat":"Auto Loan","Apps":11.0,"Approvals":9.0,"Loans":9.0,"Principal":277635.76,"Defaults":1.0,"DPD30":1.0},{"month":"2025-02","cat":"Personal Loan","Apps":20.0,"Approvals":15.0,"Loans":15.0,"Principal":303915.16000000003,"Defaults":2.0,"DPD30":2.0},{"month":"2025-01","cat":"Auto Loan","Apps":12.0,"Approvals":7.0,"Loans":7.0,"Principal":169421.09,"Defaults":1.0,"DPD30":1.0},{"month":"2025-06","cat":"Auto Loan","Apps":12.0,"Approvals":10.0,"Loans":10.0,"Principal":199455.61000000002,"Defaults":0.0,"DPD30":1.0},{"month":"2025-01","cat":"Personal Loan","Apps":14.0,"Approvals":12.0,"Loans":12.0,"Principal":315153.72,"Defaults":0.0,"DPD30":0.0},{"month":"2025-09","cat":"Personal Loan","Apps":18.0,"Approvals":15.0,"Loans":15.0,"Principal":302024.01999999996,"Defaults":2.0,"DPD30":4.0},{"month":"2025-12","cat":"Education Loan","Apps":10.0,"Approvals":8.0,"Loans":8.0,"Principal":208264.68,"Defaults":0.0,"DPD30":1.0},{"month":"2025-03","cat":"Auto Loan","Apps":10.0,"Approvals":7.0,"Loans":7.0,"Principal":168400.13999999998,"Defaults":1.0,"DPD30":1.0},{"month":"2025-07","cat":"Education Loan","Apps":11.0,"Approvals":10.0,"Loans":10.0,"Principal":151810.94999999998,"Defaults":0.0,"DPD30":0.0},{"month":"2025-11","cat":"Personal Loan","Apps":11.0,"Approvals":6.0,"Loans":6.0,"Principal":161213.27000000002,"Defaults":0.0,"DPD30":0.0},{"month":"2025-04","cat":"Auto Loan","Apps":15.0,"Approvals":11.0,"Loans":11.0,"Principal":198610.33000000002,"Defaults":1.0,"DPD30":1.0},{"month":"2025-08","cat":"Personal Loan","Apps":11.0,"Approvals":9.0,"Loans":9.0,"Principal":183966.91,"Defaults":1.0,"DPD30":1.0},{"month":"2025-05","cat":"SME Loan","Apps":13.0,"Approvals":8.0,"Loans":8.0,"Principal":195462.09000000003,"Defaults":0.0,"DPD30":0.0},{"month":"2025-10","cat":"Personal Loan","Apps":12.0,"Approvals":10.0,"Loans":10.0,"Principal":285209.45,"Defaults":0.0,"DPD30":1.0},{"month":"2025-10","cat":"SME Loan","Apps":12.0,"Approvals":10.0,"Loans":10.0,"Principal":215806.72,"Defaults":1.0,"DPD30":2.0}]; const CATS=["Personal Loan", "Auto Loan", "Education Loan", "SME Loan"]; const SPEC={"label": "Loan product", "metric": "Principal", "trend": "Originated principal by month", "unit": "$", "cards": [["Loan applications", "sum", "Apps", ""], ["Approval rate", "ratio", "Approvals/Apps", "%"], ["Originated principal", "sum", "Principal", "$"], ["Default rate as of Sep 2026", "ratio", "Defaults/Loans", "%"]]};const ACCENT='#a78bfa';
-const el=id=>document.getElementById(id);const comma=n=>Math.round(n).toLocaleString('en-US');const money=n=>'$'+Math.round(n).toLocaleString('en-US');const percent=n=>(n*100).toFixed(1)+'%';const fmt=(n,unit)=>unit==='$'?money(n):unit==='%'?percent(n):unit===' days'?n.toFixed(1)+' days':comma(n);
-function matchPeriod(m,period){if(period==='all')return true; if(period.includes('-Q')){const yr=period.slice(0,4),q=Number(period.at(-1)),mn=Number(m.slice(5,7));return m.startsWith(yr) && Math.ceil(mn/3)===q;}return m.startsWith(period)}
-function subset(){let p=el('period').value,c=el('cat').value;return DATA.filter(r=>matchPeriod(r.month,p)&&(c==='all'||c===r.cat));}
-function totals(rows){let o={}; for(let r of rows)for(let[k,v]of Object.entries(r)){if(k!=='month'&&k!=='cat')o[k]=(o[k]||0)+v;}return o;}
-function value(rows,type,field){if(type==='latest'||type==='latest12'){let last=[...new Set(rows.map(r=>r.month))].sort().at(-1);let n=totals(rows.filter(r=>r.month===last))[field]||0;return type==='latest12'?n*12:n;}let s=totals(rows);if(type==='sum')return s[field]||0;if(type==='ratio'){let[a,b]=field.split('/');return(s[b]||0)?(s[a]||0)/s[b]:0;}if(type==='nrr')return(s.StartingMRR||0)?((s.StartingMRR||0)-(s.ChurnMRR||0)-(s.ContractionMRR||0)+(s.ExpansionMRR||0))/s.StartingMRR:0;return 0}
-function monthSeries(rows){let m={}; for(let r of rows){if(!m[r.month])m[r.month]=0;m[r.month]+=r[SPEC.metric]||0;}return Object.entries(m).sort((a,b)=>a[0].localeCompare(b[0])).map(([x,y])=>({x,y}));}
-function escapeHTML(x){return String(x).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k]));}
-function lineChart(points){if(!points.length)return'<p>No data for this selection.</p>';const W=850,H=248,left=55,right=25,top=20,bottom=35,max=Math.max(1,...points.map(p=>p.y))*1.16;let coords=points.map((p,i)=>({...p,value:p.y,x:left+(W-left-right)*(points.length===1?.5:i/(points.length-1)),y:top+(H-top-bottom)*(1-p.y/max)}));let grid=[0,.25,.5,.75,1].map(q=>{let y=top+(H-top-bottom)*(1-q);return `<line x1="${left}" y1="${y}" x2="${W-right}" y2="${y}" stroke="#264159" stroke-dasharray="4 5"/><text x="${left-10}" y="${y+4}" fill="#88a1b9" text-anchor="end" font-size="12">${Math.round(max*q).toLocaleString('en-US')}</text>`}).join('');let xlabels=coords.filter((p,i)=>i%Math.max(1,Math.ceil(coords.length/6))===0||i===coords.length-1).map(p=>`<text x="${p.x}" y="${H-10}" font-size="12" text-anchor="middle" fill="#93a4b8">${p.x===undefined?'':p.xlbl||p.x}</text>`).join('');let area=`${left},${H-bottom} `+coords.map(p=>`${p.x},${p.y}`).join(' ')+` ${coords.at(-1).x},${H-bottom}`;let circles=coords.map(p=>`<circle cx="${p.x}" cy="${p.y}" r="4" fill="${ACCENT}" stroke="#0c2234" stroke-width="2"><title>${p.xlbl||p.x}: ${fmt(p.value,SPEC.unit)}</title></circle>`).join('');let months=coords.filter((p,i)=>i%Math.max(1,Math.ceil(coords.length/7))===0||i===coords.length-1).map(p=>`<text x="${p.x}" y="${H-8}" font-size="12" text-anchor="middle" fill="#93a4b8">${p.xdate.slice(2)}</text>`).join('');return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:100%" role="img" aria-label="Monthly ${SPEC.trend}">${grid}<polygon points="${area}" fill="${ACCENT}" fill-opacity=".09"/><polyline points="${coords.map(p=>p.x+','+p.y).join(' ')}" fill="none" stroke="${ACCENT}" stroke-width="3"/>${circles}${months}</svg>`;}
-function bars(rows){let c=el('cat').value;let p=el('period').value;let vals=CATS.map(cat=>({cat,value:totals(DATA.filter(r=>r.cat===cat&&matchPeriod(r.month,p)))[SPEC.metric]||0}));if(c!=='all')vals=vals.filter(x=>x.cat===c);let max=Math.max(1,...vals.map(x=>x.value));return `<div style="display:flex;flex-direction:column;justify-content:space-around;height:240px;gap:9px">${vals.map(x=>`<div><div style="display:flex;justify-content:space-between;gap:6px;margin-bottom:7px;font-size:12px"><span style="color:#d6e6f7">${escapeHTML(x.cat)}</span><b>${fmt(x.value,SPEC.unit)}</b></div><div style="background:#21374b;height:10px;border-radius:99px"><div style="height:100%;width:${(x.value/max*100).toFixed(2)}%;border-radius:99px;background:linear-gradient(90deg,${ACCENT},#e0eafa)"></div></div></div>`).join('')}</div>`}
-function draw(){const rows=subset();el('kpis').innerHTML=SPEC.cards.map(([label,t,f,unit])=>{let n=value(rows,t,f);return `<article class="kpi"><label>${escapeHTML(label)}</label><div class="value">${fmt(n,unit)}</div><div class="mini">Calculated from current selection</div></article>`}).join('');let m=monthSeries(rows).map(x=>({...x,xdate:x.x}));el('lineChart').innerHTML=lineChart(m);el('barChart').innerHTML=bars(rows);el('monthly').innerHTML=m.slice(-5).reverse().map(x=>`<tr><td>${x.x}</td><td>${fmt(x.y,SPEC.unit)}</td></tr>`).join('')||'<tr><td colspan="2">No records</td></tr>'}
-for(let cat of ['All categories',...CATS]){let opt=document.createElement('option');opt.value=cat==='All categories'?'all':cat;opt.textContent=cat;el('cat').append(opt)}for(let p of [...el('period').options]){if(p.value!=='all'&&!DATA.some(x=>matchPeriod(x.month,p.value)))p.remove()}el('cat').addEventListener('change',draw);el('period').addEventListener('change',draw);draw();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banking Credit Risk | BI Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #f5f6f3;
+      --surface: #fff;
+      --ink: #1e2c27;
+      --muted: #52615a;
+      --line: #dbe1da;
+      --green: #236854;
+      --green-dark: #174c3d;
+      --wash: #edf4ee;
+      --radius: 10px;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); }
+    a { color: var(--green-dark); text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+    h1, h2, p, dl, dd { margin: 0; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+    .site-nav, .page {
+      max-width: 1328px;
+      margin-inline: auto;
+      padding-inline: clamp(16px, 3vw, 44px);
+    }
+    .site-nav {
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: .875rem;
+    }
+    .portfolio {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .portfolio:hover { text-decoration: underline; }
+    .portfolio-mark {
+      display: inline-flex;
+      align-items: end;
+      justify-content: center;
+      gap: 3px;
+      width: 30px;
+      height: 30px;
+      padding-bottom: 7px;
+      border-radius: 7px;
+      background: var(--green-dark);
+    }
+    .portfolio-mark i {
+      display: block;
+      width: 3px;
+      height: 7px;
+      border-radius: 1px;
+      background: #f1f7f2;
+    }
+    .portfolio-mark i:nth-child(2) { height: 11px; }
+    .portfolio-mark i:nth-child(3) { height: 16px; }
+    .repo-link { color: var(--muted); }
+
+    .page { padding-block: 32px 38px; }
+    .page-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px 28px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(1.7rem, 3.3vw, 2.2rem);
+      line-height: 1.12;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+    .data-context {
+      margin-top: 9px;
+      font-size: .875rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .filters { display: flex; gap: 12px; }
+    .field { display: grid; gap: 6px; min-width: 0; }
+    .field > span:first-child { color: var(--muted); font-size: .8125rem; font-weight: 600; }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: calc(50% - 4px);
+      width: 6px;
+      height: 6px;
+      border: solid currentColor;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+    select {
+      appearance: none;
+      width: 100%;
+      min-width: 168px;
+      min-height: 42px;
+      padding: 8px 34px 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: .875rem;
+      cursor: pointer;
+    }
+    select:hover { border-color: #98aa9d; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .metric, .panel {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .metric { padding: 17px 18px 16px; }
+    .metric-primary { background: var(--wash); border-color: #ceded2; }
+    .metric dt { color: var(--muted); font-size: .875rem; font-weight: 600; line-height: 1.3; }
+    .metric-value {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(1.38rem, 2.65vw, 2rem);
+      font-weight: 675;
+      line-height: 1.15;
+      letter-spacing: -.05em;
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-primary .metric-value { color: var(--green-dark); }
+    .metric-note { margin-top: 9px; color: var(--muted); font-size: .8125rem; line-height: 1.4; }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .panel { padding: 18px; }
+    .panel-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .panel-heading h2 { font-size: 1.0625rem; letter-spacing: -.02em; font-weight: 650; line-height: 1.25; }
+    .panel-meta { color: var(--muted); font-size: .8125rem; line-height: 1.35; }
+    .panel-description { margin-top: 6px; color: var(--muted); font-size: .8125rem; line-height: 1.4; }
+
+    .chart { position: relative; height: 258px; margin-top: 14px; border-radius: 5px; }
+    .chart canvas { display: block; width: 100%; height: 100%; }
+    .chart-tooltip {
+      position: absolute;
+      display: grid;
+      gap: 4px;
+      z-index: 1;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      box-shadow: 0 3px 12px #263a2613;
+      font-size: .8125rem;
+      font-variant-numeric: tabular-nums;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .chart-tooltip[hidden] { display: none; }
+    .chart-tooltip span { color: var(--muted); }
+
+    .segments { display: grid; gap: 18px; padding: 0; margin: 20px 0 0; list-style: none; }
+    .segment-heading, .segment-share { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+    .segment-heading { font-size: .875rem; font-weight: 550; }
+    .segment-amount { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .segment-amount { font-weight: 650; }
+    .segment-share { margin-top: 8px; }
+    .segment-track { flex: 1; height: 7px; border-radius: 3px; background: #e8eee9; }
+    .segment-fill { display: block; height: 100%; border-radius: inherit; background: var(--green); }
+
+    .table-wrap { margin-top: 13px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: right; font-size: .875rem; }
+    th, td { padding: 10px 8px; vertical-align: top; }
+    th:first-child, td:first-child { text-align: left; padding-left: 0; }
+    th:last-child, td:last-child { padding-right: 0; }
+    th { color: var(--muted); font-weight: 600; font-size: .8125rem; }
+    td { border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    .definitions { margin-top: 12px; line-height: 1.45; }
+    .definitions > div + div { margin-top: 11px; padding-top: 11px; border-top: 1px solid var(--line); }
+    .definitions dt { font-size: .875rem; font-weight: 650; }
+    .definitions dd { margin-top: 3px; color: var(--muted); font-size: .8125rem; }
+    .table-empty { text-align: left; color: var(--muted); }
+
+    @media (max-width: 980px) {
+      .page { padding-block-start: 26px; }
+      .metric { padding-inline: 14px; }
+      .report-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .page-heading { gap: 16px; }
+      .filters, .field { width: 100%; }
+      select { min-width: 0; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .report-grid { grid-template-columns: minmax(0, 1fr); }
+      .chart { height: 228px; }
+    }
+    @media (max-width: 440px) {
+      .site-nav { min-height: 54px; }
+      .metrics { gap: 10px; }
+      .metric { padding: 13px 11px; }
+      .metric dt, .metric-note { font-size: .75rem; }
+      .metric-value { font-size: clamp(1.18rem, 5.4vw, 1.45rem); }
+      .panel { padding: 15px; }
+      th, td { padding-inline: 5px; font-size: .75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Portfolio">
+      <a class="portfolio" href="https://sumitgole011.github.io/PowerBI-Industry-Analytics-Portfolio/">
+        <span class="portfolio-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        BI Portfolio
+      </a>
+      <a class="repo-link" href="https://github.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio/tree/main/Banking_Credit_Risk_Intelligence">Case study &amp; data</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <header class="page-heading">
+      <div>
+        <h1>Banking Credit Risk</h1>
+        <p class="data-context" id="data-context">Synthetic data</p>
+      </div>
+      <div class="filters" role="group" aria-label="Dashboard filters">
+        <label class="field">
+          <span>Reporting period</span>
+          <span class="select-wrap">
+            <select id="period">
+              <option value="all">All available data</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2025-Q1">2025 · Q1</option>
+              <option value="2025-Q2">2025 · Q2</option>
+              <option value="2025-Q3">2025 · Q3</option>
+              <option value="2025-Q4">2025 · Q4</option>
+            </select>
+          </span>
+        </label>
+        <label class="field">
+          <span>Loan product</span>
+          <span class="select-wrap">
+            <select id="cat">
+              <option value="all">All loan products</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <section class="metrics" id="kpis" aria-label="Key metrics">
+      <dl class="metric metric-primary">
+        <dt>Loan applications</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">Across the selected period</dd>
+      </dl>
+      <dl class="metric">
+        <dt>Approval rate</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">Approved applications as a share of all applications</dd>
+      </dl>
+      <dl class="metric">
+        <dt>Originated principal</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">Total for the selected period</dd>
+      </dl>
+      <dl class="metric">
+        <dt>Default rate as of Sep 2026</dt>
+        <dd class="metric-value">—</dd>
+        <dd class="metric-note">Share of originated loans</dd>
+      </dl>
+    </section>
+
+    <div class="report-grid">
+      <section class="panel" aria-labelledby="trend-heading">
+        <div class="panel-heading">
+          <h2 id="trend-heading">Originated principal by month</h2>
+          <span class="panel-meta">USD</span>
+        </div>
+        <p class="panel-description" id="trend-period"></p>
+        <p class="sr-only" id="chart-help">Use the arrow keys to read monthly values. Recent months are also in the monthly breakdown table.</p>
+        <div class="chart" id="lineChart" role="group" aria-labelledby="trend-heading" aria-describedby="chart-help" tabindex="0">
+          <canvas aria-hidden="true"></canvas>
+          <div class="chart-tooltip" id="chart-tooltip" hidden aria-hidden="true">
+            <span></span>
+            <strong></strong>
+          </div>
+          <span class="sr-only" id="chart-value" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="categories-heading">
+        <div class="panel-heading">
+          <h2 id="categories-heading">Principal by loan product</h2>
+        </div>
+        <p class="panel-description">Totals for the selected period</p>
+        <ul class="segments" id="barChart"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="breakdown-heading">
+        <div class="panel-heading">
+          <h2 id="breakdown-heading">Monthly breakdown</h2>
+          <span class="panel-meta" id="table-period"></span>
+        </div>
+        <div class="table-wrap">
+          <table aria-labelledby="breakdown-heading">
+            <thead>
+              <tr>
+                <th scope="col">Month</th>
+                <th scope="col">Originated principal</th>
+              </tr>
+            </thead>
+            <tbody id="monthly"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="definitions-heading">
+        <div class="panel-heading">
+          <h2 id="definitions-heading">Metric definitions</h2>
+        </div>
+        <dl class="definitions">
+          <div>
+            <dt>Default status</dt>
+            <dd>Loan status reflects the September 2026 snapshot. Each period groups loans by application date.</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+    <p class="sr-only" id="filter-status" role="status"></p>
+  </main>
+
+  <template id="category-row">
+    <li>
+      <div class="segment-heading"><span></span><strong class="segment-amount"></strong></div>
+      <div class="segment-share">
+        <span class="segment-track" aria-hidden="true"><span class="segment-fill"></span></span>
+      </div>
+    </li>
+  </template>
+
+  <script id="dashboard-data" type="application/json">
+    {
+      "rows": [
+        {"month":"2025-06","cat":"Education Loan","Apps":14,"Approvals":13,"Loans":13,"Principal":239729.22,"Defaults":2,"DPD30":2},
+        {"month":"2025-11","cat":"Auto Loan","Apps":17,"Approvals":14,"Loans":14,"Principal":274298.86000000004,"Defaults":1,"DPD30":1},
+        {"month":"2025-05","cat":"Personal Loan","Apps":14,"Approvals":13,"Loans":13,"Principal":240035.87,"Defaults":0,"DPD30":1},
+        {"month":"2025-11","cat":"Education Loan","Apps":19,"Approvals":17,"Loans":17,"Principal":442864.20000000007,"Defaults":0,"DPD30":1},
+        {"month":"2025-09","cat":"Auto Loan","Apps":15,"Approvals":8,"Loans":8,"Principal":205760.15000000002,"Defaults":1,"DPD30":1},
+        {"month":"2025-01","cat":"SME Loan","Apps":11,"Approvals":11,"Loans":11,"Principal":257417.41,"Defaults":2,"DPD30":3},
+        {"month":"2025-08","cat":"Auto Loan","Apps":9,"Approvals":9,"Loans":9,"Principal":209437.12000000002,"Defaults":2,"DPD30":2},
+        {"month":"2025-05","cat":"Education Loan","Apps":11,"Approvals":9,"Loans":9,"Principal":187317.42,"Defaults":0,"DPD30":1},
+        {"month":"2025-04","cat":"SME Loan","Apps":14,"Approvals":12,"Loans":12,"Principal":373689.02999999997,"Defaults":2,"DPD30":2},
+        {"month":"2025-12","cat":"Personal Loan","Apps":10,"Approvals":8,"Loans":8,"Principal":122077.47000000002,"Defaults":0,"DPD30":0},
+        {"month":"2025-07","cat":"Personal Loan","Apps":16,"Approvals":11,"Loans":11,"Principal":243277.65000000002,"Defaults":1,"DPD30":1},
+        {"month":"2025-04","cat":"Education Loan","Apps":13,"Approvals":9,"Loans":9,"Principal":139906.08,"Defaults":1,"DPD30":1},
+        {"month":"2025-08","cat":"SME Loan","Apps":20,"Approvals":15,"Loans":15,"Principal":358676.85000000003,"Defaults":1,"DPD30":3},
+        {"month":"2025-03","cat":"Personal Loan","Apps":9,"Approvals":8,"Loans":8,"Principal":189703.97999999998,"Defaults":0,"DPD30":0},
+        {"month":"2025-03","cat":"SME Loan","Apps":13,"Approvals":7,"Loans":7,"Principal":160551.27,"Defaults":2,"DPD30":3},
+        {"month":"2025-05","cat":"Auto Loan","Apps":15,"Approvals":11,"Loans":11,"Principal":229307.78000000003,"Defaults":0,"DPD30":1},
+        {"month":"2025-12","cat":"Auto Loan","Apps":10,"Approvals":5,"Loans":5,"Principal":95765.52000000002,"Defaults":1,"DPD30":3},
+        {"month":"2025-06","cat":"SME Loan","Apps":15,"Approvals":12,"Loans":12,"Principal":240034.31,"Defaults":1,"DPD30":1},
+        {"month":"2025-02","cat":"Auto Loan","Apps":13,"Approvals":12,"Loans":12,"Principal":207935.21999999997,"Defaults":1,"DPD30":1},
+        {"month":"2025-02","cat":"Education Loan","Apps":13,"Approvals":9,"Loans":9,"Principal":185944.66,"Defaults":2,"DPD30":2},
+        {"month":"2025-04","cat":"Personal Loan","Apps":23,"Approvals":18,"Loans":18,"Principal":409232.59,"Defaults":2,"DPD30":2},
+        {"month":"2025-11","cat":"SME Loan","Apps":10,"Approvals":9,"Loans":9,"Principal":207744.87000000002,"Defaults":1,"DPD30":1},
+        {"month":"2025-08","cat":"Education Loan","Apps":9,"Approvals":6,"Loans":6,"Principal":96817.70999999999,"Defaults":0,"DPD30":0},
+        {"month":"2025-07","cat":"SME Loan","Apps":15,"Approvals":9,"Loans":9,"Principal":170468.96,"Defaults":2,"DPD30":2},
+        {"month":"2025-10","cat":"Education Loan","Apps":16,"Approvals":13,"Loans":13,"Principal":281101.53,"Defaults":0,"DPD30":0},
+        {"month":"2025-01","cat":"Education Loan","Apps":16,"Approvals":13,"Loans":13,"Principal":336821.16000000003,"Defaults":3,"DPD30":3},
+        {"month":"2025-07","cat":"Auto Loan","Apps":15,"Approvals":11,"Loans":11,"Principal":352315.89999999997,"Defaults":1,"DPD30":2},
+        {"month":"2025-09","cat":"Education Loan","Apps":17,"Approvals":12,"Loans":12,"Principal":279048.25999999995,"Defaults":0,"DPD30":3},
+        {"month":"2025-02","cat":"SME Loan","Apps":15,"Approvals":12,"Loans":12,"Principal":321131.20999999996,"Defaults":1,"DPD30":1},
+        {"month":"2025-09","cat":"SME Loan","Apps":12,"Approvals":10,"Loans":10,"Principal":217651.62,"Defaults":1,"DPD30":1},
+        {"month":"2025-06","cat":"Personal Loan","Apps":17,"Approvals":14,"Loans":14,"Principal":352594.81,"Defaults":2,"DPD30":3},
+        {"month":"2025-03","cat":"Education Loan","Apps":12,"Approvals":10,"Loans":10,"Principal":220764.43000000002,"Defaults":0,"DPD30":0},
+        {"month":"2025-12","cat":"SME Loan","Apps":10,"Approvals":7,"Loans":7,"Principal":111088.91,"Defaults":2,"DPD30":2},
+        {"month":"2025-10","cat":"Auto Loan","Apps":11,"Approvals":9,"Loans":9,"Principal":277635.76,"Defaults":1,"DPD30":1},
+        {"month":"2025-02","cat":"Personal Loan","Apps":20,"Approvals":15,"Loans":15,"Principal":303915.16000000003,"Defaults":2,"DPD30":2},
+        {"month":"2025-01","cat":"Auto Loan","Apps":12,"Approvals":7,"Loans":7,"Principal":169421.09,"Defaults":1,"DPD30":1},
+        {"month":"2025-06","cat":"Auto Loan","Apps":12,"Approvals":10,"Loans":10,"Principal":199455.61000000002,"Defaults":0,"DPD30":1},
+        {"month":"2025-01","cat":"Personal Loan","Apps":14,"Approvals":12,"Loans":12,"Principal":315153.72,"Defaults":0,"DPD30":0},
+        {"month":"2025-09","cat":"Personal Loan","Apps":18,"Approvals":15,"Loans":15,"Principal":302024.01999999996,"Defaults":2,"DPD30":4},
+        {"month":"2025-12","cat":"Education Loan","Apps":10,"Approvals":8,"Loans":8,"Principal":208264.68,"Defaults":0,"DPD30":1},
+        {"month":"2025-03","cat":"Auto Loan","Apps":10,"Approvals":7,"Loans":7,"Principal":168400.13999999998,"Defaults":1,"DPD30":1},
+        {"month":"2025-07","cat":"Education Loan","Apps":11,"Approvals":10,"Loans":10,"Principal":151810.94999999998,"Defaults":0,"DPD30":0},
+        {"month":"2025-11","cat":"Personal Loan","Apps":11,"Approvals":6,"Loans":6,"Principal":161213.27000000002,"Defaults":0,"DPD30":0},
+        {"month":"2025-04","cat":"Auto Loan","Apps":15,"Approvals":11,"Loans":11,"Principal":198610.33000000002,"Defaults":1,"DPD30":1},
+        {"month":"2025-08","cat":"Personal Loan","Apps":11,"Approvals":9,"Loans":9,"Principal":183966.91,"Defaults":1,"DPD30":1},
+        {"month":"2025-05","cat":"SME Loan","Apps":13,"Approvals":8,"Loans":8,"Principal":195462.09000000003,"Defaults":0,"DPD30":0},
+        {"month":"2025-10","cat":"Personal Loan","Apps":12,"Approvals":10,"Loans":10,"Principal":285209.45,"Defaults":0,"DPD30":1},
+        {"month":"2025-10","cat":"SME Loan","Apps":12,"Approvals":10,"Loans":10,"Principal":215806.72,"Defaults":1,"DPD30":2}
+      ],
+      "categories": ["Personal Loan","Auto Loan","Education Loan","SME Loan"],
+      "spec": {"label":"Loan product","metric":"Principal","trend":"Originated principal by month","unit":"$","cards":[["Loan applications","sum","Apps",""],["Approval rate","ratio","Approvals/Apps","%"],["Originated principal","sum","Principal","$"],["Default rate as of Sep 2026","ratio","Defaults/Loans","%"]]}
+    }
+  </script>
+  <script>
+    "use strict";
+
+    const byId = id => document.getElementById(id);
+    const { rows: data, categories, spec } = JSON.parse(byId("dashboard-data").textContent);
+    const periods = [...new Set(data.map(row => row.month))].sort();
+    const periodFilter = byId("period");
+    const categoryFilter = byId("cat");
+    const axisFormat = new Intl.NumberFormat("en-US", {
+      notation: "compact",
+      ...(spec.unit === "$" ? { style: "currency", currency: "USD" } : {})
+    });
+    const monthDate = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+    const axisDate = new Intl.DateTimeFormat("en-US", { month: "short", year: "2-digit", timeZone: "UTC" });
+
+    function monthLabel(month, formatter = monthDate) {
+      return formatter.format(new Date(month + "-01T00:00:00Z"));
+    }
+
+    function monthRange(first, last) {
+      return first === last ? monthLabel(last) : monthLabel(first) + " – " + monthLabel(last);
+    }
+
+    function matchesPeriod(month, selection) {
+      if (selection === "all") return true;
+      if (selection.includes("-Q")) {
+        const quarter = Math.ceil(Number(month.slice(5, 7)) / 3);
+        return selection === month.slice(0, 4) + "-Q" + quarter;
+      }
+      return month.startsWith(selection);
+    }
+
+    function format(value, unit) {
+      if (unit === "%") return (value * 100).toFixed(1) + "%";
+      if (unit === " days") return value.toFixed(1) + " days";
+      const whole = Math.round(value).toLocaleString("en-US");
+      return unit === "$" ? "$" + whole : whole;
+    }
+
+    function totals(rows) {
+      const result = {};
+      for (const row of rows) {
+        for (const [field, value] of Object.entries(row)) {
+          if (field !== "month" && field !== "cat") result[field] = (result[field] || 0) + value;
+        }
+      }
+      return result;
+    }
+
+    function metricValue(stats, kind, field) {
+      if (kind === "sum") return stats[field] || 0;
+      const [numerator, denominator] = field.split("/");
+      return stats[denominator] ? (stats[numerator] || 0) / stats[denominator] : 0;
+    }
+
+    function monthSeries(rows) {
+      const amounts = new Map();
+      for (const row of rows) {
+        amounts.set(row.month, (amounts.get(row.month) || 0) + (row[spec.metric] || 0));
+      }
+      return [...amounts.keys()].sort().map(month => ({ month, amount: amounts.get(month) }));
+    }
+
+    function renderMetrics(rows) {
+      const stats = totals(rows);
+      const cards = byId("kpis").querySelectorAll(".metric");
+      for (const [index, [label, kind, field, unit]] of spec.cards.entries()) {
+        const card = cards[index];
+        card.querySelector("dt").textContent = label;
+        card.querySelector(".metric-value").textContent = format(metricValue(stats, kind, field), unit);
+      }
+    }
+
+    function renderCategories(rows, selection) {
+      const shown = selection === "all" ? categories : categories.filter(category => category === selection);
+      const amounts = shown.map(category => ({
+        category,
+        amount: totals(rows.filter(row => row.cat === category))[spec.metric] || 0
+      }));
+      const maximum = Math.max(1, ...amounts.map(item => item.amount));
+      const chart = byId("barChart");
+      chart.replaceChildren();
+      for (const { category, amount } of amounts) {
+        const item = byId("category-row").content.cloneNode(true);
+        item.querySelector(".segment-heading span").textContent = category;
+        item.querySelector(".segment-amount").textContent = format(amount, spec.unit);
+        item.querySelector(".segment-fill").style.width = (amount / maximum * 100).toFixed(2) + "%";
+        chart.append(item);
+      }
+    }
+
+    function renderTable(months) {
+      const body = byId("monthly");
+      body.replaceChildren();
+      const recent = months.slice(-5).reverse();
+      byId("table-period").textContent = months.length > recent.length ? "Latest " + recent.length + " months" : "";
+      for (const item of recent) {
+        const row = body.insertRow();
+        const date = document.createElement("time");
+        date.dateTime = item.month;
+        date.textContent = monthLabel(item.month);
+        row.insertCell().append(date);
+        row.insertCell().textContent = format(item.amount, spec.unit);
+      }
+      if (!recent.length) {
+        const cell = body.insertRow().insertCell();
+        cell.colSpan = 2;
+        cell.className = "table-empty";
+        cell.textContent = "No records";
+      }
+    }
+
+    const chart = byId("lineChart");
+    const canvas = chart.querySelector("canvas");
+    const context = canvas.getContext("2d");
+    const tooltip = byId("chart-tooltip");
+    const chartValue = byId("chart-value");
+    let timeline = [];
+    let points = [];
+    let activePoint = -1;
+
+    function chartScale(maximum) {
+      const target = maximum / 5;
+      const magnitude = 10 ** Math.floor(Math.log10(target));
+      const step = [1, 2, 2.5, 5, 10].map(size => size * magnitude).find(size => size >= target);
+      return { step, intervals: Math.ceil(maximum / step) };
+    }
+
+    function drawChart() {
+      if (!context) return;
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      if (!width || !height) return;
+      const scale = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * scale);
+      canvas.height = Math.round(height * scale);
+      context.setTransform(scale, 0, 0, scale, 0, 0);
+      context.font = "12px " + getComputedStyle(chart).fontFamily;
+      context.fillStyle = "#52615a";
+      context.textBaseline = "middle";
+
+      if (!timeline.length) {
+        points = [];
+        context.textAlign = "center";
+        context.fillText("No data for this selection.", width / 2, height / 2);
+        return;
+      }
+
+      const left = 49;
+      const right = width - 13;
+      const top = 11;
+      const bottom = height - 28;
+      const { step, intervals } = chartScale(Math.max(1, ...timeline.map(row => row.amount)));
+      const topValue = step * intervals;
+      const plotHeight = bottom - top;
+      const plotWidth = right - left;
+      const position = index => timeline.length === 1 ? .5 : index / (timeline.length - 1);
+      points = timeline.map((row, index) => ({
+        month: row.month,
+        amount: row.amount,
+        x: left + plotWidth * position(index),
+        y: bottom - plotHeight * (row.amount / topValue)
+      }));
+
+      context.textAlign = "right";
+      for (let i = 0; i <= intervals; i++) {
+        const y = bottom - plotHeight * i / intervals;
+        context.strokeStyle = i === 0 ? "#cfd9d2" : "#e6ece7";
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(left, y);
+        context.lineTo(right, y);
+        context.stroke();
+        context.fillText(axisFormat.format(step * i), left - 9, y);
+      }
+
+      const labelCount = Math.min(points.length, Math.max(2, Math.floor(plotWidth / 94) + 1));
+      for (let i = 0; i < labelCount; i++) {
+        const point = points[labelCount === 1 ? 0 : Math.round(i * (points.length - 1) / (labelCount - 1))];
+        context.textAlign = labelCount === 1 ? "center" : i === 0 ? "left" : i === labelCount - 1 ? "right" : "center";
+        context.fillText(monthLabel(point.month, axisDate), point.x, bottom + 16);
+      }
+
+      if (points.length > 1) {
+        function traceRevenue() {
+          context.beginPath();
+          context.moveTo(points[0].x, points[0].y);
+          for (const point of points.slice(1)) context.lineTo(point.x, point.y);
+        }
+        traceRevenue();
+        context.lineTo(points.at(-1).x, bottom);
+        context.lineTo(points[0].x, bottom);
+        context.closePath();
+        context.fillStyle = "#edf4ef";
+        context.fill();
+        traceRevenue();
+        context.strokeStyle = "#236854";
+        context.lineWidth = 2.5;
+        context.lineJoin = "round";
+        context.stroke();
+      }
+
+      const marker = points[activePoint] || points.at(-1);
+      if (activePoint >= 0) {
+        context.strokeStyle = "#a3b8ad";
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(marker.x, top);
+        context.lineTo(marker.x, bottom);
+        context.stroke();
+      }
+      context.beginPath();
+      context.arc(marker.x, marker.y, 4.5, 0, 2 * Math.PI);
+      context.fillStyle = "#236854";
+      context.fill();
+      context.lineWidth = 2;
+      context.strokeStyle = "#fff";
+      context.stroke();
+    }
+
+    function updateTooltip() {
+      const point = points[activePoint];
+      tooltip.hidden = !point;
+      if (!point) return;
+      tooltip.querySelector("span").textContent = monthLabel(point.month);
+      tooltip.querySelector("strong").textContent = format(point.amount, spec.unit);
+      const left = Math.max(0, Math.min(point.x - tooltip.offsetWidth / 2, chart.clientWidth - tooltip.offsetWidth));
+      const top = point.y >= tooltip.offsetHeight + 11 ? point.y - tooltip.offsetHeight - 10 : point.y + 11;
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+    }
+
+    function selectPoint(index, announce = false) {
+      if (activePoint !== index) {
+        activePoint = index;
+        drawChart();
+        updateTooltip();
+      }
+      if (announce && points[index]) {
+        chartValue.textContent = monthLabel(points[index].month) + ", " + format(points[index].amount, spec.unit);
+      }
+    }
+
+    function selectNearestPoint(event) {
+      if (!points.length) return;
+      const x = event.clientX - canvas.getBoundingClientRect().left;
+      const nearest = points.reduce((best, point, i) =>
+        Math.abs(point.x - x) < Math.abs(points[best].x - x) ? i : best, 0);
+      selectPoint(nearest);
+    }
+
+    chart.addEventListener("pointermove", selectNearestPoint);
+    chart.addEventListener("click", selectNearestPoint);
+    chart.addEventListener("pointerleave", () => selectPoint(-1));
+    chart.addEventListener("focus", () => selectPoint(points.length - 1, true));
+    chart.addEventListener("blur", () => selectPoint(-1));
+    chart.addEventListener("keydown", event => {
+      if (!points.length) return;
+      const current = activePoint < 0 ? points.length - 1 : activePoint;
+      const indexes = {
+        ArrowLeft: Math.max(0, current - 1),
+        ArrowRight: Math.min(points.length - 1, current + 1),
+        Home: 0,
+        End: points.length - 1
+      };
+      if (!Object.hasOwn(indexes, event.key)) return;
+      event.preventDefault();
+      selectPoint(indexes[event.key], true);
+    });
+
+    function renderDashboard() {
+      const category = categoryFilter.value;
+      const periodRows = data.filter(row => matchesPeriod(row.month, periodFilter.value));
+      const rows = periodRows.filter(row => category === "all" || row.cat === category);
+      timeline = monthSeries(rows);
+      const first = timeline[0]?.month;
+      const last = timeline.at(-1)?.month;
+      byId("trend-period").textContent = first ? monthRange(first, last) : "";
+      renderMetrics(rows);
+      renderCategories(periodRows, category);
+      renderTable(timeline);
+      activePoint = -1;
+      chartValue.textContent = "";
+      drawChart();
+      updateTooltip();
+      byId("filter-status").textContent = "Showing " + periodFilter.selectedOptions[0].textContent
+        + " for " + categoryFilter.selectedOptions[0].textContent + ".";
+    }
+
+    categoryFilter.append(...categories.map(category => new Option(category, category)));
+    for (const option of [...periodFilter.options]) {
+      if (option.value !== "all" && !periods.some(month => matchesPeriod(month, option.value))) option.remove();
+    }
+    if (periods.length) byId("data-context").append(" · " + monthRange(periods[0], periods.at(-1)));
+    periodFilter.addEventListener("change", renderDashboard);
+    categoryFilter.addEventListener("change", renderDashboard);
+    new ResizeObserver(() => {
+      drawChart();
+      updateTooltip();
+    }).observe(chart);
+    renderDashboard();
+  </script>
+</body>
+</html>
