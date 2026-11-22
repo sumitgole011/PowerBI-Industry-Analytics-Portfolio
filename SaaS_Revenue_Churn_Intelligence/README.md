@@ -5,6 +5,26 @@
 ## Business problem
 A B2B SaaS leadership team wants to understand recurring revenue expansion and customer retention. Avoid double-counting end-of-month MRR across selected months.
 
+## Power BI report project
+
+[Open the Power BI project folder](power-bi/) · [View the report design preview](report-design-preview.png)
+
+The one-page report has cards for monthly recurring revenue, logo churn and net revenue retention, plus an MRR trend and Month and Customer segment slicers. Use it to see whether a segment's retention and churn warrant investigation even while recurring revenue grows.
+
+In Power BI Desktop for Windows, open `power-bi/SaaS Revenue and Churn.pbip` from the cloned or extracted repository and select **Refresh** to load the embedded data. Use **Save As** to export a `.pbix` copy after confirming the numbers below. The project files were checked against Microsoft's report schemas. Opening, rendering and exporting the report in Power BI Desktop remain to be verified. The linked image previews the design and data.
+
+### KPI reconciliation
+
+The model embeds 72 month-and-segment totals from the 4,320-row [starter CSV](POWERBI_SERVICE_STARTER.csv). Values in the table were independently recalculated from the CSV, with no model credentials or machine-specific data path required.
+
+| Filter selection | Monthly recurring revenue | Logo churn | Net revenue retention |
+| --- | ---: | ---: | ---: |
+| All months (Jan 2024 to Dec 2025), all segments | $47,257.58 | 1.17% | 99.94% |
+| Dec 2025, all segments | $47,257.58 | 1.89% | 99.11% |
+| Dec 2025, SMB | $17,211.26 | 2.17% | 98.95% |
+
+MRR uses the latest selected month. Logo churn divides churned customers by starting active customers. NRR adjusts starting MRR for expansion, contraction and churn. For multiple months, the last two columns are weighted monthly rates across the selection. The baseline also reconciles to 156 active customers in Dec 2025 and 24 churn events across the full period, as recorded in [metrics.json](metrics.json).
+
 ## Included artifacts
 - `data/*.csv`: source tables with explicit grains and stable surrogate IDs
 - `POWERBI_SERVICE_STARTER.csv`: denormalized primary-fact CSV for a quick Power BI Service browser report (secondary flat CSVs provided when relevant)
@@ -33,4 +53,4 @@ A B2B SaaS leadership team wants to understand recurring revenue expansion and c
 - Prioritize support capacity where resolution times trend upward
 
 ## Portfolio caution
-The data has engineered patterns to support demonstration, so it is unsuitable for production forecasts, clinical decisions, lending decisions or real-world inferential claims. Native Power BI report files and Power BI-hosted links must be completed in Microsoft Power BI; the self-contained HTML is a functional design preview.
+The data has engineered patterns to support demonstration, so it is unsuitable for production forecasts, clinical decisions, lending decisions or real-world inferential claims. Power BI Desktop verification and the `.pbix` export remain open. The self-contained HTML is a functional design preview.

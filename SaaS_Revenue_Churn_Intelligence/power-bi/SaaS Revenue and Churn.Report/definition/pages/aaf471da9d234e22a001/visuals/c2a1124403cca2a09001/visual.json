@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "c2a1124403cca2a09001",
+  "position": {
+    "x": 28,
+    "y": 14,
+    "z": 1000,
+    "width": 1208,
+    "height": 53,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "SaaS Revenue & Churn",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "30px",
+                      "color": "#102C3F"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "c2a1124403cca2a09005",
+  "position": {
+    "x": 28,
+    "y": 205,
+    "z": 5000,
+    "width": 1224,
+    "height": 140,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SaaS Monthly"
+                    }
+                  },
+                  "Property": "Monthly recurring revenue"
+                }
+              },
+              "queryRef": "SaaS Monthly.Monthly recurring revenue",
+              "nativeQueryRef": "Monthly recurring revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SaaS Monthly"
+                    }
+                  },
+                  "Property": "Logo churn"
+                }
+              },
+              "queryRef": "SaaS Monthly.Logo churn",
+              "nativeQueryRef": "Logo churn"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SaaS Monthly"
+                    }
+                  },
+                  "Property": "Net revenue retention"
+                }
+              },
+              "queryRef": "SaaS Monthly.Net revenue retention",
+              "nativeQueryRef": "Net revenue retention"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "28D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    }
+  }
+}

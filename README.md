@@ -2,7 +2,7 @@
 
 **Four original business intelligence case studies · 24 structured data tables · 28,069 synthetic source rows**
 
-> **Build status:** Datasets, data-quality checks, DAX measure drafts, data dictionaries, three-page Power BI report blueprints, PDF briefs, and working standalone HTML previews are included. **Native `.pbix` / `.pbip` files have not yet been authored.** Browser prototypes are not published Power BI reports.
+> **Build status:** Datasets, data-quality checks, DAX measure drafts, data dictionaries, three-page Power BI report blueprints, PDF briefs, and working standalone HTML previews are included. The SaaS case study also includes an editable [Power BI project](SaaS_Revenue_Churn_Intelligence/power-bi/) and [KPI reconciliation](SaaS_Revenue_Churn_Intelligence/#kpi-reconciliation).
 
 Inspired by the presentation approach of [sachinkumar1609/PowerBI-Project](https://github.com/sachinkumar1609/PowerBI-Project). No data or dashboards were copied from that repository.
 
@@ -61,4 +61,4 @@ Each folder includes `README.md`, `data_dictionary.md`, `schema.json`, `relation
 
 ## Scope and attribution
 
-Every dataset is **fictional**. This material must not be used to make financial, clinical, or credit decisions. Source HTML previews are concept demonstrations; they are not screenshots or live embeddings of actual Power BI Desktop reports. Native `.pbix` creation and Power BI Service publishing are remaining milestones.
+Every dataset is **fictional**. This material must not be used to make financial, clinical, or credit decisions. Source HTML previews are concept demonstrations; they are not screenshots or live embeddings of actual Power BI Desktop reports. Desktop verification and `.pbix` export for the SaaS project remain open.

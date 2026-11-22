@@ -1,0 +1,209 @@
+{
+  "compatibilityLevel": 1601,
+  "model": {
+    "culture": "en-US",
+    "sourceQueryCulture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"SaaS Monthly\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      }
+    ],
+    "tables": [
+      {
+        "name": "SaaS Monthly",
+        "description": "Synthetic subscriptions aggregated to one row per month and customer segment.",
+        "columns": [
+          {
+            "name": "Month",
+            "sourceColumn": "Month",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Segment",
+            "sourceColumn": "Segment",
+            "dataType": "string",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "StartingMRR",
+            "sourceColumn": "StartingMRR",
+            "dataType": "decimal",
+            "summarizeBy": "sum",
+            "isHidden": true
+          },
+          {
+            "name": "EndingMRR",
+            "sourceColumn": "EndingMRR",
+            "dataType": "decimal",
+            "summarizeBy": "sum",
+            "isHidden": true
+          },
+          {
+            "name": "ExpansionMRR",
+            "sourceColumn": "ExpansionMRR",
+            "dataType": "decimal",
+            "summarizeBy": "sum",
+            "isHidden": true
+          },
+          {
+            "name": "ContractionMRR",
+            "sourceColumn": "ContractionMRR",
+            "dataType": "decimal",
+            "summarizeBy": "sum",
+            "isHidden": true
+          },
+          {
+            "name": "ChurnMRR",
+            "sourceColumn": "ChurnMRR",
+            "dataType": "decimal",
+            "summarizeBy": "sum",
+            "isHidden": true
+          },
+          {
+            "name": "ActiveBOM",
+            "sourceColumn": "ActiveBOM",
+            "dataType": "int64",
+            "summarizeBy": "sum",
+            "isHidden": true
+          },
+          {
+            "name": "ChurnedLogos",
+            "sourceColumn": "ChurnedLogos",
+            "dataType": "int64",
+            "summarizeBy": "sum",
+            "isHidden": true
+          },
+          {
+            "name": "ActiveEOM",
+            "sourceColumn": "ActiveEOM",
+            "dataType": "int64",
+            "summarizeBy": "sum",
+            "isHidden": true
+          }
+        ],
+        "measures": [
+          {
+            "name": "Monthly recurring revenue",
+            "expression": [
+              "VAR LastMonth = MAX ( 'SaaS Monthly'[Month] )",
+              "RETURN CALCULATE ( SUM ( 'SaaS Monthly'[EndingMRR] ), KEEPFILTERS ( 'SaaS Monthly'[Month] = LastMonth ) )"
+            ],
+            "formatString": "$#,0.00",
+            "description": "End-of-month recurring revenue for the latest selected month."
+          },
+          {
+            "name": "Logo churn",
+            "expression": "DIVIDE ( SUM ( 'SaaS Monthly'[ChurnedLogos] ), SUM ( 'SaaS Monthly'[ActiveBOM] ) )",
+            "formatString": "0.00%",
+            "description": "Start-of-month customer-weighted monthly churn over the selected period."
+          },
+          {
+            "name": "Net revenue retention",
+            "expression": [
+              "VAR Base = SUM ( 'SaaS Monthly'[StartingMRR] )",
+              "RETURN DIVIDE ( Base + SUM ( 'SaaS Monthly'[ExpansionMRR] ) - SUM ( 'SaaS Monthly'[ContractionMRR] ) - SUM ( 'SaaS Monthly'[ChurnMRR] ), Base )"
+            ],
+            "formatString": "0.00%",
+            "description": "Starting MRR-weighted monthly retention, excluding new subscriptions."
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SaaS Monthly",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(type table [Month = text, Segment = text, StartingMRR = number, EndingMRR = number, ExpansionMRR = number, ContractionMRR = number, ChurnMRR = number, ActiveBOM = number, ChurnedLogos = number, ActiveEOM = number], {",
+                "        {\"2024-01\", \"Enterprise\", 0.00, 497.00, 0.00, 0.00, 0.00, 0, 0, 3},",
+                "        {\"2024-01\", \"Mid-Market\", 0.00, 497.00, 0.00, 0.00, 0.00, 0, 0, 3},",
+                "        {\"2024-01\", \"SMB\", 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0},",
+                "        {\"2024-02\", \"Enterprise\", 497.00, 1893.00, 0.00, 0.00, 0.00, 3, 0, 7},",
+                "        {\"2024-02\", \"Mid-Market\", 497.00, 994.00, 0.00, 0.00, 0.00, 3, 0, 6},",
+                "        {\"2024-02\", \"SMB\", 0.00, 297.00, 0.00, 0.00, 0.00, 0, 0, 3},",
+                "        {\"2024-03\", \"Enterprise\", 1893.00, 2067.08, 0.00, 23.92, 0.00, 7, 0, 9},",
+                "        {\"2024-03\", \"Mid-Market\", 994.00, 1192.00, 0.00, 0.00, 0.00, 6, 0, 8},",
+                "        {\"2024-03\", \"SMB\", 297.00, 303.93, 14.85, 7.92, 0.00, 3, 0, 3},",
+                "        {\"2024-04\", \"Enterprise\", 2067.08, 2500.93, 134.85, 0.00, 0.00, 9, 0, 10},",
+                "        {\"2024-04\", \"Mid-Market\", 1192.00, 1291.00, 0.00, 0.00, 0.00, 8, 0, 9},",
+                "        {\"2024-04\", \"SMB\", 303.93, 3711.59, 13.66, 0.00, 0.00, 3, 0, 9},",
+                "        {\"2024-05\", \"Enterprise\", 2500.93, 2799.93, 0.00, 0.00, 0.00, 10, 0, 11},",
+                "        {\"2024-05\", \"Mid-Market\", 1291.00, 1703.85, 14.85, 0.00, 0.00, 9, 0, 11},",
+                "        {\"2024-05\", \"SMB\", 3711.59, 4055.44, 44.85, 0.00, 0.00, 9, 0, 10},",
+                "        {\"2024-06\", \"Enterprise\", 2799.93, 4924.63, 29.70, 0.00, 0.00, 11, 0, 16},",
+                "        {\"2024-06\", \"Mid-Market\", 1703.85, 2191.25, 89.40, 0.00, 0.00, 11, 0, 13},",
+                "        {\"2024-06\", \"SMB\", 4055.44, 4797.29, 44.85, 0.00, 0.00, 10, 0, 13},",
+                "        {\"2024-07\", \"Enterprise\", 4924.63, 5621.63, 0.00, 0.00, 0.00, 16, 0, 19},",
+                "        {\"2024-07\", \"Mid-Market\", 2191.25, 4477.14, 0.00, 9.11, 99.00, 13, 1, 18},",
+                "        {\"2024-07\", \"SMB\", 4797.29, 5339.30, 151.93, 7.92, 0.00, 13, 0, 15},",
+                "        {\"2024-08\", \"Enterprise\", 5621.63, 5986.60, 0.00, 33.03, 0.00, 19, 0, 21},",
+                "        {\"2024-08\", \"Mid-Market\", 4477.14, 4089.99, 14.85, 0.00, 899.00, 18, 1, 20},",
+                "        {\"2024-08\", \"SMB\", 5339.30, 5792.79, 154.49, 0.00, 0.00, 15, 0, 16},",
+                "        {\"2024-09\", \"Enterprise\", 5986.60, 6971.30, 89.70, 0.00, 0.00, 21, 0, 26},",
+                "        {\"2024-09\", \"Mid-Market\", 4089.99, 5362.54, 74.55, 0.00, 0.00, 20, 0, 22},",
+                "        {\"2024-09\", \"SMB\", 5792.79, 7250.03, 0.00, 39.76, 0.00, 16, 0, 19},",
+                "        {\"2024-10\", \"Enterprise\", 6971.30, 8584.38, 17.08, 0.00, 0.00, 26, 0, 30},",
+                "        {\"2024-10\", \"Mid-Market\", 5362.54, 7971.39, 14.85, 0.00, 0.00, 22, 0, 28},",
+                "        {\"2024-10\", \"SMB\", 7250.03, 7934.98, 0.00, 12.05, 0.00, 19, 0, 22},",
+                "        {\"2024-11\", \"Enterprise\", 8584.38, 9034.16, 59.70, 7.92, 0.00, 30, 0, 32},",
+                "        {\"2024-11\", \"Mid-Market\", 7971.39, 8313.24, 44.85, 0.00, 0.00, 28, 0, 31},",
+                "        {\"2024-11\", \"SMB\", 7934.98, 9219.09, 86.11, 0.00, 0.00, 22, 0, 24},",
+                "        {\"2024-12\", \"Enterprise\", 9034.16, 9563.62, 440.38, 7.92, 899.00, 32, 1, 35},",
+                "        {\"2024-12\", \"Mid-Market\", 8313.24, 9184.08, 283.95, 9.11, 0.00, 31, 0, 35},",
+                "        {\"2024-12\", \"SMB\", 9219.09, 9452.94, 134.85, 0.00, 299.00, 24, 1, 25},",
+                "        {\"2025-01\", \"Enterprise\", 9563.62, 9825.62, 119.01, 55.01, 0.00, 35, 0, 37},",
+                "        {\"2025-01\", \"Mid-Market\", 9184.08, 10057.23, 141.28, 64.13, 0.00, 35, 0, 39},",
+                "        {\"2025-01\", \"SMB\", 9452.94, 9370.23, 0.00, 82.71, 0.00, 25, 0, 25},",
+                "        {\"2025-02\", \"Enterprise\", 9825.62, 9969.47, 44.85, 0.00, 0.00, 37, 0, 38},",
+                "        {\"2025-02\", \"Mid-Market\", 10057.23, 10309.40, 153.17, 0.00, 299.00, 39, 1, 40},",
+                "        {\"2025-02\", \"SMB\", 9370.23, 11014.93, 149.70, 0.00, 0.00, 25, 0, 30},",
+                "        {\"2025-03\", \"Enterprise\", 9969.47, 10192.82, 76.78, 51.43, 0.00, 38, 0, 40},",
+                "        {\"2025-03\", \"Mid-Market\", 10309.40, 10183.45, 44.85, 24.95, 642.85, 40, 2, 41},",
+                "        {\"2025-03\", \"SMB\", 11014.93, 11105.60, 213.59, 23.92, 99.00, 30, 1, 29},",
+                "        {\"2025-04\", \"Enterprise\", 10192.82, 11034.40, 107.69, 60.11, 0.00, 40, 0, 46},",
+                "        {\"2025-04\", \"Mid-Market\", 10183.45, 11601.17, 268.96, 34.39, 113.85, 41, 1, 43},",
+                "        {\"2025-04\", \"SMB\", 11105.60, 13487.11, 123.94, 35.43, 0.00, 29, 0, 36},",
+                "        {\"2025-05\", \"Enterprise\", 11034.40, 11438.61, 330.52, 25.31, 0.00, 46, 0, 47},",
+                "        {\"2025-05\", \"Mid-Market\", 11601.17, 11785.98, 238.04, 8.38, 343.85, 43, 1, 43},",
+                "        {\"2025-05\", \"SMB\", 13487.11, 13333.78, 355.59, 7.92, 899.00, 36, 1, 37},",
+                "        {\"2025-06\", \"Enterprise\", 11438.61, 11932.01, 120.71, 25.31, 0.00, 47, 0, 49},",
+                "        {\"2025-06\", \"Mid-Market\", 11785.98, 13142.26, 276.31, 17.03, 99.00, 43, 1, 46},",
+                "        {\"2025-06\", \"SMB\", 13333.78, 14053.84, 351.16, 29.10, 0.00, 37, 0, 39},",
+                "        {\"2025-07\", \"Enterprise\", 11932.01, 12159.31, 162.67, 133.37, 0.00, 49, 0, 51},",
+                "        {\"2025-07\", \"Mid-Market\", 13142.26, 13372.54, 49.87, 27.51, 91.08, 46, 1, 46},",
+                "        {\"2025-07\", \"SMB\", 14053.84, 15784.37, 132.53, 0.00, 299.00, 39, 1, 41},",
+                "        {\"2025-08\", \"Enterprise\", 12159.31, 12313.08, 76.78, 22.01, 0.00, 51, 0, 52},",
+                "        {\"2025-08\", \"Mid-Market\", 13372.54, 15472.57, 46.58, 39.55, 0.00, 46, 0, 53},",
+                "        {\"2025-08\", \"SMB\", 15784.37, 16267.27, 191.82, 7.92, 0.00, 41, 0, 42},",
+                "        {\"2025-09\", \"Enterprise\", 12313.08, 13086.82, 243.21, 63.47, 0.00, 52, 0, 58},",
+                "        {\"2025-09\", \"Mid-Market\", 15472.57, 16616.44, 820.36, 44.30, 529.19, 53, 3, 53},",
+                "        {\"2025-09\", \"SMB\", 16267.27, 16712.08, 373.32, 27.51, 0.00, 42, 0, 43},",
+                "        {\"2025-10\", \"Enterprise\", 13086.82, 13469.75, 136.70, 7.92, 343.85, 58, 1, 59},",
+                "        {\"2025-10\", \"Mid-Market\", 16616.44, 16446.67, 0.00, 23.92, 343.85, 53, 1, 54},",
+                "        {\"2025-10\", \"SMB\", 16712.08, 17375.20, 238.04, 71.92, 398.00, 43, 2, 46},",
+                "        {\"2025-11\", \"Enterprise\", 13469.75, 13642.47, 221.27, 48.55, 0.00, 59, 0, 59},",
+                "        {\"2025-11\", \"Mid-Market\", 16446.67, 16644.48, 231.28, 33.47, 0.00, 54, 0, 54},",
+                "        {\"2025-11\", \"SMB\", 17375.20, 17393.74, 59.31, 40.77, 0.00, 46, 0, 46},",
+                "        {\"2025-12\", \"Enterprise\", 13642.47, 13293.35, 107.12, 7.71, 448.53, 59, 2, 57},",
+                "        {\"2025-12\", \"Mid-Market\", 16644.48, 16752.97, 155.08, 46.59, 0.00, 54, 0, 54},",
+                "        {\"2025-12\", \"SMB\", 17393.74, 17211.26, 133.86, 0.00, 316.34, 46, 1, 45}",
+                "    }),",
+                "    Typed = Table.TransformColumnTypes(Source, {{\"StartingMRR\", Currency.Type}, {\"EndingMRR\", Currency.Type}, {\"ExpansionMRR\", Currency.Type}, {\"ContractionMRR\", Currency.Type}, {\"ChurnMRR\", Currency.Type}, {\"ActiveBOM\", Int64.Type}, {\"ChurnedLogos\", Int64.Type}, {\"ActiveEOM\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
