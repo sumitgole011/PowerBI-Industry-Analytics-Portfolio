@@ -1,16 +1,802 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SaaS Revenue &amp; Customer Churn Intelligence - BI dashboard preview</title><style>
-:root{--bg:#07111e;--panel:#0e1c2c;--muted:#93a4b8;--line:#223349;--accent:#38bdf8;--txt:#eff6fc}*{box-sizing:border-box}body{background:radial-gradient(circle at 90% -15%,#133151,transparent 40%),var(--bg);color:var(--txt);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0} .app{max-width:1440px;margin:auto;padding:26px 30px 48px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px;gap:15px}.brand{letter-spacing:2px;color:var(--accent);font-size:12px;font-weight:700}.title{font-size:29px;font-weight:750;margin:8px 0 3px}.sub{color:var(--muted);font-size:13px} .pill{border:1px solid #295066;background:#10293b;border-radius:99px;font-size:11px;color:#abd4f2;padding:8px 12px}.filters{display:flex;flex-wrap:wrap;gap:13px;margin:17px 0 23px}.filter{border:1px solid var(--line);border-radius:10px;background:#102032;padding:11px 15px;min-width:230px}label{font-size:11px;color:var(--muted);display:block;letter-spacing:.6px;text-transform:uppercase;margin-bottom:5px}select{width:100%;background:transparent;border:0;outline:none;color:#fff;font-size:14px;cursor:pointer}option{background:#14283b} .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.kpi{background:linear-gradient(160deg,#14273b,#0b1a2b);border:1px solid #1c3548;padding:19px 22px;border-radius:13px;min-height:121px}.kpi .value{font-size:28px;font-weight:750;margin-top:13px;letter-spacing:-1px}.kpi .mini{font-size:11px;color:#99aec5;margin-top:8px}.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px;margin-top:16px}.panel{border-radius:14px;background:linear-gradient(165deg,#102032,#0b1725);border:1px solid #1f3448;padding:19px;min-width:0}.panel h3{font-weight:650;margin:1px 0 4px;font-size:16px}.panel p{color:var(--muted);margin:0;font-size:12px}.chart{height:260px;margin-top:17px}.legend{font-size:11px;color:var(--muted);margin-top:8px}.second{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}table{width:100%;border-collapse:collapse;font-size:12px;margin-top:18px}th{text-align:left;font-size:11px;text-transform:uppercase;color:#8da2b8;font-weight:550;padding-bottom:12px}td{padding:11px 0;border-top:1px solid #20354a}td:last-child,th:last-child{text-align:right}footer{margin-top:27px;color:#7891a9;font-size:11px;line-height:1.7} @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.layout,.second{grid-template-columns:1fr}} @media(max-width:500px){.app{padding:17px}.title{font-size:23px}.kpis{grid-template-columns:1fr}.pill{display:none}}
-</style></head><body><div class="app"><header><div><div class="brand">NOVA / ANALYTICS LAB&nbsp; • &nbsp;POWER BI PORTFOLIO</div><div class="title">SaaS Revenue &amp; Customer Churn Intelligence</div><div class="sub">Executive intelligence workspace / portfolio design prototype</div></div><span class="pill">● INTERACTIVE OFFLINE PREVIEW</span></header><div class="filters"><div class="filter"><label>Reporting period</label><select id="period"><option value="all">All available data</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2025-Q1">2025 · Q1</option><option value="2025-Q2">2025 · Q2</option><option value="2025-Q3">2025 · Q3</option><option value="2025-Q4">2025 · Q4</option></select></div><div class="filter"><label>Customer segment</label><select id="cat"></select></div></div><section class="kpis" id="kpis"></section><section class="layout"><div class="panel"><h3>Monthly recurring revenue</h3><p>Actuals derived from synthetic transactions • filtered by selection</p><div class="chart" id="lineChart"></div><div class="legend">Monthly performance · hover each point for exact numbers</div></div><div class="panel"><h3>Performance by Customer segment</h3><p>Latest available month-end snapshot</p><div class="chart" id="barChart"></div><div class="legend">Categories remain comparable under period filter</div></div></section><section class="second"><div class="panel"><h3>Monthly breakdown</h3><p>Most recent five available months</p><table><thead><tr><th>Month</th><th>EndingMRR</th></tr></thead><tbody id="monthly"></tbody></table></div><div class="panel"><h3>Business narrative</h3><p>Executive handoff / technical notes</p><div style="font-size:13px;line-height:1.85;color:#bed0df;margin-top:16px">Monitor the latest selected month for MRR, then compare retention and the impact of downgrades. MRR is a <b>snapshot</b>, not a sum across months.</div></div></section><footer>LOCAL DESIGN PROTOTYPE ONLY · Not authored or published in Microsoft Power BI · Synthetic data • See source CSVs, model relationships, DAX measures and project brief to implement the report in Power BI.</footer></div>
-<script>const DATA=[{"month":"2024-01","cat":"Mid-Market","StartingMRR":0.0,"EndingMRR":497.0,"NewMRR":497.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":0.0,"ActiveEOM":3.0},{"month":"2024-02","cat":"Mid-Market","StartingMRR":497.0,"EndingMRR":994.0,"NewMRR":497.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":3.0,"ActiveEOM":6.0},{"month":"2024-03","cat":"Mid-Market","StartingMRR":994.0,"EndingMRR":1192.0,"NewMRR":198.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":6.0,"ActiveEOM":8.0},{"month":"2024-04","cat":"Mid-Market","StartingMRR":1192.0,"EndingMRR":1291.0,"NewMRR":99.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":8.0,"ActiveEOM":9.0},{"month":"2024-05","cat":"Mid-Market","StartingMRR":1291.0,"EndingMRR":1703.85,"NewMRR":398.0,"ExpansionMRR":14.85,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":9.0,"ActiveEOM":11.0},{"month":"2024-06","cat":"Mid-Market","StartingMRR":1703.85,"EndingMRR":2191.25,"NewMRR":398.0,"ExpansionMRR":89.39999999999999,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":11.0,"ActiveEOM":13.0},{"month":"2024-07","cat":"Mid-Market","StartingMRR":2191.25,"EndingMRR":4477.14,"NewMRR":2394.0,"ExpansionMRR":0.0,"ContractionMRR":9.11,"ChurnMRR":99.0,"NewLogos":6.0,"ChurnedLogos":1.0,"ActiveBOM":13.0,"ActiveEOM":18.0},{"month":"2024-08","cat":"Mid-Market","StartingMRR":4477.14,"EndingMRR":4089.9899999999993,"NewMRR":497.0,"ExpansionMRR":14.85,"ContractionMRR":0.0,"ChurnMRR":899.0,"NewLogos":3.0,"ChurnedLogos":1.0,"ActiveBOM":18.0,"ActiveEOM":20.0},{"month":"2024-09","cat":"Mid-Market","StartingMRR":4089.9899999999993,"EndingMRR":5362.540000000001,"NewMRR":1198.0,"ExpansionMRR":74.55,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":20.0,"ActiveEOM":22.0},{"month":"2024-10","cat":"Mid-Market","StartingMRR":5362.540000000001,"EndingMRR":7971.390000000002,"NewMRR":2594.0,"ExpansionMRR":14.85,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":6.0,"ChurnedLogos":0.0,"ActiveBOM":22.0,"ActiveEOM":28.0},{"month":"2024-11","cat":"Mid-Market","StartingMRR":7971.390000000002,"EndingMRR":8313.240000000002,"NewMRR":297.0,"ExpansionMRR":44.85,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":28.0,"ActiveEOM":31.0},{"month":"2024-12","cat":"Mid-Market","StartingMRR":8313.240000000002,"EndingMRR":9184.080000000004,"NewMRR":596.0,"ExpansionMRR":283.95,"ContractionMRR":9.11,"ChurnMRR":0.0,"NewLogos":4.0,"ChurnedLogos":0.0,"ActiveBOM":31.0,"ActiveEOM":35.0},{"month":"2025-01","cat":"Mid-Market","StartingMRR":9184.080000000004,"EndingMRR":10057.230000000003,"NewMRR":796.0,"ExpansionMRR":141.28,"ContractionMRR":64.13,"ChurnMRR":0.0,"NewLogos":4.0,"ChurnedLogos":0.0,"ActiveBOM":35.0,"ActiveEOM":39.0},{"month":"2025-02","cat":"Mid-Market","StartingMRR":10057.230000000003,"EndingMRR":10309.400000000003,"NewMRR":398.0,"ExpansionMRR":153.17,"ContractionMRR":0.0,"ChurnMRR":299.0,"NewLogos":2.0,"ChurnedLogos":1.0,"ActiveBOM":39.0,"ActiveEOM":40.0},{"month":"2025-03","cat":"Mid-Market","StartingMRR":10309.400000000003,"EndingMRR":10183.450000000003,"NewMRR":497.0,"ExpansionMRR":44.85,"ContractionMRR":24.950000000000003,"ChurnMRR":642.85,"NewLogos":3.0,"ChurnedLogos":2.0,"ActiveBOM":40.0,"ActiveEOM":41.0},{"month":"2025-04","cat":"Mid-Market","StartingMRR":10183.450000000003,"EndingMRR":11601.170000000002,"NewMRR":1297.0,"ExpansionMRR":268.96000000000004,"ContractionMRR":34.39,"ChurnMRR":113.85,"NewLogos":3.0,"ChurnedLogos":1.0,"ActiveBOM":41.0,"ActiveEOM":43.0},{"month":"2025-05","cat":"Mid-Market","StartingMRR":11601.170000000002,"EndingMRR":11785.980000000003,"NewMRR":299.0,"ExpansionMRR":238.04000000000002,"ContractionMRR":8.38,"ChurnMRR":343.85,"NewLogos":1.0,"ChurnedLogos":1.0,"ActiveBOM":43.0,"ActiveEOM":43.0},{"month":"2025-06","cat":"Mid-Market","StartingMRR":11785.980000000003,"EndingMRR":13142.260000000002,"NewMRR":1196.0,"ExpansionMRR":276.31,"ContractionMRR":17.03,"ChurnMRR":99.0,"NewLogos":4.0,"ChurnedLogos":1.0,"ActiveBOM":43.0,"ActiveEOM":46.0},{"month":"2025-07","cat":"Mid-Market","StartingMRR":13142.260000000002,"EndingMRR":13372.540000000003,"NewMRR":299.0,"ExpansionMRR":49.87,"ContractionMRR":27.51,"ChurnMRR":91.08,"NewLogos":1.0,"ChurnedLogos":1.0,"ActiveBOM":46.0,"ActiveEOM":46.0},{"month":"2025-08","cat":"Mid-Market","StartingMRR":13372.540000000003,"EndingMRR":15472.570000000002,"NewMRR":2093.0,"ExpansionMRR":46.58,"ContractionMRR":39.55,"ChurnMRR":0.0,"NewLogos":7.0,"ChurnedLogos":0.0,"ActiveBOM":46.0,"ActiveEOM":53.0},{"month":"2025-09","cat":"Mid-Market","StartingMRR":15472.570000000002,"EndingMRR":16616.440000000002,"NewMRR":897.0,"ExpansionMRR":820.3600000000001,"ContractionMRR":44.300000000000004,"ChurnMRR":529.1899999999999,"NewLogos":3.0,"ChurnedLogos":3.0,"ActiveBOM":53.0,"ActiveEOM":53.0},{"month":"2025-10","cat":"Mid-Market","StartingMRR":16616.440000000002,"EndingMRR":16446.670000000006,"NewMRR":198.0,"ExpansionMRR":0.0,"ContractionMRR":23.92,"ChurnMRR":343.85,"NewLogos":2.0,"ChurnedLogos":1.0,"ActiveBOM":53.0,"ActiveEOM":54.0},{"month":"2025-11","cat":"Mid-Market","StartingMRR":16446.670000000006,"EndingMRR":16644.480000000003,"NewMRR":0.0,"ExpansionMRR":231.28,"ContractionMRR":33.47,"ChurnMRR":0.0,"NewLogos":0.0,"ChurnedLogos":0.0,"ActiveBOM":54.0,"ActiveEOM":54.0},{"month":"2025-12","cat":"Mid-Market","StartingMRR":16644.480000000003,"EndingMRR":16752.970000000005,"NewMRR":0.0,"ExpansionMRR":155.08,"ContractionMRR":46.59,"ChurnMRR":0.0,"NewLogos":0.0,"ChurnedLogos":0.0,"ActiveBOM":54.0,"ActiveEOM":54.0},{"month":"2024-01","cat":"Enterprise","StartingMRR":0.0,"EndingMRR":497.0,"NewMRR":497.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":0.0,"ActiveEOM":3.0},{"month":"2024-02","cat":"Enterprise","StartingMRR":497.0,"EndingMRR":1893.0,"NewMRR":1396.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":4.0,"ChurnedLogos":0.0,"ActiveBOM":3.0,"ActiveEOM":7.0},{"month":"2024-03","cat":"Enterprise","StartingMRR":1893.0,"EndingMRR":2067.08,"NewMRR":198.0,"ExpansionMRR":0.0,"ContractionMRR":23.92,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":7.0,"ActiveEOM":9.0},{"month":"2024-04","cat":"Enterprise","StartingMRR":2067.08,"EndingMRR":2500.93,"NewMRR":299.0,"ExpansionMRR":134.85,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":9.0,"ActiveEOM":10.0},{"month":"2024-05","cat":"Enterprise","StartingMRR":2500.93,"EndingMRR":2799.93,"NewMRR":299.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":10.0,"ActiveEOM":11.0},{"month":"2024-06","cat":"Enterprise","StartingMRR":2799.93,"EndingMRR":4924.629999999999,"NewMRR":2095.0,"ExpansionMRR":29.7,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":5.0,"ChurnedLogos":0.0,"ActiveBOM":11.0,"ActiveEOM":16.0},{"month":"2024-07","cat":"Enterprise","StartingMRR":4924.629999999999,"EndingMRR":5621.63,"NewMRR":697.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":16.0,"ActiveEOM":19.0},{"month":"2024-08","cat":"Enterprise","StartingMRR":5621.63,"EndingMRR":5986.6,"NewMRR":398.0,"ExpansionMRR":0.0,"ContractionMRR":33.03,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":19.0,"ActiveEOM":21.0},{"month":"2024-09","cat":"Enterprise","StartingMRR":5986.6,"EndingMRR":6971.300000000001,"NewMRR":895.0,"ExpansionMRR":89.7,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":5.0,"ChurnedLogos":0.0,"ActiveBOM":21.0,"ActiveEOM":26.0},{"month":"2024-10","cat":"Enterprise","StartingMRR":6971.300000000001,"EndingMRR":8584.380000000001,"NewMRR":1596.0,"ExpansionMRR":17.08,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":4.0,"ChurnedLogos":0.0,"ActiveBOM":26.0,"ActiveEOM":30.0},{"month":"2024-11","cat":"Enterprise","StartingMRR":8584.380000000001,"EndingMRR":9034.16,"NewMRR":398.0,"ExpansionMRR":59.7,"ContractionMRR":7.92,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":30.0,"ActiveEOM":32.0},{"month":"2024-12","cat":"Enterprise","StartingMRR":9034.16,"EndingMRR":9563.62,"NewMRR":996.0,"ExpansionMRR":440.38000000000005,"ContractionMRR":7.92,"ChurnMRR":899.0,"NewLogos":4.0,"ChurnedLogos":1.0,"ActiveBOM":32.0,"ActiveEOM":35.0},{"month":"2025-01","cat":"Enterprise","StartingMRR":9563.62,"EndingMRR":9825.62,"NewMRR":198.0,"ExpansionMRR":119.01,"ContractionMRR":55.010000000000005,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":35.0,"ActiveEOM":37.0},{"month":"2025-02","cat":"Enterprise","StartingMRR":9825.62,"EndingMRR":9969.470000000001,"NewMRR":99.0,"ExpansionMRR":44.85,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":37.0,"ActiveEOM":38.0},{"month":"2025-03","cat":"Enterprise","StartingMRR":9969.470000000001,"EndingMRR":10192.820000000002,"NewMRR":198.0,"ExpansionMRR":76.78,"ContractionMRR":51.43000000000001,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":38.0,"ActiveEOM":40.0},{"month":"2025-04","cat":"Enterprise","StartingMRR":10192.820000000002,"EndingMRR":11034.400000000001,"NewMRR":794.0,"ExpansionMRR":107.69,"ContractionMRR":60.11,"ChurnMRR":0.0,"NewLogos":6.0,"ChurnedLogos":0.0,"ActiveBOM":40.0,"ActiveEOM":46.0},{"month":"2025-05","cat":"Enterprise","StartingMRR":11034.400000000001,"EndingMRR":11438.610000000002,"NewMRR":99.0,"ExpansionMRR":330.52,"ContractionMRR":25.31,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":46.0,"ActiveEOM":47.0},{"month":"2025-06","cat":"Enterprise","StartingMRR":11438.610000000002,"EndingMRR":11932.010000000002,"NewMRR":398.0,"ExpansionMRR":120.71000000000001,"ContractionMRR":25.31,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":47.0,"ActiveEOM":49.0},{"month":"2025-07","cat":"Enterprise","StartingMRR":11932.010000000002,"EndingMRR":12159.310000000003,"NewMRR":198.0,"ExpansionMRR":162.67,"ContractionMRR":133.37,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":49.0,"ActiveEOM":51.0},{"month":"2025-08","cat":"Enterprise","StartingMRR":12159.310000000003,"EndingMRR":12313.080000000004,"NewMRR":99.0,"ExpansionMRR":76.78,"ContractionMRR":22.01,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":51.0,"ActiveEOM":52.0},{"month":"2025-09","cat":"Enterprise","StartingMRR":12313.080000000004,"EndingMRR":13086.820000000003,"NewMRR":594.0,"ExpansionMRR":243.21,"ContractionMRR":63.47,"ChurnMRR":0.0,"NewLogos":6.0,"ChurnedLogos":0.0,"ActiveBOM":52.0,"ActiveEOM":58.0},{"month":"2025-10","cat":"Enterprise","StartingMRR":13086.820000000003,"EndingMRR":13469.750000000004,"NewMRR":598.0,"ExpansionMRR":136.70000000000002,"ContractionMRR":7.92,"ChurnMRR":343.85,"NewLogos":2.0,"ChurnedLogos":1.0,"ActiveBOM":58.0,"ActiveEOM":59.0},{"month":"2025-11","cat":"Enterprise","StartingMRR":13469.750000000004,"EndingMRR":13642.470000000003,"NewMRR":0.0,"ExpansionMRR":221.26999999999998,"ContractionMRR":48.55,"ChurnMRR":0.0,"NewLogos":0.0,"ChurnedLogos":0.0,"ActiveBOM":59.0,"ActiveEOM":59.0},{"month":"2025-12","cat":"Enterprise","StartingMRR":13642.470000000003,"EndingMRR":13293.350000000002,"NewMRR":0.0,"ExpansionMRR":107.12,"ContractionMRR":7.71,"ChurnMRR":448.53,"NewLogos":0.0,"ChurnedLogos":2.0,"ActiveBOM":59.0,"ActiveEOM":57.0},{"month":"2024-01","cat":"SMB","StartingMRR":0.0,"EndingMRR":0.0,"NewMRR":0.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":0.0,"ChurnedLogos":0.0,"ActiveBOM":0.0,"ActiveEOM":0.0},{"month":"2024-02","cat":"SMB","StartingMRR":0.0,"EndingMRR":297.0,"NewMRR":297.0,"ExpansionMRR":0.0,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":0.0,"ActiveEOM":3.0},{"month":"2024-03","cat":"SMB","StartingMRR":297.0,"EndingMRR":303.93,"NewMRR":0.0,"ExpansionMRR":14.85,"ContractionMRR":7.92,"ChurnMRR":0.0,"NewLogos":0.0,"ChurnedLogos":0.0,"ActiveBOM":3.0,"ActiveEOM":3.0},{"month":"2024-04","cat":"SMB","StartingMRR":303.93,"EndingMRR":3711.5899999999997,"NewMRR":3394.0,"ExpansionMRR":13.66,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":6.0,"ChurnedLogos":0.0,"ActiveBOM":3.0,"ActiveEOM":9.0},{"month":"2024-05","cat":"SMB","StartingMRR":3711.5899999999997,"EndingMRR":4055.4399999999996,"NewMRR":299.0,"ExpansionMRR":44.85,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":9.0,"ActiveEOM":10.0},{"month":"2024-06","cat":"SMB","StartingMRR":4055.4399999999996,"EndingMRR":4797.289999999999,"NewMRR":697.0,"ExpansionMRR":44.85,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":10.0,"ActiveEOM":13.0},{"month":"2024-07","cat":"SMB","StartingMRR":4797.289999999999,"EndingMRR":5339.299999999999,"NewMRR":398.0,"ExpansionMRR":151.93,"ContractionMRR":7.92,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":13.0,"ActiveEOM":15.0},{"month":"2024-08","cat":"SMB","StartingMRR":5339.299999999999,"EndingMRR":5792.789999999999,"NewMRR":299.0,"ExpansionMRR":154.49,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":15.0,"ActiveEOM":16.0},{"month":"2024-09","cat":"SMB","StartingMRR":5792.789999999999,"EndingMRR":7250.029999999999,"NewMRR":1497.0,"ExpansionMRR":0.0,"ContractionMRR":39.760000000000005,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":16.0,"ActiveEOM":19.0},{"month":"2024-10","cat":"SMB","StartingMRR":7250.029999999999,"EndingMRR":7934.98,"NewMRR":697.0,"ExpansionMRR":0.0,"ContractionMRR":12.05,"ChurnMRR":0.0,"NewLogos":3.0,"ChurnedLogos":0.0,"ActiveBOM":19.0,"ActiveEOM":22.0},{"month":"2024-11","cat":"SMB","StartingMRR":7934.98,"EndingMRR":9219.09,"NewMRR":1198.0,"ExpansionMRR":86.11,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":22.0,"ActiveEOM":24.0},{"month":"2024-12","cat":"SMB","StartingMRR":9219.09,"EndingMRR":9452.94,"NewMRR":398.0,"ExpansionMRR":134.85,"ContractionMRR":0.0,"ChurnMRR":299.0,"NewLogos":2.0,"ChurnedLogos":1.0,"ActiveBOM":24.0,"ActiveEOM":25.0},{"month":"2025-01","cat":"SMB","StartingMRR":9452.94,"EndingMRR":9370.230000000001,"NewMRR":0.0,"ExpansionMRR":0.0,"ContractionMRR":82.71,"ChurnMRR":0.0,"NewLogos":0.0,"ChurnedLogos":0.0,"ActiveBOM":25.0,"ActiveEOM":25.0},{"month":"2025-02","cat":"SMB","StartingMRR":9370.230000000001,"EndingMRR":11014.93,"NewMRR":1495.0,"ExpansionMRR":149.7,"ContractionMRR":0.0,"ChurnMRR":0.0,"NewLogos":5.0,"ChurnedLogos":0.0,"ActiveBOM":25.0,"ActiveEOM":30.0},{"month":"2025-03","cat":"SMB","StartingMRR":11014.93,"EndingMRR":11105.6,"NewMRR":0.0,"ExpansionMRR":213.59000000000003,"ContractionMRR":23.92,"ChurnMRR":99.0,"NewLogos":0.0,"ChurnedLogos":1.0,"ActiveBOM":30.0,"ActiveEOM":29.0},{"month":"2025-04","cat":"SMB","StartingMRR":11105.6,"EndingMRR":13487.11,"NewMRR":2293.0,"ExpansionMRR":123.94,"ContractionMRR":35.43,"ChurnMRR":0.0,"NewLogos":7.0,"ChurnedLogos":0.0,"ActiveBOM":29.0,"ActiveEOM":36.0},{"month":"2025-05","cat":"SMB","StartingMRR":13487.11,"EndingMRR":13333.78,"NewMRR":398.0,"ExpansionMRR":355.59000000000003,"ContractionMRR":7.92,"ChurnMRR":899.0,"NewLogos":2.0,"ChurnedLogos":1.0,"ActiveBOM":36.0,"ActiveEOM":37.0},{"month":"2025-06","cat":"SMB","StartingMRR":13333.78,"EndingMRR":14053.840000000002,"NewMRR":398.0,"ExpansionMRR":351.1600000000001,"ContractionMRR":29.1,"ChurnMRR":0.0,"NewLogos":2.0,"ChurnedLogos":0.0,"ActiveBOM":37.0,"ActiveEOM":39.0},{"month":"2025-07","cat":"SMB","StartingMRR":14053.840000000002,"EndingMRR":15784.370000000003,"NewMRR":1897.0,"ExpansionMRR":132.52999999999997,"ContractionMRR":0.0,"ChurnMRR":299.0,"NewLogos":3.0,"ChurnedLogos":1.0,"ActiveBOM":39.0,"ActiveEOM":41.0},{"month":"2025-08","cat":"SMB","StartingMRR":15784.370000000003,"EndingMRR":16267.270000000002,"NewMRR":299.0,"ExpansionMRR":191.82,"ContractionMRR":7.92,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":41.0,"ActiveEOM":42.0},{"month":"2025-09","cat":"SMB","StartingMRR":16267.270000000002,"EndingMRR":16712.08,"NewMRR":99.0,"ExpansionMRR":373.32000000000005,"ContractionMRR":27.51,"ChurnMRR":0.0,"NewLogos":1.0,"ChurnedLogos":0.0,"ActiveBOM":42.0,"ActiveEOM":43.0},{"month":"2025-10","cat":"SMB","StartingMRR":16712.08,"EndingMRR":17375.200000000004,"NewMRR":895.0,"ExpansionMRR":238.04,"ContractionMRR":71.92,"ChurnMRR":398.0,"NewLogos":5.0,"ChurnedLogos":2.0,"ActiveBOM":43.0,"ActiveEOM":46.0},{"month":"2025-11","cat":"SMB","StartingMRR":17375.200000000004,"EndingMRR":17393.740000000005,"NewMRR":0.0,"ExpansionMRR":59.31,"ContractionMRR":40.77,"ChurnMRR":0.0,"NewLogos":0.0,"ChurnedLogos":0.0,"ActiveBOM":46.0,"ActiveEOM":46.0},{"month":"2025-12","cat":"SMB","StartingMRR":17393.740000000005,"EndingMRR":17211.260000000006,"NewMRR":0.0,"ExpansionMRR":133.86,"ContractionMRR":0.0,"ChurnMRR":316.34,"NewLogos":0.0,"ChurnedLogos":1.0,"ActiveBOM":46.0,"ActiveEOM":45.0}]; const CATS=["SMB", "Mid-Market", "Enterprise"]; const SPEC={"label": "Customer segment", "metric": "EndingMRR", "trend": "Monthly recurring revenue", "unit": "$", "barMode": "latest", "cards": [["Month-end MRR", "latest", "EndingMRR", "$"], ["Annualized run rate", "latest12", "EndingMRR", "$"], ["Logo churn rate", "ratio", "ChurnedLogos/ActiveBOM", "%"], ["Net revenue retention", "nrr", "", "%"]]};const ACCENT='#38bdf8';
-const el=id=>document.getElementById(id);const comma=n=>Math.round(n).toLocaleString('en-US');const money=n=>'$'+Math.round(n).toLocaleString('en-US');const percent=n=>(n*100).toFixed(1)+'%';const fmt=(n,unit)=>unit==='$'?money(n):unit==='%'?percent(n):unit===' days'?n.toFixed(1)+' days':comma(n);
-function matchPeriod(m,period){if(period==='all')return true; if(period.includes('-Q')){const yr=period.slice(0,4),q=Number(period.at(-1)),mn=Number(m.slice(5,7));return m.startsWith(yr) && Math.ceil(mn/3)===q;}return m.startsWith(period)}
-function subset(){let p=el('period').value,c=el('cat').value;return DATA.filter(r=>matchPeriod(r.month,p)&&(c==='all'||c===r.cat));}
-function totals(rows){let o={}; for(let r of rows)for(let[k,v]of Object.entries(r)){if(k!=='month'&&k!=='cat')o[k]=(o[k]||0)+v;}return o;}
-function value(rows,type,field){if(type==='latest'||type==='latest12'){let last=[...new Set(rows.map(r=>r.month))].sort().at(-1);let n=totals(rows.filter(r=>r.month===last))[field]||0;return type==='latest12'?n*12:n;}let s=totals(rows);if(type==='sum')return s[field]||0;if(type==='ratio'){let[a,b]=field.split('/');return(s[b]||0)?(s[a]||0)/s[b]:0;}if(type==='nrr')return(s.StartingMRR||0)?((s.StartingMRR||0)-(s.ChurnMRR||0)-(s.ContractionMRR||0)+(s.ExpansionMRR||0))/s.StartingMRR:0;return 0}
-function monthSeries(rows){let m={}; for(let r of rows){if(!m[r.month])m[r.month]=0;m[r.month]+=r[SPEC.metric]||0;}return Object.entries(m).sort((a,b)=>a[0].localeCompare(b[0])).map(([x,y])=>({x,y}));}
-function escapeHTML(x){return String(x).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k]));}
-function lineChart(points){if(!points.length)return'<p>No data for this selection.</p>';const W=850,H=248,left=55,right=25,top=20,bottom=35,max=Math.max(1,...points.map(p=>p.y))*1.16;let coords=points.map((p,i)=>({...p,value:p.y,x:left+(W-left-right)*(points.length===1?.5:i/(points.length-1)),y:top+(H-top-bottom)*(1-p.y/max)}));let grid=[0,.25,.5,.75,1].map(q=>{let y=top+(H-top-bottom)*(1-q);return `<line x1="${left}" y1="${y}" x2="${W-right}" y2="${y}" stroke="#264159" stroke-dasharray="4 5"/><text x="${left-10}" y="${y+4}" fill="#88a1b9" text-anchor="end" font-size="12">${Math.round(max*q).toLocaleString('en-US')}</text>`}).join('');let xlabels=coords.filter((p,i)=>i%Math.max(1,Math.ceil(coords.length/6))===0||i===coords.length-1).map(p=>`<text x="${p.x}" y="${H-10}" font-size="12" text-anchor="middle" fill="#93a4b8">${p.x===undefined?'':p.xlbl||p.x}</text>`).join('');let area=`${left},${H-bottom} `+coords.map(p=>`${p.x},${p.y}`).join(' ')+` ${coords.at(-1).x},${H-bottom}`;let circles=coords.map(p=>`<circle cx="${p.x}" cy="${p.y}" r="4" fill="${ACCENT}" stroke="#0c2234" stroke-width="2"><title>${p.xlbl||p.x}: ${fmt(p.value,SPEC.unit)}</title></circle>`).join('');let months=coords.filter((p,i)=>i%Math.max(1,Math.ceil(coords.length/7))===0||i===coords.length-1).map(p=>`<text x="${p.x}" y="${H-8}" font-size="12" text-anchor="middle" fill="#93a4b8">${p.xdate.slice(2)}</text>`).join('');return `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:100%" role="img" aria-label="Monthly ${SPEC.trend}">${grid}<polygon points="${area}" fill="${ACCENT}" fill-opacity=".09"/><polyline points="${coords.map(p=>p.x+','+p.y).join(' ')}" fill="none" stroke="${ACCENT}" stroke-width="3"/>${circles}${months}</svg>`;}
-function bars(rows){let c=el('cat').value;let p=el('period').value;let vals=CATS.map(cat=>{let cr=DATA.filter(r=>r.cat===cat&&matchPeriod(r.month,p));if(SPEC.barMode==='latest'){let lm=cr.map(r=>r.month).sort().at(-1);cr=cr.filter(r=>r.month===lm)}return {cat,value:totals(cr)[SPEC.metric]||0};});if(c!=='all')vals=vals.filter(x=>x.cat===c);let max=Math.max(1,...vals.map(x=>x.value));return `<div style="display:flex;flex-direction:column;justify-content:space-around;height:240px;gap:9px">${vals.map(x=>`<div><div style="display:flex;justify-content:space-between;gap:6px;margin-bottom:7px;font-size:12px"><span style="color:#d6e6f7">${escapeHTML(x.cat)}</span><b>${fmt(x.value,SPEC.unit)}</b></div><div style="background:#21374b;height:10px;border-radius:99px"><div style="height:100%;width:${(x.value/max*100).toFixed(2)}%;border-radius:99px;background:linear-gradient(90deg,${ACCENT},#e0eafa)"></div></div></div>`).join('')}</div>`}
-function draw(){const rows=subset();el('kpis').innerHTML=SPEC.cards.map(([label,t,f,unit])=>{let n=value(rows,t,f);return `<article class="kpi"><label>${escapeHTML(label)}</label><div class="value">${fmt(n,unit)}</div><div class="mini">Calculated from current selection</div></article>`}).join('');let m=monthSeries(rows).map(x=>({...x,xdate:x.x}));el('lineChart').innerHTML=lineChart(m);el('barChart').innerHTML=bars(rows);el('monthly').innerHTML=m.slice(-5).reverse().map(x=>`<tr><td>${x.x}</td><td>${fmt(x.y,SPEC.unit)}</td></tr>`).join('')||'<tr><td colspan="2">No records</td></tr>'}
-for(let cat of ['All categories',...CATS]){let opt=document.createElement('option');opt.value=cat==='All categories'?'all':cat;opt.textContent=cat;el('cat').append(opt)}for(let p of [...el('period').options]){if(p.value!=='all'&&!DATA.some(x=>matchPeriod(x.month,p.value)))p.remove()}el('cat').addEventListener('change',draw);el('period').addEventListener('change',draw);draw();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore two years of synthetic SaaS subscription revenue and retention by month and customer segment.">
+  <title>SaaS Revenue &amp; Churn | BI Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #f5f6f3;
+      --surface: #fff;
+      --ink: #1e2c27;
+      --muted: #52615a;
+      --line: #dbe1da;
+      --green: #236854;
+      --green-dark: #174c3d;
+      --wash: #edf4ee;
+      --loss: #91432f;
+      --radius: 10px;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); }
+    a { color: var(--green-dark); text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+    h1, h2, p, dl, dd { margin: 0; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+    .site-nav, .page {
+      max-width: 1328px;
+      margin-inline: auto;
+      padding-inline: clamp(16px, 3vw, 44px);
+    }
+    .site-nav {
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: .875rem;
+    }
+    .portfolio {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .portfolio:hover { text-decoration: underline; }
+    .portfolio-mark {
+      display: inline-flex;
+      align-items: end;
+      justify-content: center;
+      gap: 3px;
+      width: 30px;
+      height: 30px;
+      padding-bottom: 7px;
+      border-radius: 7px;
+      background: var(--green-dark);
+    }
+    .portfolio-mark i {
+      display: block;
+      width: 3px;
+      height: 7px;
+      border-radius: 1px;
+      background: #f1f7f2;
+    }
+    .portfolio-mark i:nth-child(2) { height: 11px; }
+    .portfolio-mark i:nth-child(3) { height: 16px; }
+    .repo-link { color: var(--muted); }
+
+    .page { padding-block: 32px 38px; }
+    .page-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px 28px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(1.7rem, 3.3vw, 2.2rem);
+      line-height: 1.12;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+    .data-context {
+      margin-top: 9px;
+      font-size: .875rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .filters { display: flex; gap: 12px; }
+    .field { display: grid; gap: 6px; min-width: 0; }
+    .field > span:first-child { color: var(--muted); font-size: .8125rem; font-weight: 600; }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: calc(50% - 4px);
+      width: 6px;
+      height: 6px;
+      border: solid currentColor;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+    select {
+      appearance: none;
+      width: 100%;
+      min-width: 168px;
+      min-height: 42px;
+      padding: 8px 34px 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: .875rem;
+      cursor: pointer;
+    }
+    select:hover { border-color: #98aa9d; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .metric, .panel {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .metric { padding: 17px 18px 16px; }
+    .metric-primary { background: var(--wash); border-color: #ceded2; }
+    .metric dt { color: var(--muted); font-size: .875rem; font-weight: 600; line-height: 1.3; }
+    .metric-value {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(1.38rem, 2.65vw, 2rem);
+      font-weight: 675;
+      line-height: 1.15;
+      letter-spacing: -.05em;
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-primary .metric-value { color: var(--green-dark); }
+    .metric-note { margin-top: 9px; color: var(--muted); font-size: .8125rem; line-height: 1.4; }
+    .delta { color: var(--green-dark); font-weight: 650; }
+    .delta.is-down { color: var(--loss); }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .panel { padding: 18px; }
+    .panel-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .panel-heading h2 { font-size: 1.0625rem; letter-spacing: -.02em; font-weight: 650; line-height: 1.25; }
+    .panel-meta { color: var(--muted); font-size: .8125rem; line-height: 1.35; }
+    .panel-description { margin-top: 6px; color: var(--muted); font-size: .8125rem; line-height: 1.4; }
+
+    .chart { position: relative; height: 258px; margin-top: 14px; border-radius: 5px; }
+    .chart canvas { display: block; width: 100%; height: 100%; }
+    .chart-tooltip {
+      position: absolute;
+      display: grid;
+      gap: 4px;
+      z-index: 1;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      box-shadow: 0 3px 12px #263a2613;
+      font-size: .8125rem;
+      font-variant-numeric: tabular-nums;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .chart-tooltip[hidden] { display: none; }
+    .chart-tooltip span { color: var(--muted); }
+
+    .segments { display: grid; gap: 18px; padding: 0; margin: 20px 0 0; list-style: none; }
+    .segment-heading, .segment-share { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+    .segment-heading { font-size: .875rem; font-weight: 550; }
+    .segment-amount, .segment-percent { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .segment-amount { font-weight: 650; }
+    .segment-share { margin-top: 8px; }
+    .segment-track { flex: 1; height: 7px; border-radius: 3px; background: #e8eee9; }
+    .segment-fill { display: block; height: 100%; border-radius: inherit; background: var(--green); }
+    .segment-percent { min-width: 42px; text-align: right; color: var(--muted); font-size: .8125rem; }
+
+    .table-wrap { margin-top: 13px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: right; font-size: .875rem; }
+    th, td { padding: 10px 8px; vertical-align: top; }
+    th:first-child, td:first-child { text-align: left; padding-left: 0; }
+    th:last-child, td:last-child { padding-right: 0; }
+    th { color: var(--muted); font-weight: 600; font-size: .8125rem; }
+    td { border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    .definitions { margin-top: 12px; line-height: 1.45; }
+    .definitions > div + div { margin-top: 11px; padding-top: 11px; border-top: 1px solid var(--line); }
+    .definitions dt { font-size: .875rem; font-weight: 650; }
+    .definitions dd { margin-top: 3px; color: var(--muted); font-size: .8125rem; }
+    .table-empty { text-align: left; color: var(--muted); }
+
+    @media (max-width: 980px) {
+      .page { padding-block-start: 26px; }
+      .metric { padding-inline: 14px; }
+      .report-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .page-heading { gap: 16px; }
+      .filters, .field { width: 100%; }
+      select { min-width: 0; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .report-grid { grid-template-columns: minmax(0, 1fr); }
+      .chart { height: 228px; }
+    }
+    @media (max-width: 440px) {
+      .site-nav { min-height: 54px; }
+      .metrics { gap: 10px; }
+      .metric { padding: 13px 11px; }
+      .metric dt, .metric-note { font-size: .75rem; }
+      .metric-value { font-size: clamp(1.18rem, 5.4vw, 1.45rem); }
+      .panel { padding: 15px; }
+      th, td { padding-inline: 5px; font-size: .75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Portfolio">
+      <a class="portfolio" href="https://sumitgole011.github.io/PowerBI-Industry-Analytics-Portfolio/">
+        <span class="portfolio-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        BI Portfolio
+      </a>
+      <a class="repo-link" href="https://github.com/sumitgole011/PowerBI-Industry-Analytics-Portfolio/tree/main/SaaS_Revenue_Churn_Intelligence">Case study &amp; data</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <header class="page-heading">
+      <div>
+        <h1>SaaS Revenue &amp; Churn</h1>
+        <p class="data-context" id="data-context">Synthetic subscription data</p>
+      </div>
+      <div class="filters" role="group" aria-label="Dashboard filters">
+        <label class="field">
+          <span>Reporting period</span>
+          <span class="select-wrap">
+            <select id="period">
+              <option value="all">All months</option>
+            </select>
+          </span>
+        </label>
+        <label class="field">
+          <span>Customer segment</span>
+          <span class="select-wrap">
+            <select id="cat">
+              <option value="all">All segments</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Key metrics">
+      <dl class="metric metric-primary">
+        <dt>Month-end MRR</dt>
+        <dd class="metric-value" id="mrr">—</dd>
+        <dd class="metric-note" id="mrr-note"></dd>
+      </dl>
+      <dl class="metric">
+        <dt>Annualized run rate</dt>
+        <dd class="metric-value" id="arr">—</dd>
+        <dd class="metric-note" id="arr-note"></dd>
+      </dl>
+      <dl class="metric">
+        <dt>Logo churn rate</dt>
+        <dd class="metric-value" id="churn">—</dd>
+        <dd class="metric-note" id="churn-note"></dd>
+      </dl>
+      <dl class="metric">
+        <dt>Net revenue retention</dt>
+        <dd class="metric-value" id="nrr">—</dd>
+        <dd class="metric-note">Excludes new subscriptions</dd>
+      </dl>
+    </section>
+
+    <div class="report-grid">
+      <section class="panel" aria-labelledby="trend-heading">
+        <div class="panel-heading">
+          <h2 id="trend-heading">Monthly recurring revenue</h2>
+          <span class="panel-meta">USD</span>
+        </div>
+        <p class="panel-description" id="trend-period"></p>
+        <p class="sr-only" id="chart-help">Use the arrow keys to read month-end amounts. Recent values are also in the monthly breakdown table.</p>
+        <div class="chart" id="revenue-chart" role="group" aria-labelledby="trend-heading" aria-describedby="chart-help" tabindex="0">
+          <canvas aria-hidden="true"></canvas>
+          <div class="chart-tooltip" id="chart-tooltip" hidden aria-hidden="true">
+            <span></span>
+            <strong></strong>
+          </div>
+          <span class="sr-only" id="chart-value" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="segments-heading">
+        <div class="panel-heading">
+          <h2 id="segments-heading">MRR by segment</h2>
+          <span class="panel-meta" id="segment-month"></span>
+        </div>
+        <p class="panel-description">Share of total month-end MRR</p>
+        <ul class="segments" id="segments"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="breakdown-heading">
+        <div class="panel-heading">
+          <h2 id="breakdown-heading">Monthly breakdown</h2>
+          <span class="panel-meta" id="table-period"></span>
+        </div>
+        <div class="table-wrap">
+          <table aria-labelledby="breakdown-heading">
+            <thead>
+              <tr>
+                <th scope="col">Month</th>
+                <th scope="col">Month-end MRR</th>
+                <th scope="col">Active customers</th>
+                <th scope="col">Churned</th>
+              </tr>
+            </thead>
+            <tbody id="monthly"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="definitions-heading">
+        <div class="panel-heading">
+          <h2 id="definitions-heading">Metric definitions</h2>
+        </div>
+        <dl class="definitions">
+          <div>
+            <dt>Month-end MRR</dt>
+            <dd>Recurring revenue at the end of the latest selected month. The annualized run rate multiplies it by 12.</dd>
+          </div>
+          <div>
+            <dt>Logo churn</dt>
+            <dd>Churned customers divided by starting customers across the selected months.</dd>
+          </div>
+          <div>
+            <dt>Net revenue retention</dt>
+            <dd>Starting recurring revenue adjusted for expansion, downgrades, and churn, divided by starting revenue.</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+    <p class="sr-only" id="filter-status" role="status"></p>
+  </main>
+
+  <template id="segment-row">
+    <li>
+      <div class="segment-heading"><span></span><strong class="segment-amount"></strong></div>
+      <div class="segment-share">
+        <span class="segment-track" aria-hidden="true"><span class="segment-fill"></span></span>
+        <span class="segment-percent"></span>
+      </div>
+    </li>
+  </template>
+
+  <script id="subscription-data" type="application/json">
+    [
+      {"month":"2024-01","cat":"Mid-Market","StartingMRR":0,"EndingMRR":497,"NewMRR":497,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":0,"ActiveEOM":3},
+      {"month":"2024-02","cat":"Mid-Market","StartingMRR":497,"EndingMRR":994,"NewMRR":497,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":3,"ActiveEOM":6},
+      {"month":"2024-03","cat":"Mid-Market","StartingMRR":994,"EndingMRR":1192,"NewMRR":198,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":6,"ActiveEOM":8},
+      {"month":"2024-04","cat":"Mid-Market","StartingMRR":1192,"EndingMRR":1291,"NewMRR":99,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":8,"ActiveEOM":9},
+      {"month":"2024-05","cat":"Mid-Market","StartingMRR":1291,"EndingMRR":1703.85,"NewMRR":398,"ExpansionMRR":14.85,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":9,"ActiveEOM":11},
+      {"month":"2024-06","cat":"Mid-Market","StartingMRR":1703.85,"EndingMRR":2191.25,"NewMRR":398,"ExpansionMRR":89.39999999999999,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":11,"ActiveEOM":13},
+      {"month":"2024-07","cat":"Mid-Market","StartingMRR":2191.25,"EndingMRR":4477.14,"NewMRR":2394,"ExpansionMRR":0,"ContractionMRR":9.11,"ChurnMRR":99,"NewLogos":6,"ChurnedLogos":1,"ActiveBOM":13,"ActiveEOM":18},
+      {"month":"2024-08","cat":"Mid-Market","StartingMRR":4477.14,"EndingMRR":4089.9899999999993,"NewMRR":497,"ExpansionMRR":14.85,"ContractionMRR":0,"ChurnMRR":899,"NewLogos":3,"ChurnedLogos":1,"ActiveBOM":18,"ActiveEOM":20},
+      {"month":"2024-09","cat":"Mid-Market","StartingMRR":4089.9899999999993,"EndingMRR":5362.540000000001,"NewMRR":1198,"ExpansionMRR":74.55,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":20,"ActiveEOM":22},
+      {"month":"2024-10","cat":"Mid-Market","StartingMRR":5362.540000000001,"EndingMRR":7971.390000000002,"NewMRR":2594,"ExpansionMRR":14.85,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":6,"ChurnedLogos":0,"ActiveBOM":22,"ActiveEOM":28},
+      {"month":"2024-11","cat":"Mid-Market","StartingMRR":7971.390000000002,"EndingMRR":8313.240000000002,"NewMRR":297,"ExpansionMRR":44.85,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":28,"ActiveEOM":31},
+      {"month":"2024-12","cat":"Mid-Market","StartingMRR":8313.240000000002,"EndingMRR":9184.080000000004,"NewMRR":596,"ExpansionMRR":283.95,"ContractionMRR":9.11,"ChurnMRR":0,"NewLogos":4,"ChurnedLogos":0,"ActiveBOM":31,"ActiveEOM":35},
+      {"month":"2025-01","cat":"Mid-Market","StartingMRR":9184.080000000004,"EndingMRR":10057.230000000003,"NewMRR":796,"ExpansionMRR":141.28,"ContractionMRR":64.13,"ChurnMRR":0,"NewLogos":4,"ChurnedLogos":0,"ActiveBOM":35,"ActiveEOM":39},
+      {"month":"2025-02","cat":"Mid-Market","StartingMRR":10057.230000000003,"EndingMRR":10309.400000000003,"NewMRR":398,"ExpansionMRR":153.17,"ContractionMRR":0,"ChurnMRR":299,"NewLogos":2,"ChurnedLogos":1,"ActiveBOM":39,"ActiveEOM":40},
+      {"month":"2025-03","cat":"Mid-Market","StartingMRR":10309.400000000003,"EndingMRR":10183.450000000003,"NewMRR":497,"ExpansionMRR":44.85,"ContractionMRR":24.950000000000003,"ChurnMRR":642.85,"NewLogos":3,"ChurnedLogos":2,"ActiveBOM":40,"ActiveEOM":41},
+      {"month":"2025-04","cat":"Mid-Market","StartingMRR":10183.450000000003,"EndingMRR":11601.170000000002,"NewMRR":1297,"ExpansionMRR":268.96000000000004,"ContractionMRR":34.39,"ChurnMRR":113.85,"NewLogos":3,"ChurnedLogos":1,"ActiveBOM":41,"ActiveEOM":43},
+      {"month":"2025-05","cat":"Mid-Market","StartingMRR":11601.170000000002,"EndingMRR":11785.980000000003,"NewMRR":299,"ExpansionMRR":238.04000000000002,"ContractionMRR":8.38,"ChurnMRR":343.85,"NewLogos":1,"ChurnedLogos":1,"ActiveBOM":43,"ActiveEOM":43},
+      {"month":"2025-06","cat":"Mid-Market","StartingMRR":11785.980000000003,"EndingMRR":13142.260000000002,"NewMRR":1196,"ExpansionMRR":276.31,"ContractionMRR":17.03,"ChurnMRR":99,"NewLogos":4,"ChurnedLogos":1,"ActiveBOM":43,"ActiveEOM":46},
+      {"month":"2025-07","cat":"Mid-Market","StartingMRR":13142.260000000002,"EndingMRR":13372.540000000003,"NewMRR":299,"ExpansionMRR":49.87,"ContractionMRR":27.51,"ChurnMRR":91.08,"NewLogos":1,"ChurnedLogos":1,"ActiveBOM":46,"ActiveEOM":46},
+      {"month":"2025-08","cat":"Mid-Market","StartingMRR":13372.540000000003,"EndingMRR":15472.570000000002,"NewMRR":2093,"ExpansionMRR":46.58,"ContractionMRR":39.55,"ChurnMRR":0,"NewLogos":7,"ChurnedLogos":0,"ActiveBOM":46,"ActiveEOM":53},
+      {"month":"2025-09","cat":"Mid-Market","StartingMRR":15472.570000000002,"EndingMRR":16616.440000000002,"NewMRR":897,"ExpansionMRR":820.3600000000001,"ContractionMRR":44.300000000000004,"ChurnMRR":529.1899999999999,"NewLogos":3,"ChurnedLogos":3,"ActiveBOM":53,"ActiveEOM":53},
+      {"month":"2025-10","cat":"Mid-Market","StartingMRR":16616.440000000002,"EndingMRR":16446.670000000006,"NewMRR":198,"ExpansionMRR":0,"ContractionMRR":23.92,"ChurnMRR":343.85,"NewLogos":2,"ChurnedLogos":1,"ActiveBOM":53,"ActiveEOM":54},
+      {"month":"2025-11","cat":"Mid-Market","StartingMRR":16446.670000000006,"EndingMRR":16644.480000000003,"NewMRR":0,"ExpansionMRR":231.28,"ContractionMRR":33.47,"ChurnMRR":0,"NewLogos":0,"ChurnedLogos":0,"ActiveBOM":54,"ActiveEOM":54},
+      {"month":"2025-12","cat":"Mid-Market","StartingMRR":16644.480000000003,"EndingMRR":16752.970000000005,"NewMRR":0,"ExpansionMRR":155.08,"ContractionMRR":46.59,"ChurnMRR":0,"NewLogos":0,"ChurnedLogos":0,"ActiveBOM":54,"ActiveEOM":54},
+      {"month":"2024-01","cat":"Enterprise","StartingMRR":0,"EndingMRR":497,"NewMRR":497,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":0,"ActiveEOM":3},
+      {"month":"2024-02","cat":"Enterprise","StartingMRR":497,"EndingMRR":1893,"NewMRR":1396,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":4,"ChurnedLogos":0,"ActiveBOM":3,"ActiveEOM":7},
+      {"month":"2024-03","cat":"Enterprise","StartingMRR":1893,"EndingMRR":2067.08,"NewMRR":198,"ExpansionMRR":0,"ContractionMRR":23.92,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":7,"ActiveEOM":9},
+      {"month":"2024-04","cat":"Enterprise","StartingMRR":2067.08,"EndingMRR":2500.93,"NewMRR":299,"ExpansionMRR":134.85,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":9,"ActiveEOM":10},
+      {"month":"2024-05","cat":"Enterprise","StartingMRR":2500.93,"EndingMRR":2799.93,"NewMRR":299,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":10,"ActiveEOM":11},
+      {"month":"2024-06","cat":"Enterprise","StartingMRR":2799.93,"EndingMRR":4924.629999999999,"NewMRR":2095,"ExpansionMRR":29.7,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":5,"ChurnedLogos":0,"ActiveBOM":11,"ActiveEOM":16},
+      {"month":"2024-07","cat":"Enterprise","StartingMRR":4924.629999999999,"EndingMRR":5621.63,"NewMRR":697,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":16,"ActiveEOM":19},
+      {"month":"2024-08","cat":"Enterprise","StartingMRR":5621.63,"EndingMRR":5986.6,"NewMRR":398,"ExpansionMRR":0,"ContractionMRR":33.03,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":19,"ActiveEOM":21},
+      {"month":"2024-09","cat":"Enterprise","StartingMRR":5986.6,"EndingMRR":6971.300000000001,"NewMRR":895,"ExpansionMRR":89.7,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":5,"ChurnedLogos":0,"ActiveBOM":21,"ActiveEOM":26},
+      {"month":"2024-10","cat":"Enterprise","StartingMRR":6971.300000000001,"EndingMRR":8584.380000000001,"NewMRR":1596,"ExpansionMRR":17.08,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":4,"ChurnedLogos":0,"ActiveBOM":26,"ActiveEOM":30},
+      {"month":"2024-11","cat":"Enterprise","StartingMRR":8584.380000000001,"EndingMRR":9034.16,"NewMRR":398,"ExpansionMRR":59.7,"ContractionMRR":7.92,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":30,"ActiveEOM":32},
+      {"month":"2024-12","cat":"Enterprise","StartingMRR":9034.16,"EndingMRR":9563.62,"NewMRR":996,"ExpansionMRR":440.38000000000005,"ContractionMRR":7.92,"ChurnMRR":899,"NewLogos":4,"ChurnedLogos":1,"ActiveBOM":32,"ActiveEOM":35},
+      {"month":"2025-01","cat":"Enterprise","StartingMRR":9563.62,"EndingMRR":9825.62,"NewMRR":198,"ExpansionMRR":119.01,"ContractionMRR":55.010000000000005,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":35,"ActiveEOM":37},
+      {"month":"2025-02","cat":"Enterprise","StartingMRR":9825.62,"EndingMRR":9969.470000000001,"NewMRR":99,"ExpansionMRR":44.85,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":37,"ActiveEOM":38},
+      {"month":"2025-03","cat":"Enterprise","StartingMRR":9969.470000000001,"EndingMRR":10192.820000000002,"NewMRR":198,"ExpansionMRR":76.78,"ContractionMRR":51.43000000000001,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":38,"ActiveEOM":40},
+      {"month":"2025-04","cat":"Enterprise","StartingMRR":10192.820000000002,"EndingMRR":11034.400000000001,"NewMRR":794,"ExpansionMRR":107.69,"ContractionMRR":60.11,"ChurnMRR":0,"NewLogos":6,"ChurnedLogos":0,"ActiveBOM":40,"ActiveEOM":46},
+      {"month":"2025-05","cat":"Enterprise","StartingMRR":11034.400000000001,"EndingMRR":11438.610000000002,"NewMRR":99,"ExpansionMRR":330.52,"ContractionMRR":25.31,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":46,"ActiveEOM":47},
+      {"month":"2025-06","cat":"Enterprise","StartingMRR":11438.610000000002,"EndingMRR":11932.010000000002,"NewMRR":398,"ExpansionMRR":120.71000000000001,"ContractionMRR":25.31,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":47,"ActiveEOM":49},
+      {"month":"2025-07","cat":"Enterprise","StartingMRR":11932.010000000002,"EndingMRR":12159.310000000003,"NewMRR":198,"ExpansionMRR":162.67,"ContractionMRR":133.37,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":49,"ActiveEOM":51},
+      {"month":"2025-08","cat":"Enterprise","StartingMRR":12159.310000000003,"EndingMRR":12313.080000000004,"NewMRR":99,"ExpansionMRR":76.78,"ContractionMRR":22.01,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":51,"ActiveEOM":52},
+      {"month":"2025-09","cat":"Enterprise","StartingMRR":12313.080000000004,"EndingMRR":13086.820000000003,"NewMRR":594,"ExpansionMRR":243.21,"ContractionMRR":63.47,"ChurnMRR":0,"NewLogos":6,"ChurnedLogos":0,"ActiveBOM":52,"ActiveEOM":58},
+      {"month":"2025-10","cat":"Enterprise","StartingMRR":13086.820000000003,"EndingMRR":13469.750000000004,"NewMRR":598,"ExpansionMRR":136.70000000000002,"ContractionMRR":7.92,"ChurnMRR":343.85,"NewLogos":2,"ChurnedLogos":1,"ActiveBOM":58,"ActiveEOM":59},
+      {"month":"2025-11","cat":"Enterprise","StartingMRR":13469.750000000004,"EndingMRR":13642.470000000003,"NewMRR":0,"ExpansionMRR":221.26999999999998,"ContractionMRR":48.55,"ChurnMRR":0,"NewLogos":0,"ChurnedLogos":0,"ActiveBOM":59,"ActiveEOM":59},
+      {"month":"2025-12","cat":"Enterprise","StartingMRR":13642.470000000003,"EndingMRR":13293.350000000002,"NewMRR":0,"ExpansionMRR":107.12,"ContractionMRR":7.71,"ChurnMRR":448.53,"NewLogos":0,"ChurnedLogos":2,"ActiveBOM":59,"ActiveEOM":57},
+      {"month":"2024-01","cat":"SMB","StartingMRR":0,"EndingMRR":0,"NewMRR":0,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":0,"ChurnedLogos":0,"ActiveBOM":0,"ActiveEOM":0},
+      {"month":"2024-02","cat":"SMB","StartingMRR":0,"EndingMRR":297,"NewMRR":297,"ExpansionMRR":0,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":0,"ActiveEOM":3},
+      {"month":"2024-03","cat":"SMB","StartingMRR":297,"EndingMRR":303.93,"NewMRR":0,"ExpansionMRR":14.85,"ContractionMRR":7.92,"ChurnMRR":0,"NewLogos":0,"ChurnedLogos":0,"ActiveBOM":3,"ActiveEOM":3},
+      {"month":"2024-04","cat":"SMB","StartingMRR":303.93,"EndingMRR":3711.5899999999997,"NewMRR":3394,"ExpansionMRR":13.66,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":6,"ChurnedLogos":0,"ActiveBOM":3,"ActiveEOM":9},
+      {"month":"2024-05","cat":"SMB","StartingMRR":3711.5899999999997,"EndingMRR":4055.4399999999996,"NewMRR":299,"ExpansionMRR":44.85,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":9,"ActiveEOM":10},
+      {"month":"2024-06","cat":"SMB","StartingMRR":4055.4399999999996,"EndingMRR":4797.289999999999,"NewMRR":697,"ExpansionMRR":44.85,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":10,"ActiveEOM":13},
+      {"month":"2024-07","cat":"SMB","StartingMRR":4797.289999999999,"EndingMRR":5339.299999999999,"NewMRR":398,"ExpansionMRR":151.93,"ContractionMRR":7.92,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":13,"ActiveEOM":15},
+      {"month":"2024-08","cat":"SMB","StartingMRR":5339.299999999999,"EndingMRR":5792.789999999999,"NewMRR":299,"ExpansionMRR":154.49,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":15,"ActiveEOM":16},
+      {"month":"2024-09","cat":"SMB","StartingMRR":5792.789999999999,"EndingMRR":7250.029999999999,"NewMRR":1497,"ExpansionMRR":0,"ContractionMRR":39.760000000000005,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":16,"ActiveEOM":19},
+      {"month":"2024-10","cat":"SMB","StartingMRR":7250.029999999999,"EndingMRR":7934.98,"NewMRR":697,"ExpansionMRR":0,"ContractionMRR":12.05,"ChurnMRR":0,"NewLogos":3,"ChurnedLogos":0,"ActiveBOM":19,"ActiveEOM":22},
+      {"month":"2024-11","cat":"SMB","StartingMRR":7934.98,"EndingMRR":9219.09,"NewMRR":1198,"ExpansionMRR":86.11,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":22,"ActiveEOM":24},
+      {"month":"2024-12","cat":"SMB","StartingMRR":9219.09,"EndingMRR":9452.94,"NewMRR":398,"ExpansionMRR":134.85,"ContractionMRR":0,"ChurnMRR":299,"NewLogos":2,"ChurnedLogos":1,"ActiveBOM":24,"ActiveEOM":25},
+      {"month":"2025-01","cat":"SMB","StartingMRR":9452.94,"EndingMRR":9370.230000000001,"NewMRR":0,"ExpansionMRR":0,"ContractionMRR":82.71,"ChurnMRR":0,"NewLogos":0,"ChurnedLogos":0,"ActiveBOM":25,"ActiveEOM":25},
+      {"month":"2025-02","cat":"SMB","StartingMRR":9370.230000000001,"EndingMRR":11014.93,"NewMRR":1495,"ExpansionMRR":149.7,"ContractionMRR":0,"ChurnMRR":0,"NewLogos":5,"ChurnedLogos":0,"ActiveBOM":25,"ActiveEOM":30},
+      {"month":"2025-03","cat":"SMB","StartingMRR":11014.93,"EndingMRR":11105.6,"NewMRR":0,"ExpansionMRR":213.59000000000003,"ContractionMRR":23.92,"ChurnMRR":99,"NewLogos":0,"ChurnedLogos":1,"ActiveBOM":30,"ActiveEOM":29},
+      {"month":"2025-04","cat":"SMB","StartingMRR":11105.6,"EndingMRR":13487.11,"NewMRR":2293,"ExpansionMRR":123.94,"ContractionMRR":35.43,"ChurnMRR":0,"NewLogos":7,"ChurnedLogos":0,"ActiveBOM":29,"ActiveEOM":36},
+      {"month":"2025-05","cat":"SMB","StartingMRR":13487.11,"EndingMRR":13333.78,"NewMRR":398,"ExpansionMRR":355.59000000000003,"ContractionMRR":7.92,"ChurnMRR":899,"NewLogos":2,"ChurnedLogos":1,"ActiveBOM":36,"ActiveEOM":37},
+      {"month":"2025-06","cat":"SMB","StartingMRR":13333.78,"EndingMRR":14053.840000000002,"NewMRR":398,"ExpansionMRR":351.1600000000001,"ContractionMRR":29.1,"ChurnMRR":0,"NewLogos":2,"ChurnedLogos":0,"ActiveBOM":37,"ActiveEOM":39},
+      {"month":"2025-07","cat":"SMB","StartingMRR":14053.840000000002,"EndingMRR":15784.370000000003,"NewMRR":1897,"ExpansionMRR":132.52999999999997,"ContractionMRR":0,"ChurnMRR":299,"NewLogos":3,"ChurnedLogos":1,"ActiveBOM":39,"ActiveEOM":41},
+      {"month":"2025-08","cat":"SMB","StartingMRR":15784.370000000003,"EndingMRR":16267.270000000002,"NewMRR":299,"ExpansionMRR":191.82,"ContractionMRR":7.92,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":41,"ActiveEOM":42},
+      {"month":"2025-09","cat":"SMB","StartingMRR":16267.270000000002,"EndingMRR":16712.08,"NewMRR":99,"ExpansionMRR":373.32000000000005,"ContractionMRR":27.51,"ChurnMRR":0,"NewLogos":1,"ChurnedLogos":0,"ActiveBOM":42,"ActiveEOM":43},
+      {"month":"2025-10","cat":"SMB","StartingMRR":16712.08,"EndingMRR":17375.200000000004,"NewMRR":895,"ExpansionMRR":238.04,"ContractionMRR":71.92,"ChurnMRR":398,"NewLogos":5,"ChurnedLogos":2,"ActiveBOM":43,"ActiveEOM":46},
+      {"month":"2025-11","cat":"SMB","StartingMRR":17375.200000000004,"EndingMRR":17393.740000000005,"NewMRR":0,"ExpansionMRR":59.31,"ContractionMRR":40.77,"ChurnMRR":0,"NewLogos":0,"ChurnedLogos":0,"ActiveBOM":46,"ActiveEOM":46},
+      {"month":"2025-12","cat":"SMB","StartingMRR":17393.740000000005,"EndingMRR":17211.260000000006,"NewMRR":0,"ExpansionMRR":133.86,"ContractionMRR":0,"ChurnMRR":316.34,"NewLogos":0,"ChurnedLogos":1,"ActiveBOM":46,"ActiveEOM":45}
+    ]
+  </script>
+  <script>
+    "use strict";
+
+    const byId = id => document.getElementById(id);
+    const data = JSON.parse(byId("subscription-data").textContent);
+    const periods = [...new Set(data.map(row => row.month))].sort();
+    const segmentNames = [...new Set(data.map(row => row.cat))].sort();
+    const periodFilter = byId("period");
+    const segmentFilter = byId("cat");
+    const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+    const axisMoney = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", notation: "compact" });
+    const count = new Intl.NumberFormat("en-US");
+    const percent = new Intl.NumberFormat("en-US", {
+      style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2
+    });
+    const share = new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 1 });
+    const deltaPercent = new Intl.NumberFormat("en-US", {
+      style: "percent", signDisplay: "exceptZero", minimumFractionDigits: 1, maximumFractionDigits: 1
+    });
+    const monthDate = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+    const axisDate = new Intl.DateTimeFormat("en-US", { month: "short", year: "2-digit", timeZone: "UTC" });
+    const sumFields = [
+      "EndingMRR", "StartingMRR", "ExpansionMRR", "ContractionMRR", "ChurnMRR",
+      "ActiveBOM", "ActiveEOM", "ChurnedLogos"
+    ];
+
+    function monthLabel(month, format = monthDate) {
+      return format.format(new Date(month + "-01T00:00:00Z"));
+    }
+
+    function quarterOf(month) {
+      return month.slice(0, 4) + "-Q" + Math.ceil(Number(month.slice(5, 7)) / 3);
+    }
+
+    function matchesPeriod(month, selection) {
+      if (selection === "all") return true;
+      return selection.includes("-Q") ? quarterOf(month) === selection : month.startsWith(selection);
+    }
+
+    function addPeriodOptions(label, values, format) {
+      const group = document.createElement("optgroup");
+      group.label = label;
+      group.append(...values.map(value => new Option(format(value), value)));
+      periodFilter.append(group);
+    }
+
+    function totals(rows) {
+      const result = Object.fromEntries(sumFields.map(field => [field, 0]));
+      for (const row of rows) {
+        for (const field of sumFields) result[field] += row[field];
+      }
+      return result;
+    }
+
+    function monthlyRows(rows) {
+      const grouped = new Map();
+      for (const row of rows) {
+        if (!grouped.has(row.month)) grouped.set(row.month, []);
+        grouped.get(row.month).push(row);
+      }
+      return [...grouped.keys()].sort().map(month => ({ month, ...totals(grouped.get(month)) }));
+    }
+
+    function monthRange(first, last) {
+      return first === last ? monthLabel(last) : monthLabel(first) + " – " + monthLabel(last);
+    }
+
+    function renderMetrics(months, rows, previousMonthRows) {
+      const latest = months.at(-1);
+      const selected = totals(rows);
+      const previous = totals(previousMonthRows).EndingMRR;
+      const logoChurn = selected.ActiveBOM ? selected.ChurnedLogos / selected.ActiveBOM : null;
+      const retained = selected.StartingMRR + selected.ExpansionMRR - selected.ContractionMRR - selected.ChurnMRR;
+      const nrr = selected.StartingMRR ? retained / selected.StartingMRR : null;
+      byId("mrr").textContent = latest ? money.format(latest.EndingMRR) : "—";
+      byId("arr").textContent = latest ? money.format(latest.EndingMRR * 12) : "—";
+      byId("churn").textContent = logoChurn === null ? "—" : percent.format(logoChurn);
+      byId("nrr").textContent = nrr === null ? "—" : percent.format(nrr);
+      byId("arr-note").textContent = latest ? monthLabel(latest.month) + " MRR × 12" : "";
+      byId("churn-note").textContent = selected.ActiveBOM
+        ? count.format(selected.ChurnedLogos) + " churned across the selection"
+        : "No starting customers in this selection";
+
+      const note = byId("mrr-note");
+      note.textContent = latest ? monthLabel(latest.month) : "";
+      if (latest && previous > 0) {
+        const change = (latest.EndingMRR - previous) / previous;
+        const delta = document.createElement("span");
+        delta.className = change < 0 ? "delta is-down" : "delta";
+        delta.textContent = deltaPercent.format(change);
+        note.append(" · ", delta, " vs " + monthLabel(previousMonthRows[0].month));
+      }
+    }
+
+    function renderSegments(rows, latestMonth, selectedSegment) {
+      const list = byId("segments");
+      list.replaceChildren();
+      byId("segment-month").textContent = latestMonth ? monthLabel(latestMonth) : "";
+      const monthRows = rows.filter(row => row.month === latestMonth);
+      const monthTotal = totals(monthRows).EndingMRR;
+      const visible = monthRows
+        .filter(row => selectedSegment === "all" || row.cat === selectedSegment)
+        .sort((a, b) => b.EndingMRR - a.EndingMRR);
+      for (const row of visible) {
+        const fraction = monthTotal ? row.EndingMRR / monthTotal : 0;
+        const item = byId("segment-row").content.cloneNode(true);
+        item.querySelector(".segment-heading span").textContent = row.cat;
+        item.querySelector(".segment-amount").textContent = money.format(row.EndingMRR);
+        item.querySelector(".segment-percent").textContent = share.format(fraction);
+        item.querySelector(".segment-fill").style.width = fraction * 100 + "%";
+        list.append(item);
+      }
+      if (!visible.length) {
+        const empty = document.createElement("li");
+        empty.className = "panel-meta";
+        empty.textContent = "No data for this selection.";
+        list.append(empty);
+      }
+    }
+
+    function renderTable(months) {
+      const recent = months.slice(-5).reverse();
+      byId("table-period").textContent = months.length > recent.length ? "Latest " + recent.length + " months" : "";
+      const body = byId("monthly");
+      body.replaceChildren();
+      for (const item of recent) {
+        const row = body.insertRow();
+        for (const value of [
+          monthLabel(item.month), money.format(item.EndingMRR), count.format(item.ActiveEOM), count.format(item.ChurnedLogos)
+        ]) {
+          row.insertCell().textContent = value;
+        }
+      }
+      if (!recent.length) {
+        const cell = body.insertRow().insertCell();
+        cell.colSpan = 4;
+        cell.className = "table-empty";
+        cell.textContent = "No data for this selection.";
+      }
+    }
+
+    const chart = byId("revenue-chart");
+    const canvas = chart.querySelector("canvas");
+    const context = canvas.getContext("2d");
+    const tooltip = byId("chart-tooltip");
+    const chartValue = byId("chart-value");
+    let timeline = [];
+    let points = [];
+    let activePoint = -1;
+
+    function chartScale(maximum) {
+      const target = maximum / 5;
+      const magnitude = 10 ** Math.floor(Math.log10(target));
+      const step = [1, 2, 2.5, 5, 10].map(size => size * magnitude).find(size => size >= target);
+      return { step, intervals: Math.ceil(maximum / step) };
+    }
+
+    function drawChart() {
+      if (!context) return;
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      if (!width || !height) return;
+      const scale = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * scale);
+      canvas.height = Math.round(height * scale);
+      context.setTransform(scale, 0, 0, scale, 0, 0);
+      context.font = "12px " + getComputedStyle(chart).fontFamily;
+      context.fillStyle = "#52615a";
+      context.textBaseline = "middle";
+
+      if (!timeline.length) {
+        points = [];
+        context.textAlign = "center";
+        context.fillText("No data for this selection.", width / 2, height / 2);
+        return;
+      }
+
+      const left = 49;
+      const right = width - 13;
+      const top = 11;
+      const bottom = height - 28;
+      const { step, intervals } = chartScale(Math.max(1, ...timeline.map(row => row.EndingMRR)));
+      const topValue = step * intervals;
+      const plotHeight = bottom - top;
+      const plotWidth = right - left;
+      const position = index => timeline.length === 1 ? .5 : index / (timeline.length - 1);
+      points = timeline.map((row, index) => ({
+        month: row.month,
+        amount: row.EndingMRR,
+        x: left + plotWidth * position(index),
+        y: bottom - plotHeight * (row.EndingMRR / topValue)
+      }));
+
+      context.textAlign = "right";
+      for (let i = 0; i <= intervals; i++) {
+        const y = bottom - plotHeight * i / intervals;
+        context.strokeStyle = i === 0 ? "#cfd9d2" : "#e6ece7";
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(left, y);
+        context.lineTo(right, y);
+        context.stroke();
+        context.fillText(axisMoney.format(step * i), left - 9, y);
+      }
+
+      const labelCount = Math.min(points.length, Math.max(2, Math.floor(plotWidth / 94) + 1));
+      for (let i = 0; i < labelCount; i++) {
+        const point = points[labelCount === 1 ? 0 : Math.round(i * (points.length - 1) / (labelCount - 1))];
+        context.textAlign = labelCount === 1 ? "center" : i === 0 ? "left" : i === labelCount - 1 ? "right" : "center";
+        context.fillText(monthLabel(point.month, axisDate), point.x, bottom + 16);
+      }
+
+      if (points.length > 1) {
+        function traceRevenue() {
+          context.beginPath();
+          context.moveTo(points[0].x, points[0].y);
+          for (const point of points.slice(1)) context.lineTo(point.x, point.y);
+        }
+        traceRevenue();
+        context.lineTo(points.at(-1).x, bottom);
+        context.lineTo(points[0].x, bottom);
+        context.closePath();
+        context.fillStyle = "#edf4ef";
+        context.fill();
+        traceRevenue();
+        context.strokeStyle = "#236854";
+        context.lineWidth = 2.5;
+        context.lineJoin = "round";
+        context.stroke();
+      }
+
+      const marker = points[activePoint] || points.at(-1);
+      if (activePoint >= 0) {
+        context.strokeStyle = "#a3b8ad";
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(marker.x, top);
+        context.lineTo(marker.x, bottom);
+        context.stroke();
+      }
+      context.beginPath();
+      context.arc(marker.x, marker.y, 4.5, 0, 2 * Math.PI);
+      context.fillStyle = "#236854";
+      context.fill();
+      context.lineWidth = 2;
+      context.strokeStyle = "#fff";
+      context.stroke();
+    }
+
+    function updateTooltip() {
+      const point = points[activePoint];
+      tooltip.hidden = !point;
+      if (!point) return;
+      tooltip.querySelector("span").textContent = monthLabel(point.month);
+      tooltip.querySelector("strong").textContent = money.format(point.amount);
+      const left = Math.max(0, Math.min(point.x - tooltip.offsetWidth / 2, chart.clientWidth - tooltip.offsetWidth));
+      const top = point.y >= tooltip.offsetHeight + 11 ? point.y - tooltip.offsetHeight - 10 : point.y + 11;
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+    }
+
+    function selectPoint(index, announce = false) {
+      if (activePoint !== index) {
+        activePoint = index;
+        drawChart();
+        updateTooltip();
+      }
+      if (announce && points[index]) {
+        chartValue.textContent = monthLabel(points[index].month) + ", " + money.format(points[index].amount);
+      }
+    }
+
+    function selectNearestPoint(event) {
+      if (!points.length) return;
+      const x = event.clientX - canvas.getBoundingClientRect().left;
+      const nearest = points.reduce((best, point, i) =>
+        Math.abs(point.x - x) < Math.abs(points[best].x - x) ? i : best, 0);
+      selectPoint(nearest);
+    }
+
+    chart.addEventListener("pointermove", selectNearestPoint);
+    chart.addEventListener("click", selectNearestPoint);
+    chart.addEventListener("pointerleave", () => selectPoint(-1));
+    chart.addEventListener("focus", () => selectPoint(points.length - 1, true));
+    chart.addEventListener("blur", () => selectPoint(-1));
+    chart.addEventListener("keydown", event => {
+      if (!points.length) return;
+      const current = activePoint < 0 ? points.length - 1 : activePoint;
+      const indexes = {
+        ArrowLeft: Math.max(0, current - 1),
+        ArrowRight: Math.min(points.length - 1, current + 1),
+        Home: 0,
+        End: points.length - 1
+      };
+      if (!Object.hasOwn(indexes, event.key)) return;
+      event.preventDefault();
+      selectPoint(indexes[event.key], true);
+    });
+
+    function renderDashboard() {
+      const selectedSegment = segmentFilter.value;
+      const periodRows = data.filter(row => matchesPeriod(row.month, periodFilter.value));
+      const belongsToSegment = row => selectedSegment === "all" || row.cat === selectedSegment;
+      const selectedRows = periodRows.filter(belongsToSegment);
+      timeline = monthlyRows(selectedRows);
+      const first = timeline[0]?.month;
+      const latest = timeline.at(-1)?.month;
+      const previous = latest && periods[periods.indexOf(latest) - 1];
+      const previousMonthRows = previous ? data.filter(row => row.month === previous && belongsToSegment(row)) : [];
+      byId("trend-period").textContent = first ? monthRange(first, latest) : "";
+      renderMetrics(timeline, selectedRows, previousMonthRows);
+      renderSegments(periodRows, latest, selectedSegment);
+      renderTable(timeline);
+      activePoint = -1;
+      chartValue.textContent = "";
+      drawChart();
+      updateTooltip();
+      byId("filter-status").textContent = "Showing " + periodFilter.selectedOptions[0].textContent
+        + " for " + segmentFilter.selectedOptions[0].textContent + ".";
+    }
+
+    const reverseMonths = [...periods].reverse();
+    const years = [...new Set(reverseMonths.map(month => month.slice(0, 4)))];
+    const quarters = [...new Set(reverseMonths.map(quarterOf))];
+    addPeriodOptions("Years", years, year => year);
+    addPeriodOptions("Quarters", quarters, quarter => quarter.slice(5) + " " + quarter.slice(0, 4));
+    addPeriodOptions("Months", reverseMonths, month => monthLabel(month));
+    segmentFilter.append(...segmentNames.map(segment => new Option(segment, segment)));
+    byId("data-context").textContent = "Synthetic subscription data · " + monthRange(periods[0], periods.at(-1));
+    periodFilter.addEventListener("change", renderDashboard);
+    segmentFilter.addEventListener("change", renderDashboard);
+    new ResizeObserver(() => {
+      drawChart();
+      updateTooltip();
+    }).observe(chart);
+    renderDashboard();
+  </script>
+</body>
+</html>
