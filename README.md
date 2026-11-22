@@ -10,14 +10,14 @@ Inspired by the presentation approach of [sachinkumar1609/PowerBI-Project](https
 
 | Project | Dashboard preview | Data model | Business focus |
 |---|---|---|---|
-| [SaaS Revenue & Churn](SaaS_Revenue_Churn_Intelligence/) | [Open HTML](SaaS_Revenue_Churn_Intelligence/dashboard_preview.html) | 5 tables | MRR, ARR, retention, subscription expansion |
+| [SaaS Revenue & Churn](SaaS_Revenue_Churn_Intelligence/) | [Open dashboard](https://sumitgole011.github.io/PowerBI-Industry-Analytics-Portfolio/SaaS_Revenue_Churn_Intelligence/dashboard_preview.html) | 5 tables | MRR, ARR, retention, subscription expansion |
 | [Banking Credit Risk](Banking_Credit_Risk_Intelligence/) | [Open HTML](Banking_Credit_Risk_Intelligence/dashboard_preview.html) | 6 tables | Loan approvals, default, collections |
 | [Healthcare Operations](Healthcare_Operations_Intelligence/) | [Open HTML](Healthcare_Operations_Intelligence/dashboard_preview.html) | 6 tables | Patient flow, length of stay, bed occupancy |
 | [Supply Chain & Inventory](Supply_Chain_Inventory_Intelligence/) | [Open HTML](Supply_Chain_Inventory_Intelligence/dashboard_preview.html) | 7 tables | OTIF, order fill rate, inventory health |
 
 ## Dashboard gallery
 
-[![SaaS dashboard screenshot](SaaS_Revenue_Churn_Intelligence/dashboard_screenshot.png)](SaaS_Revenue_Churn_Intelligence/dashboard_preview.html)
+[![SaaS dashboard screenshot](SaaS_Revenue_Churn_Intelligence/dashboard_screenshot.png)](https://sumitgole011.github.io/PowerBI-Industry-Analytics-Portfolio/SaaS_Revenue_Churn_Intelligence/dashboard_preview.html)
 
 | Banking | Healthcare | Supply Chain |
 |---|---|---|
