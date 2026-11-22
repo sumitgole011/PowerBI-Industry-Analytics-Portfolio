@@ -57,12 +57,36 @@ function draw(){const rows=subset();el('kpis').innerHTML=SPEC.cards.map(([label,
 for(let cat of ['All categories',...CATS]){let opt=document.createElement('option');opt.value=cat==='All categories'?'all':cat;opt.textContent=cat;el('cat').append(opt)}for(let p of [...el('period').options]){if(p.value!=='all'&&!DATA.some(x=>matchPeriod(x.month,p.value)))p.remove()}el('cat').addEventListener('change',draw);el('period').addEventListener('change',draw);draw();
 </script></body></html>'''
 
+def refresh_preview_data(path, rows, cats, spec):
+    """Refresh embedded values while preserving an authored dashboard layout."""
+    if not path.exists():
+        return None
+    page = path.read_text(encoding='utf-8')
+    payloads = (
+        ('dashboard-data', {'rows': rows, 'categories': cats, 'spec': spec}),
+        ('subscription-data', rows),
+    )
+    for script_id, data in payloads:
+        marker = f'<script id="{script_id}" type="application/json">'
+        before, opening, script = page.partition(marker)
+        if not opening:
+            continue
+        _, closing, after = script.partition('</script>')
+        if not closing:
+            raise ValueError(f'Unclosed {script_id} script in {path}')
+        json_data = json.dumps(data, separators=(',', ':')).replace('<', r'\u003c')
+        return before + opening + '\n' + json_data + '\n  ' + closing + after
+    return None
+
+
 for i,name in enumerate(NAMES):
  rows,cats,spec=grouped(name); title=json.loads((ROOT/name/'metrics.json').read_text())['title'];
  narrative={0:'Monitor the latest selected month for MRR, then compare retention and the impact of downgrades. MRR is a <b>snapshot</b>, not a sum across months.',1:'The loan default status is a single September 2026 snapshot. Do not interpret its share as a historical default rate in each origination month.',2:'Occupancy is computed as occupied bed-days divided by staffed bed-days. Thirty-day return flags are illustrative and not risk-adjusted clinical outcomes.',3:'OTIF uses a line-based denominator including cancelled or partially delivered lines. Inventory stockout rate is the share of monthly SKU-location snapshots at zero stock.'}[i]
  mapping={'{{TITLE}}':html.escape(title),'{{ACCENT}}':COLORS[i],'{{CATEGORY}}':html.escape(spec['label']),'{{TREND}}':html.escape(spec['trend']),'{{METRIC}}':html.escape(spec['metric']),'{{DATA}}':json.dumps(rows,separators=(',',':')),'{{CATS}}':json.dumps(cats),'{{SPEC}}':json.dumps(spec),'{{NARRATIVE}}':narrative,'{{BAR_DESC}}':'Latest available month-end snapshot' if i==0 else 'Selected period · portfolio contribution'}
- code=TEMPLATE
- for k,v in mapping.items():code=code.replace(k,v)
+ code=refresh_preview_data(ROOT/name/'dashboard_preview.html', rows, cats, spec)
+ if code is None:
+  code=TEMPLATE
+  for k,v in mapping.items():code=code.replace(k,v)
  (ROOT/name/'dashboard_preview.html').write_text(code,encoding='utf-8')
  print(name,'aggregates:',len(rows),'html kb',len(code)//1024)
 
